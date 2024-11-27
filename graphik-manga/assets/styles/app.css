@@ -1,3 +1,26 @@
 body {
-    background-color: skyblue;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+#full {
+    height: auto;
+  background: rgb(221, 66, 150);
+  background: -moz-radial-gradient(
+    circle,
+    rgba(221, 66, 150, 1) 29%,
+    rgba(4, 5, 5, 1) 100%
+  );
+  background: -webkit-radial-gradient(
+    circle,
+    rgba(221, 66, 150, 1) 29%,
+    rgba(4, 5, 5, 1) 100%
+  );
+  background: radial-gradient(
+    circle,
+    rgba(221, 66, 150, 1) 29%,
+    rgba(4, 5, 5, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#dd4296",endColorstr="#040505",GradientType=1);
+  color: aliceblue;
 }
