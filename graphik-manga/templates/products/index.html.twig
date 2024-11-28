@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ProductsController!{% endblock %}
+
+{% block body %}
+
+    <h1>Nos Produits</h1>
+    <div class="tri"><ul>
+        <li><a href="">comics</a></li>
+        <li><a href="">goodies</a></li>
+        <li><a href="">mangas</a></li>
+    </ul></div>
+<div id="produits_page">
+
+    {# <h1>tu est sur le {{ controller_name }}</h1> #}
+
+
+{% for produit in produits %}
+<a href="{{path('app_details', {id: produit.id})}}">
+<div class="produits_blocks">
+  <div class="produit">
+    <img src="{{produit.images}}" alt="{{produit.nom}}" class="produit-image">
+    <h4 class="produit-nom">{{produit.nom}}</h4>
+    <h6 class="produit-prix">{{produit.prix}} €</h6>
+    <button class="add_panier">details</button>
+  </div>
+</div>
+</a>
+{% endfor %}
+
+
+</div>
+{% endblock %}

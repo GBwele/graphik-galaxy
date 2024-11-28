@@ -22,7 +22,7 @@ class AppFixtures extends Fixture
 
         for ($i = 0; $i < 25; $i++) {
             $product = new Products;
-            $product->setNom($faker->name())->setPrix($faker->randomFloat(2, 0, 1000))->setPublicCible($faker->randomElement($public))->setCategorie($faker->randomElement($categories))->setGenre($faker->randomElement($genres))->setTaille($faker->randomNumber(3));
+            $product->setNom($faker->name())->setPrix($faker->randomFloat(2, 0, 1000))->setPublicCible($faker->randomElement($public))->setCategorie($faker->randomElement($categories))->setGenre($faker->randomElement($genres))->setTaille($faker->randomNumber(3))->setImages($faker->imageUrl(640, 480, 'mangas', true, 'shonen'));
             $user = new User;
             $user->setEmail($faker->email)->setFirstname($faker->firstName)->setLastname($faker->lastName)->setPassword($faker->password)->setUsername($faker->userName);
             $manager->persist($product);

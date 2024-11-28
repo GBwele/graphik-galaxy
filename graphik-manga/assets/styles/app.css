@@ -1,10 +1,24 @@
+* {
+  border: 1px solid black;
+  list-style-type: none;
+  text-decoration: none;
+}
+
 body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
+
+nav ul {
+  width: 70%;
+
+  display: inline-flex;
+  justify-content: space-between;
+}
+
 #full {
-    height: auto;
+  height: auto;
   background: rgb(221, 66, 150);
   background: -moz-radial-gradient(
     circle,
@@ -23,4 +37,105 @@ body {
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#dd4296",endColorstr="#040505",GradientType=1);
   color: aliceblue;
+}
+
+.produits_blocks {
+  /* border: 1px solid black; */
+  width: 500px;
+}
+
+/* FOOTER */
+.footer {
+  display: inline-flex;
+  justify-content: space-between;
+}
+.quick_links {
+  background-color: rgb(58, 82, 168);
+}
+.final_footer_line {
+  display: flex;
+  justify-content: space-around;
+}
+
+/* test */
+
+/* Style général */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f5f5f5;
+}
+
+.produits_blocks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+.produit {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produit:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Image du produit */
+.produit-image {
+  max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid #eaeaea;
+  padding: 10px;
+}
+
+/* Nom du produit */
+.produit-nom {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+  padding: 0 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+/* Prix normal */
+.produit-prix {
+  font-size: 18px;
+  font-weight: bold;
+  color: #e63946;
+  margin: 5px 0;
+}
+
+/* Prix spécial */
+.produit-prix-special {
+  font-size: 14px;
+  color: #555;
+  margin: 5px 0;
+  text-decoration: line-through;
+}
+
+
+.produit::before:hover {
+  content: "❤";
+}
+/* fin test */
+
+#produits_page {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
 }

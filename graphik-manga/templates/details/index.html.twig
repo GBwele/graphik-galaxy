@@ -1,0 +1,30 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello DetailsController!{% endblock %}
+
+{% block body %}
+
+
+<div id="details">
+
+<h1 class="produit-nom-details">{{produit.nom}}</h1>
+
+
+<img src="{{produit.images}}" alt="{{produit.nom}}" class="produit-image">
+
+
+
+
+ <h6 class="produit-prix">{{produit.prix}} €</h6>
+
+
+ <button class="add_panier">ajouter au panier</button>
+
+
+
+</div>
+
+
+
+
+{% endblock %}

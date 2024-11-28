@@ -31,6 +31,9 @@ class Products
     #[ORM\Column(length: 255, nullable: true)]
     private ?string $genre = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $images = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -104,6 +107,18 @@ class Products
     public function setGenre(?string $genre): static
     {
         $this->genre = $genre;
+
+        return $this;
+    }
+
+    public function getImages(): ?string
+    {
+        return $this->images;
+    }
+
+    public function setImages(string $images): static
+    {
+        $this->images = $images;
 
         return $this;
     }
