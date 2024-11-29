@@ -9,13 +9,20 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class ProductsController extends AbstractController
 {
-    #[Route('/products', name: 'app_products')]
-    public function index(ProductsRepository $productsRepository): Response
+    #[Route('/products/{categories}', name: 'app_products')]
+    public function index(ProductsRepository $productsRepository, $categories): Response
     {
-        $produits = $productsRepository->findAll();
+
+        $css = $categories == 'goodies' ? 'ban-goodies' : ($categories == 'comics' ? 'ban-comics' : ($categories == 'mangas' ? 'ban-mangas' : 'ban-tout'));
+        if ($categories != 'tout') {
+            $produits = $productsRepository->findBy(['categorie' => $categories]);
+        } else {
+            $produits = $productsRepository->findAll();
+        }
         return $this->render('products/index.html.twig', [
             'controller_name' => 'ProductsController',
-            'produits'=>$produits
+            'produits' => $produits,
+            'classe_banniere' => $css
         ]);
     }
 }

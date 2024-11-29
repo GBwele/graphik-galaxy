@@ -139,3 +139,20 @@ body {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+
+
+
+/* details */
+
+#details{
+background-color: aquamarine;
+display: flex;
+justify-content: space-between;
+
+
+
+}
+.details_description{
+  width: 50%;
+}
+/* fin details */

@@ -18,6 +18,8 @@ class DetailsController extends AbstractController
 
         return $this->render('details/index.html.twig', [
             'controller_name' => 'DetailsController',
+            'produit' => $produit,
+            
         ]);
     }
 }

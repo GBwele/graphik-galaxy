@@ -1,25 +1,29 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello DetailsController!{% endblock %}
+{% block title %}Details du produit{% endblock %}
 
 {% block body %}
 
 
-<div id="details">
+        <h1 class="produit-nom-details">{{produit.nom}}</h1>
+   
+    <div id="details">
 
-<h1 class="produit-nom-details">{{produit.nom}}</h1>
-
-
-<img src="{{produit.images}}" alt="{{produit.nom}}" class="produit-image">
-
-
+        <div class="produit-image_description" >
+            <img src="{{produit.images}}" alt="{{produit.nom}}"         class="produit-image">
 
 
- <h6 class="produit-prix">{{produit.prix}} €</h6>
+        </div>
+
+            <div class="details_description">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut alias ipsam architecto praesentium, quae explicabo laborum aperiam aliquid odio corrupti blanditiis at veritatis, velit itaque maiores ad ea, odit cumque.
+
+             <h6 class="produit-prix">{{produit.prix}} €</h6>
 
 
- <button class="add_panier">ajouter au panier</button>
+             <button class="add_panier">ajouter au panier</button>
 
+            </div>
 
 
 </div>

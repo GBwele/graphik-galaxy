@@ -5,10 +5,12 @@
                         <h3>Liens Rapides</h3>
                     <ul>
                        
-                        <li><a href="">Comics</a></li>
-                        <li><a href="">Mangas</a></li>
-                        <li><a href="">Goodies</a></li>
-                        <li><a href="">FAQ</a></li>
+                        <li><a href="{{path('app_products',{categories: 'Mangas'})}}">Mangas</a></li>
+                <li><a href="{{path('app_products',{categories: 'Goodies'})}}">Goodies</a></li>
+                <li><a href="{{path('app_products',{categories: 'Comics'})}}">Comics</a></li>
+            
+
+                        {# <li><a href="{{path('app_manga')}}">FAQ</a></li> #}
                     </ul>
             </div>
 

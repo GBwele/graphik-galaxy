@@ -15,7 +15,7 @@ class LegalController extends AbstractController
             'controller_name' => 'LegalController',
         ]);
     }
-    #[Route('/cgv', name: 'app_legal')]
+    #[Route('/cgv', name: 'app_conditions')]
     public function conditions(): Response
     {
         return $this->render('legal/conditions.html.twig', [
