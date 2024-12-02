@@ -13,16 +13,23 @@ class ProductsController extends AbstractController
     public function index(ProductsRepository $productsRepository, $categories): Response
     {
 
-        $css = $categories == 'goodies' ? 'ban-goodies' : ($categories == 'comics' ? 'ban-comics' : ($categories == 'mangas' ? 'ban-mangas' : 'ban-tout'));
+        $css = $categories == 'Goodies' ? 'ban-goodies' : ($categories == 'Comics' ? 'ban-comics' : ($categories == 'Mangas' ? 'ban-mangas' : 'ban-tout'));
         if ($categories != 'tout') {
             $produits = $productsRepository->findBy(['categorie' => $categories]);
         } else {
             $produits = $productsRepository->findAll();
         }
+
+  
+
+        if($categories == 'tout'){
+            $categories = 'Produits';
+        }
         return $this->render('products/index.html.twig', [
             'controller_name' => 'ProductsController',
             'produits' => $produits,
-            'classe_banniere' => $css
+            'classe_banniere' => $css,
+            'categorie' => $categories
         ]);
     }
 }

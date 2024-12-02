@@ -127,7 +127,6 @@ body {
   text-decoration: line-through;
 }
 
-
 .produit::before:hover {
   content: "❤";
 }
@@ -140,19 +139,49 @@ body {
   justify-content: space-around;
 }
 
-
-
 /* details */
 
-#details{
-background-color: aquamarine;
-display: flex;
-justify-content: space-between;
-
-
-
+#details {
+  background-color: aquamarine;
+  display: flex;
+  justify-content: space-between;
 }
-.details_description{
+.produit-synopsis{
+  background-color: rgb(225, 82, 34);
+}
+.details_description {
   width: 50%;
 }
 /* fin details */
+
+/* Bannieres produits */
+
+#products_titles {
+  text-align: center;
+  margin: auto, 0;
+}
+.banner_size {
+  height: 250px;
+}
+
+.ban-goodies {
+  background-image: url(../img/banners/ban1.jpg);
+  background-size: cover;
+  width: 100%;
+}
+.ban-comics {
+  background-image: url(../img/banners/ban2.jpg);
+  width: 100%;
+  background-size: cover;
+}
+.ban-mangas {
+  background-image: url(../img/banners/ban3.jpg);
+  width: 100%;
+  background-size: cover;
+}
+
+.ban-tout {
+  background-image: url(../img/banners/banAll.jpg);
+  width: 100%;
+  background-size: cover;
+}
