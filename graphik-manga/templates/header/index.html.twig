@@ -1,13 +1,33 @@
 <header>
+<div class="logo">
+    <img src="../../assets/img/logo/logo.png" alt="logo_du_site">
+</div>
         <nav>
             <ul>
-                <li><a href="{{path('app_products',{categories: 'Mangas'})}}">Mangas</a></li>
-                <li><a href="{{path('app_products',{categories: 'Goodies'})}}">Goodies</a></li>
-                <li><a href="{{path('app_products',{categories: 'Comics'})}}">Comics</a></li>
-                <li><a href="{{path('app_products',{categories: 'tout'})}}">Tout nos produits</a></li>
-                <li><a href="{{path('app_login')}}">se connecter</a></li>
-                <li><a href="{{path('app_register')}}">s'enregistrer</a></li>
-                {# {% if  %} #}
+            
+                    <li><a href="{{path('app_products',{categories: 'Mangas'})}}">Mangas</a></li>
+                    <li><a href="{{path('app_products',{categories: 'Goodies'})}}">Goodies</a></li>
+                    <li><a href="{{path('app_products',{categories: 'Comics'})}}">Comics</a></li>
+                    <li><a href="{{path('app_products',{categories: 'tout'})}}">Tout nos produits</a></li>
+                
+                    {% if (app.user is empty) %}
+                        <div class="connect-enregist">
+                            <li><a href="{{path('app_login')}}">se connecter</a></li>
+                            <li><a href="{{path('app_register')}}">s'enregistrer</a></li>
+                        </div>
+                    {% elseif is_granted('ROLE_ADMIN') %} 
+                        <div class="user-admin" >
+                            <h6>bienvenue, {{app.user.username}}</h6>
+                                <i class="fa-solid fa-user-shield"></i>
+                            <li><a href="{{path('app_logout')}}">se deconnecter</a></li>
+                        </div>
+                    {% else %}
+                        <div class="user">
+                            <h6>bienvenue, {{app.user.username}}</h6>
+                                <i class="fa-solid fa-user"></i>
+                            <li><a href="{{path('app_logout')}}">se deconnecter</a></li>
+                        </div>
+                    {% endif %}
 
             </ul>
         </nav>

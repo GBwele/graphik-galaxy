@@ -11,7 +11,7 @@ body {
 }
 
 nav ul {
-  width: 70%;
+  width: 100%;
 
   display: inline-flex;
   justify-content: space-between;
@@ -39,27 +39,25 @@ nav ul {
   color: aliceblue;
 }
 
+/* Navigation */
+
+
+/* connexion inscription */
+.connect-enregist{
+
+  width: 20%;
+}
+
+
+
 .produits_blocks {
   /* border: 1px solid black; */
   width: 500px;
 }
 
-/* FOOTER */
-.footer {
-  display: inline-flex;
-  justify-content: space-between;
-}
-.quick_links {
-  background-color: rgb(58, 82, 168);
-}
-.final_footer_line {
-  display: flex;
-  justify-content: space-around;
-}
-
 /* test */
 
-/* Style général */
+/*********************** Style général ***********************/
 body {
   font-family: Arial, sans-serif;
   margin: 0;
@@ -91,7 +89,7 @@ body {
   box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Image du produit */
+/*********************** Image du produit ***********************/
 .produit-image {
   max-width: 100%;
   height: auto;
@@ -99,7 +97,7 @@ body {
   padding: 10px;
 }
 
-/* Nom du produit */
+/*********************** Nom du produit ***********************/
 .produit-nom {
   font-size: 16px;
   font-weight: bold;
@@ -111,7 +109,7 @@ body {
   overflow: hidden;
 }
 
-/* Prix normal */
+/*********************** Prix normal **********************/
 .produit-prix {
   font-size: 18px;
   font-weight: bold;
@@ -119,7 +117,7 @@ body {
   margin: 5px 0;
 }
 
-/* Prix spécial */
+/*********************** Prix spécial ***********************/
 .produit-prix-special {
   font-size: 14px;
   color: #555;
@@ -127,10 +125,8 @@ body {
   text-decoration: line-through;
 }
 
-.produit::before:hover {
-  content: "❤";
-}
-/* fin test */
+
+/*********************** fin test ***********************/
 
 #produits_page {
   width: 100%;
@@ -139,7 +135,7 @@ body {
   justify-content: space-around;
 }
 
-/* details */
+/*********************** details **********************/
 
 #details {
   background-color: aquamarine;
@@ -152,9 +148,11 @@ body {
 .details_description {
   width: 50%;
 }
-/* fin details */
+/********************** fin details **********************/
 
-/* Bannieres produits */
+
+
+/********************** Bannieres produits **********************/
 
 #products_titles {
   text-align: center;
@@ -162,6 +160,7 @@ body {
 }
 .banner_size {
   height: 250px;
+  color: #fff;
 }
 
 .ban-goodies {
@@ -185,3 +184,32 @@ body {
   width: 100%;
   background-size: cover;
 }
+/********************** Fin Bannieres produits **********************/
+
+
+/******************************************* FORMULAIRES *******************************************/
+
+
+
+/********************** Form inscription **********************/
+
+
+
+/********************** Form connexion ***********************/
+
+/********************** FIN FORMULAIRES **********************/
+
+
+/********************************************* FOOTER *********************************************/
+.footer {
+  display: inline-flex;
+  justify-content: space-evenly;
+}
+.quick_links {
+  background-color: rgb(58, 82, 168);
+}
+.final_footer_line {
+  display: flex;
+  justify-content: space-around;
+}
+/********************************************* FIN FOOTER *********************************************/
