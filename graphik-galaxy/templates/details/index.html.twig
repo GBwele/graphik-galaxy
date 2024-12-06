@@ -1,0 +1,36 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Details du produit{% endblock %}
+
+{% block body %}
+
+
+        <h1 class="produit-nom-details">{{produit.nom}}</h1>
+   
+    <div id="details">
+
+        <div class="produit-image_description" >
+            <img src="{{produit.images}}" alt="{{produit.nom}}"         class="produit-image">
+
+
+        </div>
+
+            <div class="details_description">
+             <h5 class="produit-synopsis">{{produit.synopsis}}</h5>
+            {# Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut alias ipsam architecto praesentium, quae explicabo laborum aperiam aliquid odio corrupti blanditiis at veritatis, velit itaque maiores ad ea, odit cumque. #}
+
+             <h6 class="produit-prix">{{produit.prix}} €</h6>
+
+
+             <a href=""><button class="add_panier">ajouter au panier</button></a>
+             <a href="{{path('app_panier')}}"><button class="add_panier">voir mon panier</button></a>
+
+            </div>
+
+
+</div>
+
+
+
+
+{% endblock %}
