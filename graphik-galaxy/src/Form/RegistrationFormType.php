@@ -3,6 +3,7 @@
 namespace App\Form;
 
 use App\Entity\User;
+use DateTimeImmutable;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
@@ -14,6 +15,7 @@ use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
 
+
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -22,6 +24,7 @@ class RegistrationFormType extends AbstractType
             ->add('Firstname', TextType::class)
             ->add('lastname', TextType::class)
             ->add('username', TextType::class)
+            ->add('age', DateTimeImmutable::class)
 
             ->add('email', EmailType::class )
             ->add('agreeTerms', CheckboxType::class, [

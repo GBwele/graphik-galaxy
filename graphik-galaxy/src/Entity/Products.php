@@ -40,8 +40,8 @@ class Products
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
-    #[ORM\Column(type: Types::TEXT)]
-    private ?string $synopsis = null;
+ 
+
 
     /**
      * @var Collection<int, Commentaires>
@@ -155,17 +155,6 @@ class Products
         return $this;
     }
 
-    public function getSynopsis(): ?string
-    {
-        return $this->synopsis;
-    }
-
-    public function setSynopsis(string $synopsis): static
-    {
-        $this->synopsis = $synopsis;
-
-        return $this;
-    }
 
     /**
      * @return Collection<int, Commentaires>
