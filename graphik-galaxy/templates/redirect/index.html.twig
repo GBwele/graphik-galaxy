@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RedirectController!{% endblock %}
+
+{% block body %}
+<div id="redirect">
+
+<h5>Désolé, il faut etre un utilisateur pour l'ajouter dans le panier</h5>
+
+<p>veuillez vous connecter afin de pouvoir acheter les produits</p>
+
+<label for="username">Email</label>
+        <input type="email" value="{{ last_username }}" name="_username" id="username" class="form-control" autocomplete="email" required autofocus>
+        <label for="password">Password</label>
+        <input type="password" name="_password" id="password" class="form-control" autocomplete="current-password" required>
+
+<div class="redirect_"></div>
+<h6>pas encore de compte ? </h6>
+<a href="#">creer un compte ici</a>
+
+</div>
+
+
+{# <div class="redirect_2">
+
+{{ form_start(registrationForm) }}
+        {{ form_row(registrationForm.lastname) }}
+        {{ form_row(registrationForm.Firstname) }}
+        {{ form_row(registrationForm.username) }}
+        {{ form_row(registrationForm.age) }}
+
+        {{ form_row(registrationForm.email) }}
+        {{ form_row(registrationForm.plainPassword, {
+            label: 'Password'
+        }) }}
+        {{ form_row(registrationForm.agreeTerms) }}
+
+        <button type="submit" class="btn">Register</button>
+    {{ form_end(registrationForm) }}
+
+</div> #}
+
+
+{% endblock %}

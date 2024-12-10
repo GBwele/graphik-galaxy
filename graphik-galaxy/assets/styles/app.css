@@ -10,13 +10,6 @@ body {
   box-sizing: border-box;
 }
 
-nav ul {
-  width: 100%;
-
-  display: inline-flex;
-  justify-content: space-between;
-}
-
 #full {
   height: auto;
   background: rgb(221, 66, 150);
@@ -41,17 +34,22 @@ nav ul {
 
 /* Navigation */
 
+nav ul {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.logo_size {
+  width: 10%;
+}
 
 /* connexion inscription */
-.connect-enregist{
-
+.connect-enregist {
   width: 20%;
 }
 
-
-
 .produits_blocks {
-  /* border: 1px solid black; */
   width: 500px;
 }
 
@@ -125,7 +123,6 @@ body {
   text-decoration: line-through;
 }
 
-
 /*********************** fin test ***********************/
 
 #produits_page {
@@ -142,15 +139,13 @@ body {
   display: flex;
   justify-content: space-between;
 }
-.produit-synopsis{
+.produit-synopsis {
   background-color: rgb(225, 82, 34);
 }
 .details_description {
   width: 50%;
 }
 /********************** fin details **********************/
-
-
 
 /********************** Bannieres produits **********************/
 
@@ -186,19 +181,13 @@ body {
 }
 /********************** Fin Bannieres produits **********************/
 
-
 /******************************************* FORMULAIRES *******************************************/
 
-
-
 /********************** Form inscription **********************/
-
-
 
 /********************** Form connexion ***********************/
 
 /********************** FIN FORMULAIRES **********************/
-
 
 /********************************************* FOOTER *********************************************/
 .footer {

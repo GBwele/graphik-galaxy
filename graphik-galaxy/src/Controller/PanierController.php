@@ -11,20 +11,25 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class PanierController extends AbstractController
 {
-    #[Route('/ajout', name: 'app_panier')]
+    #[Route('panier/ajout', name: 'app_panier')]
     public function index(Request $request, ProductsRepository $productsRepository): JsonResponse {
 
 
 
         $productId = $request->request->get('id');
+if(!$productId){
+    return new JsonResponse(['error'=>'ID de produit manquant'],400);
+}
+
+
         $product = $productsRepository->find($productId); 
-
-
-
         if(!$product){
             return new JsonResponse(['error' => 'Produit non trouvé'], 404);
         }
 
+
+
+    
         $session = $request->getSession(); 
         $cart = $session ->get('cart',[]); 
 
@@ -41,7 +46,10 @@ class PanierController extends AbstractController
 
         $session->set('cart', $cart); 
 
-        return new JsonResponse(['success'=> 'Produit ajouté au panier']);
+        return new JsonResponse(
+            ['success'=> 'Produit ajouté au panier',
+        'cart'=>$cart,
+    ]);
 
      
     }
@@ -52,8 +60,9 @@ class PanierController extends AbstractController
         $session = $request->getSession();
         $cart = $session->get('cart', []);
 
+
         return new JsonResponse($cart);
-       }
-
-
+    }
+    
+    
 }

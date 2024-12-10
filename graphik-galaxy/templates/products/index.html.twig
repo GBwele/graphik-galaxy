@@ -24,12 +24,20 @@
     <h4 class="produit-nom">{{produit.nom}}</h4>
     <h6 class="produit-prix">{{produit.prix}} €</h6>
     <a href="{{path('app_details', {id: produit.id})}}"><button class="details" >details</button></a>
+
+
+    
+      {# {% if (app.user is empty) %}
+      <a href="{{ path('app_redirect')}}"><button>ajouter au panier</button></a>
+
+      {% else %} #}
     <button class="add_panier" data-id="{{ produit.id }}">ajouter au panier</button>
   </div> 
 </div>
-
+{# {% endif %} #}
 {% endfor %}
 </div>
+
 
 <h2>Panier</h2>
 <div class="cart">
@@ -38,55 +46,45 @@
 
 {% endblock %}
 
-{# {% block javascripts %}
-  <script>
-  
-  $(document).ready(function(){
 
- // Fonction pour ajouter un produit au panier
-            $('.add-to-cart').click(function() {
-                var productId = $(this).data('id');
-                $.ajax({
-                    url: '{{ path('cart_add') }}',
-                    type: 'POST',
-                    data: { id: productId },
-                    success: function(response) {
-                        alert(response.success);
-                        loadCart();
-                    },
-                    error: function(xhr) {
-                        alert(xhr.responseJSON.error);
-                    }
-                });
 
-  });
 
-   // Fonction pour charger le panier
-            function loadCart() {
-                $.ajax({
-                    url: '{{ path('cart_view') }}',
-                    type: 'GET',
-                    success: function(cart) {
-                        var cartHtml = '';
-                        var total = 0;
-                        for (var id in cart) {
-                            if (cart.hasOwnProperty(id)) {
-                                var item = cart[id];
-                                var itemTotal = item.price * item.quantity;
-                                total += itemTotal;
-                                cartHtml += '<p>' + item.name + ' - ' + item.quantity + ' x ' + item.price + ' € = ' + itemTotal + ' €</p>';
-                            }
-                        }
-                        cartHtml += '<strong>Total : ' + total + ' €</strong>';
-                        $('#cart').html(cartHtml);
-                    }
-                });
-            }
+{% block javascript %}
+{# 
+<script>
+    // Sélectionne tous les boutons "Ajouter au panier"
+    const buttons = document.querySelectorAll('.add_panier');
 
-            // Charger le panier au chargement de la page
-            loadCart();
+    buttons.forEach(button => {
+        button.addEventListener('click', () => {
+            const productId = button.getAttribute('data-id');
+
+            // Envoi de la requête POST avec fetch
+            fetch('/panier/add', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ id: productId }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert(data.success); // Affiche un message de confirmation
+                } else {
+                    alert(data.error); // Affiche un message d'erreur si nécessaire
+                }
+            })
+            .catch(error => {
+                console.error('Erreur:', error);
+                alert('Une erreur est survenue.');
+            });
         });
-    </script>
-{% endblock %} #}
+    });
+</script> #}
+
+{% endblock %}
+
+
 
   

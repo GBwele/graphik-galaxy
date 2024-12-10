@@ -2,10 +2,10 @@
 
 namespace App\Form;
 
-use App\Entity\User;
-use DateTimeImmutable;
+use App\Entity\User;        
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
@@ -24,9 +24,13 @@ class RegistrationFormType extends AbstractType
             ->add('Firstname', TextType::class)
             ->add('lastname', TextType::class)
             ->add('username', TextType::class)
-            ->add('age', DateTimeImmutable::class)
+            ->add('age', DateType::class, [
+            'widget' => 'single_text',
+            'html5' => true,
+            'years' => range(1900, date('Y')),
+            ])
 
-            ->add('email', EmailType::class )
+            ->add('email', EmailType::class)
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
@@ -36,8 +40,7 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('plainPassword', PasswordType::class, [
-                // instead of being set onto the object directly,
-                // this is read and encoded in the controller
+              
                 'mapped' => false,
                 'attr' => ['autocomplete' => 'new-password'],
                 'constraints' => [
