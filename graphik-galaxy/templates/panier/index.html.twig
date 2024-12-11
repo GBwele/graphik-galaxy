@@ -1,24 +1,50 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello PanierController!{% endblock %}
+{% block title %}Votre Panier{% endblock %}
 
 {% block body %}
-
-
-<div class="example-wrapper">
-    <h1>Hello {{ controller_name }}! ✅</h1>
+{% if (app.user is empty) %}
+<div class="acces-interdit_non-utilisateur">
+    <h2>acces interdit</h2>
+        <p>vous devez etre un utilisateur pour acceder au panier...</p>
+    <a href="{{path('app_login')}}">vous connecter</a><a href="{{path('app_register')}}">vous inscrire</a>
+</div>
+{%else%}
 
 <div class="panier-presentation">
 
 <h2>Panier</h2>
 
-<h4></h4>
+{% if (cart is empty) %}
 
-</div>
-   
-</div>
+<p>Votre panier est vide...  <br>
+voulez vous le remplir avec des <a href="{path(_)}">produits ?</a>   </p>
 
-<div>
+{% else %}
+<table>
+    <thead>
+    <tr>
+        <th>Nom</th>
+        <th>Quantité</th>
+        <th>Prix</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+<tbody>
+{% for id, product in cart %}
+<tr>
+    <td>{{ produit.name }}</td>
+    <td>{{ produit.prix }}</td>
+</tr>
+{% endfor %}
+{% endif %} 
+{% endif %} 
+{# a developper #}
+</tbody>
+
+
+</table>
+
 
 <p><i class="fa-solid fa-trash"></i> ce symbole est pour la partie supprimer</p>
 

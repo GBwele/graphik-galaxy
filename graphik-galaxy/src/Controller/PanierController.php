@@ -6,6 +6,7 @@ use App\Repository\ProductsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
 
 
@@ -55,13 +56,16 @@ if(!$productId){
     }
        #[Route('/panier', name: 'app_panier')]
 
-       public function vue(Request $request): JsonResponse{
+       public function vue(Request $request): Response{
 
         $session = $request->getSession();
         $cart = $session->get('cart', []);
 
 
-        return new JsonResponse($cart);
+        return $this->render('panier/index.html.twig',[
+            'cart' => $cart,
+        ]);
+
     }
     
     

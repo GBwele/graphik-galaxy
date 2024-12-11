@@ -10,11 +10,32 @@
 
       
     </div>
+
+
+<div class="explications-pages">
+{% if categorie =="Mangas" %}
+
+<p>Art narratif japonais mêlant illustration et texte,Le manga, a conquis le monde grâce à sa diversité de genres et son style unique. En France, il s'est implanté dans les années 1990, devenant rapidement un pilier de la culture populaire, porté par des succès comme Dragon Ball ou Naruto. Graphik-Galaxy, passionné par cet univers, sélectionne minutieusement les meilleurs mangas en collaborant avec des éditeurs renommés et en suivant les tendances mondiales pour offrir des œuvres incontournables et des pépites à ses clients.</p>
+
+{% elseif categorie =="Comics" %}
+
+<p>
+Les comics, véritables mythes modernes venus des États-Unis, ont forgé des légendes immortelles comme Spider-Man, Batman ou les Avengers, incarnant des récits épiques de courage, de justice et de lutte contre les ténèbres. En France, leur ascension fulgurante dans les années 2000, portée par des adaptations cinématographiques spectaculaires, a transformé ces héros en icônes universelles. Graphik-Galaxy, gardien de cet univers grandiose, déniche les meilleures pépites en collaborant avec les plus grands éditeurs, suivant les sagas mythiques et les révolutions contemporaines. Ici, chaque page devient une porte vers l’aventure, capturant l’imaginaire des lecteurs en quête de grandeur.</p>
+    
+{% elseif categorie == "Goodies" %}
+
+<p>
+Les goodies geeks, symboles tangibles des univers imaginaires, incarnent la passion des fans pour les mondes fantastiques et futuristes. En France, ces objets dérivés – figurines, posters, accessoires – ont pris leur envol avec l'essor de la pop culture, transformant les simples admirateurs en véritables collectionneurs. Graphik-Galaxy, explorateur des trésors geeks, parcourt les tendances mondiales et collabore avec les créateurs les plus influents pour offrir des pièces d’exception. Chaque article devient un fragment d’épopée, permettant aux fans de donner vie à leurs héros et à leurs mondes préférés dans leur quotidien.</p>
+
+{% else %}
+
+<p>Graphik-Galaxy, temple de la culture geek, réunit sous un même toit les mangas légendaires, les comics mythiques et les goodies emblématiques qui célèbrent les univers fantastiques. Chaque produit, minutieusement sélectionné, raconte une histoire épique : des aventures palpitantes des héros japonais, aux récits grandioses des justiciers américains, en passant par des objets dérivés qui donnent vie à ces mondes extraordinaires. En collaborant avec les plus grands éditeurs et créateurs, Graphik-Galaxy garantit une collection exceptionnelle où chaque pièce devient un fragment d’imaginaire. Ici, la passion geek prend une forme tangible, prête à conquérir l'âme de ses fans.</p>
+
+</div>
+{% endif %}
+
+
 <div id="produits_page">
-
-
-
-
 {% for produit in produits %}
 
 <div class="produits_blocks">
@@ -26,31 +47,18 @@
     <a href="{{path('app_details', {id: produit.id})}}"><button class="details" >details</button></a>
 
 
-    
-      {# {% if (app.user is empty) %}
-      <a href="{{ path('app_redirect')}}"><button>ajouter au panier</button></a>
-
-      {% else %} #}
-    <button class="add_panier" data-id="{{ produit.id }}">ajouter au panier</button>
+   <i class="fa-solid fa-cart-plus"><button class="add_panier" data-id="{{ produit.id }}">ajouter au panier</button></i> 
   </div> 
 </div>
-{# {% endif %} #}
 {% endfor %}
 </div>
 
 
-<h2>Panier</h2>
-<div class="cart">
-<!-- Le contenu du panier sera chargé ici via AJAX -->
-</div>
 
 {% endblock %}
 
-
-
-
 {% block javascript %}
-{# 
+
 <script>
     // Sélectionne tous les boutons "Ajouter au panier"
     const buttons = document.querySelectorAll('.add_panier');
@@ -81,9 +89,15 @@
             });
         });
     });
-</script> #}
+
+
+</script>
 
 {% endblock %}
+{# 
+<script>
+</script> #}
+
 
 
 

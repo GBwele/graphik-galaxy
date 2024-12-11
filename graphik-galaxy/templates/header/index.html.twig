@@ -9,6 +9,7 @@
                     <li><a href="{{path('app_products',{categories: 'Goodies'})}}">Goodies</a></li>
                     <li><a href="{{path('app_products',{categories: 'Comics'})}}">Comics</a></li>
                     <li><a href="{{path('app_products',{categories: 'tout'})}}">Tout nos produits</a></li>
+                     <a href="{{path('app_panier')}}"><i class="fa-solid fa-cart-shopping"></i></a>
                 
                     {% if (app.user is empty) %}
                         <div class="connect-enregist">
