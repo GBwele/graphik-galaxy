@@ -12,7 +12,7 @@
     </div>
 
 
-<div class="explications-pages">
+<div id="explications-pages">
 {% if categorie =="Mangas" %}
 
 <p>Art narratif japonais mêlant illustration et texte,Le manga, a conquis le monde grâce à sa diversité de genres et son style unique. En France, il s'est implanté dans les années 1990, devenant rapidement un pilier de la culture populaire, porté par des succès comme Dragon Ball ou Naruto. Graphik-Galaxy, passionné par cet univers, sélectionne minutieusement les meilleurs mangas en collaborant avec des éditeurs renommés et en suivant les tendances mondiales pour offrir des œuvres incontournables et des pépites à ses clients.</p>
@@ -47,7 +47,7 @@ Les goodies geeks, symboles tangibles des univers imaginaires, incarnent la pass
     <a href="{{path('app_details', {id: produit.id})}}"><button class="details" >details</button></a>
 
 
-   <i class="fa-solid fa-cart-plus"><button class="add_panier" data-id="{{ produit.id }}">ajouter au panier</button></i> 
+   <a href="{ (event) }"><i class="fa-solid fa-cart-plus"><button  id="add_panier" >ajouter au panier</button></i></a>
   </div> 
 </div>
 {% endfor %}

@@ -12,12 +12,15 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class PanierController extends AbstractController
 {
-    #[Route('panier/ajout', name: 'app_panier')]
-    public function index(Request $request, ProductsRepository $productsRepository): JsonResponse {
+    #[Route('panier/ajout', name: 'app_addpanier')]
+    public function ajoutPanier(Request $request, ProductsRepository $productsRepository): JsonResponse {
+
+        $result = json_decode($request->getContent(), true);
 
 
 
-        $productId = $request->request->get('id');
+ $productId = $request->request->get('id');
+
 if(!$productId){
     return new JsonResponse(['error'=>'ID de produit manquant'],400);
 }
@@ -54,9 +57,19 @@ if(!$productId){
 
      
     }
+
+
+
+
+
+
+
+
+
+
        #[Route('/panier', name: 'app_panier')]
 
-       public function vue(Request $request): Response{
+       public function panierVue(Request $request): Response{
 
         $session = $request->getSession();
         $cart = $session->get('cart', []);
