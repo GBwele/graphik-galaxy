@@ -1,104 +1,62 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProductsController!{% endblock %}
+{% block title %}Hello ProductsController!
+{% endblock %}
 
 {% block body %}
-    <div class="{{ classe_banniere }} banner_size">
+	<div class="{{ classe_banniere }} banner_size">
 
-    <h1 id="products_titles">Tous nos {{categorie}}</h1>
-
-
-      
-    </div>
+		<h1 id="products_titles">Tous nos
+			{{categorie}}</h1>
 
 
-<div id="explications-pages">
-{% if categorie =="Mangas" %}
-
-<p>Art narratif japonais mêlant illustration et texte,Le manga, a conquis le monde grâce à sa diversité de genres et son style unique. En France, il s'est implanté dans les années 1990, devenant rapidement un pilier de la culture populaire, porté par des succès comme Dragon Ball ou Naruto. Graphik-Galaxy, passionné par cet univers, sélectionne minutieusement les meilleurs mangas en collaborant avec des éditeurs renommés et en suivant les tendances mondiales pour offrir des œuvres incontournables et des pépites à ses clients.</p>
-
-{% elseif categorie =="Comics" %}
-
-<p>
-Les comics, véritables mythes modernes venus des États-Unis, ont forgé des légendes immortelles comme Spider-Man, Batman ou les Avengers, incarnant des récits épiques de courage, de justice et de lutte contre les ténèbres. En France, leur ascension fulgurante dans les années 2000, portée par des adaptations cinématographiques spectaculaires, a transformé ces héros en icônes universelles. Graphik-Galaxy, gardien de cet univers grandiose, déniche les meilleures pépites en collaborant avec les plus grands éditeurs, suivant les sagas mythiques et les révolutions contemporaines. Ici, chaque page devient une porte vers l’aventure, capturant l’imaginaire des lecteurs en quête de grandeur.</p>
-    
-{% elseif categorie == "Goodies" %}
-
-<p>
-Les goodies geeks, symboles tangibles des univers imaginaires, incarnent la passion des fans pour les mondes fantastiques et futuristes. En France, ces objets dérivés – figurines, posters, accessoires – ont pris leur envol avec l'essor de la pop culture, transformant les simples admirateurs en véritables collectionneurs. Graphik-Galaxy, explorateur des trésors geeks, parcourt les tendances mondiales et collabore avec les créateurs les plus influents pour offrir des pièces d’exception. Chaque article devient un fragment d’épopée, permettant aux fans de donner vie à leurs héros et à leurs mondes préférés dans leur quotidien.</p>
-
-{% else %}
-
-<p>Graphik-Galaxy, temple de la culture geek, réunit sous un même toit les mangas légendaires, les comics mythiques et les goodies emblématiques qui célèbrent les univers fantastiques. Chaque produit, minutieusement sélectionné, raconte une histoire épique : des aventures palpitantes des héros japonais, aux récits grandioses des justiciers américains, en passant par des objets dérivés qui donnent vie à ces mondes extraordinaires. En collaborant avec les plus grands éditeurs et créateurs, Graphik-Galaxy garantit une collection exceptionnelle où chaque pièce devient un fragment d’imaginaire. Ici, la passion geek prend une forme tangible, prête à conquérir l'âme de ses fans.</p>
-
-</div>
-{% endif %}
+	</div>
 
 
-<div id="produits_page">
-{% for produit in produits %}
+	<div id="explications-pages">
+		{% if categorie =="Mangas" %}
 
-<div class="produits_blocks">
-  <div class="produit">
-    <a href="{{path('app_details', {id: produit.id})}}"><img  src="{{asset('assets/img/' ~ categorie ~ '/' ~ produit.images)}}" alt="{{produit.nom}}" class="produit-image"></a>
-  
-    <h4 class="produit-nom">{{produit.nom}}</h4>
-    <h6 class="produit-prix">{{produit.prix}} €</h6>
-    <a href="{{path('app_details', {id: produit.id})}}"><button class="details" >details</button></a>
+			<p>Art narratif japonais mêlant illustration et texte,Le manga, a conquis le monde grâce à sa diversité de genres et son style unique. En France, il s'est implanté dans les années 1990, devenant rapidement un pilier de la culture populaire, porté par des succès comme Dragon Ball ou Naruto. Graphik-Galaxy, passionné par cet univers, sélectionne minutieusement les meilleurs mangas en collaborant avec des éditeurs renommés et en suivant les tendances mondiales pour offrir des œuvres incontournables et des pépites à ses clients.</p>
+
+		{% elseif categorie =="Comics" %}
+
+			<p>
+				Les comics, véritables mythes modernes venus des États-Unis, ont forgé des légendes immortelles comme Spider-Man, Batman ou les Avengers, incarnant des récits épiques de courage, de justice et de lutte contre les ténèbres. En France, leur ascension fulgurante dans les années 2000, portée par des adaptations cinématographiques spectaculaires, a transformé ces héros en icônes universelles. Graphik-Galaxy, gardien de cet univers grandiose, déniche les meilleures pépites en collaborant avec les plus grands éditeurs, suivant les sagas mythiques et les révolutions contemporaines. Ici, chaque page devient une porte vers l’aventure, capturant l’imaginaire des lecteurs en quête de grandeur.</p>
+
+		{% elseif categorie == "Goodies" %}
+
+			<p>
+				Les goodies geeks, symboles tangibles des univers imaginaires, incarnent la passion des fans pour les mondes fantastiques et futuristes. En France, ces objets dérivés – figurines, posters, accessoires – ont pris leur envol avec l'essor de la pop culture, transformant les simples admirateurs en véritables collectionneurs. Graphik-Galaxy, explorateur des trésors geeks, parcourt les tendances mondiales et collabore avec les créateurs les plus influents pour offrir des pièces d’exception. Chaque article devient un fragment d’épopée, permettant aux fans de donner vie à leurs héros et à leurs mondes préférés dans leur quotidien.</p>
+
+		{% else %}
+
+			<p>Graphik-Galaxy, temple de la culture geek, réunit sous un même toit les mangas légendaires, les comics mythiques et les goodies emblématiques qui célèbrent les univers fantastiques. Chaque produit, minutieusement sélectionné, raconte une histoire épique : des aventures palpitantes des héros japonais, aux récits grandioses des justiciers américains, en passant par des objets dérivés qui donnent vie à ces mondes extraordinaires. En collaborant avec les plus grands éditeurs et créateurs, Graphik-Galaxy garantit une collection exceptionnelle où chaque pièce devient un fragment d’imaginaire. Ici, la passion geek prend une forme tangible, prête à conquérir l'âme de ses fans.</p>
+
+		</div>
+	{% endif %}
 
 
-   <a href="{ (event) }"><i class="fa-solid fa-cart-plus"><button  id="add_panier" >ajouter au panier</button></i></a>
-  </div> 
-</div>
-{% endfor %}
-</div>
+	<div id="produits_page">
+		{% for produit in produits %}
 
+			<div class="produits_blocks">
+				<div class="produit">
+					<a href="{{path('app_details', {id: produit.id})}}"><img src="{{asset('assets/img/' ~ categorie ~ '/' ~ produit.images)}}" alt="{{produit.nom}}" class="produit-image"></a>
+
+					<h4 class="produit-nom">{{produit.nom}}</h4>
+					<h6 class="produit-prix">{{produit.prix}}
+						€</h6>
+					<a href="{{path('app_details', {id: produit.id})}}">
+						<button class="details">details</button>
+					</a>
+
+
+					<i class="fa-solid fa-cart-plus" class="add_panier" onclick="ajoutPanier(event, {{produit.id}})"></i>
+					<button class="add_panier" onclick="ajoutPanier(event, {{produit.id}})">ajouter au panier</button>
+				</div>
+			</div>
+		{% endfor %}
+	</div>
 
 
 {% endblock %}
-
-{% block javascript %}
-
-<script>
-    // Sélectionne tous les boutons "Ajouter au panier"
-    const buttons = document.querySelectorAll('.add_panier');
-
-    buttons.forEach(button => {
-        button.addEventListener('click', () => {
-            const productId = button.getAttribute('data-id');
-
-            // Envoi de la requête POST avec fetch
-            fetch('/panier/add', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ id: productId }),
-            })
-            .then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert(data.success); // Affiche un message de confirmation
-                } else {
-                    alert(data.error); // Affiche un message d'erreur si nécessaire
-                }
-            })
-            .catch(error => {
-                console.error('Erreur:', error);
-                alert('Une erreur est survenue.');
-            });
-        });
-    });
-
-
-</script>
-
-{% endblock %}
-{# 
-<script>
-</script> #}
-
-
-
-
-  

@@ -1,7 +1,9 @@
 * {
   border: 1px solid black;
   list-style-type: none;
-  text-decoration: none;
+
+  background-color: #333;
+  color: aliceblue;
 }
 
 body {
@@ -11,7 +13,7 @@ body {
 }
 
 #full {
-  height: auto;
+  /* height: auto;
   background: rgb(221, 66, 150);
   background: -moz-radial-gradient(
     circle,
@@ -29,24 +31,33 @@ body {
     rgba(4, 5, 5, 1) 100%
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#dd4296",endColorstr="#040505",GradientType=1);
-  color: aliceblue;
+  color: aliceblue; */
 }
 
 /* Navigation */
 
 nav ul {
+  align-items: center;
   width: 100%;
   display: inline-flex;
   justify-content: space-between;
 }
-
+nav ul li a {
+  text-decoration: none;
+}
 .logo_size {
   width: 10%;
 }
 
 /* connexion inscription */
 .connect-enregist {
+  width: 70%;
+}
+
+.user-admin {
+  display: flex;
   width: 20%;
+  justify-content: space-evenly;
 }
 
 .produits_blocks {
@@ -191,6 +202,8 @@ body {
 
 /********************************************* FOOTER *********************************************/
 .footer {
+  background-color: aquamarine;
+  margin: auto;
   display: inline-flex;
   justify-content: space-evenly;
 }
@@ -202,8 +215,6 @@ body {
   justify-content: space-around;
 }
 /********************************************* FIN FOOTER *********************************************/
-.explications-pages{
-
- padding: 10%;
-
+.explications-pages {
+  padding: 10%;
 }

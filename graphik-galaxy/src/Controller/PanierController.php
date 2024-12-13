@@ -12,74 +12,63 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class PanierController extends AbstractController
 {
-    #[Route('panier/ajout', name: 'app_addpanier')]
-    public function ajoutPanier(Request $request, ProductsRepository $productsRepository): JsonResponse {
-
+    #[Route('/panier/ajout', name: 'app_addpanier')]
+    public function ajoutPanier(Request $request, ProductsRepository $productsRepository): JsonResponse
+    {
         $result = json_decode($request->getContent(), true);
 
+        $productId = $result['id'];
+
+        if (!$productId) {
+            return new JsonResponse(['error' => 'ID de produit manquant'], 400);
+        }
 
 
- $productId = $request->request->get('id');
-
-if(!$productId){
-    return new JsonResponse(['error'=>'ID de produit manquant'],400);
-}
-
-
-        $product = $productsRepository->find($productId); 
-        if(!$product){
+        $product = $productsRepository->find($productId);
+        if (!$product) {
             return new JsonResponse(['error' => 'Produit non trouvé'], 404);
         }
 
 
 
-    
-        $session = $request->getSession(); 
-        $cart = $session ->get('cart',[]); 
 
-        if (isset($cart[$productId])){
-            $cart[$productId]['quantity']++;            
-        }else{
+        $session = $request->getSession();
+        $cart = $session->get('cart', []);
+
+        if (isset($cart[$productId])) {
+            $cart[$productId]['quantity']++;
+        } else {
             $cart[$productId] = [
-                'name' => $product->getName(),
-                'price' => $product->getPrice(),
+                'name' => $product->getNom(),
+                'price' => $product->getPrix(),
                 'quantity' => 1
             ];
         }
 
 
-        $session->set('cart', $cart); 
+        $session->set('cart', $cart);
 
         return new JsonResponse(
-            ['success'=> 'Produit ajouté au panier',
-        'cart'=>$cart,
-    ]);
-
-     
+            [
+                'success' => 'Produit ajouté au panier',
+                'cart' => $cart,
+            ]
+        );
     }
 
 
 
+    #[Route('/panier', name: 'app_panier')]
 
-
-
-
-
-
-
-       #[Route('/panier', name: 'app_panier')]
-
-       public function panierVue(Request $request): Response{
+    public function panierVue(Request $request): Response
+    {
 
         $session = $request->getSession();
         $cart = $session->get('cart', []);
 
 
-        return $this->render('panier/index.html.twig',[
+        return $this->render('panier/index.html.twig', [
             'cart' => $cart,
         ]);
-
     }
-    
-    
 }
