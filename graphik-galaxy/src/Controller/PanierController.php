@@ -7,18 +7,18 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\Session\SessionInterface;
 use Symfony\Component\Routing\Attribute\Route;
 
 
 class PanierController extends AbstractController
 {
     #[Route('/panier/ajout', name: 'app_addpanier')]
-    public function ajoutPanier(Request $request, ProductsRepository $productsRepository): JsonResponse
+    public function ajoutPanier(Request $request, ProductsRepository $productsRepository, SessionInterface $session): JsonResponse
     {
         $result = json_decode($request->getContent(), true);
 
         $productId = $result['id'];
-
         if (!$productId) {
             return new JsonResponse(['error' => 'ID de produit manquant'], 400);
         }
@@ -29,10 +29,6 @@ class PanierController extends AbstractController
             return new JsonResponse(['error' => 'Produit non trouvé'], 404);
         }
 
-
-
-
-        $session = $request->getSession();
         $cart = $session->get('cart', []);
 
         if (isset($cart[$productId])) {
@@ -44,8 +40,6 @@ class PanierController extends AbstractController
                 'quantity' => 1
             ];
         }
-
-
         $session->set('cart', $cart);
 
         return new JsonResponse(
