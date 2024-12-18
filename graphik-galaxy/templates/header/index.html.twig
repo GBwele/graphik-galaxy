@@ -1,8 +1,8 @@
 <header>
 	<div class="logo" id="haut">
-		<a href="app_home"><img src="../../assets/img/logo_test.png" alt="logo_du_site" class="logo_size"></a>
+		<a href="{{path('app_home')}}"><img src="../../assets/img/logo_test.png" alt="logo_du_site" class="logo_size"></a>
 	</div>
-<div class="random"><hr>{{ randomize.getRandomTagline() }}<hr></div>
+	<div class="random"><hr>{{ randomize.getRandomTagline() }}<hr></div>
 
 
 	<nav class="navbar navbar-expand-lg ">
@@ -39,7 +39,11 @@
 
 					<h6>bienvenue,
 						{{app.user.username}}</h6>
-					<i class="fa-solid fa-user-shield"></i>
+					<a href="{{path('admin')}}">
+						admin
+						<i class="fa-solid fa-user-shield"></i>
+					</a>
+
 					<a href="{{path('app_panier')}}">
 						<i class="fa-solid fa-cart-shopping"></i>
 					</a>

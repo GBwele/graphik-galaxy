@@ -11,9 +11,16 @@ body {
   box-sizing: border-box;
 }
 
-#full {
-  
+#full h3{
+  color: #39e68d;
 }
+#full h5{
+  color: #e63946;
+}
+#full h6{
+  color: #4a1418;
+}
+
 
 /************************ Navigation ************************/
 
@@ -179,9 +186,6 @@ body {
 }
 /********************** fin details **********************/
 
-
-
-
 /********************** Bannieres produits **********************/
 
 #products_titles {
@@ -221,7 +225,27 @@ body {
 /********************** Form inscription **********************/
 
 /********************** Form connexion ***********************/
-
+.login {
+  width: 100%;
+}
+.form-login {
+  width: 30%;
+  margin: 0 auto;
+}
+.form-login > input {
+  width: 80%;
+  margin: 0 auto;
+}
+.form-login > label {
+  margin-left: 55px;
+}
+.form-login > button {
+  background-color: #333;
+}
+.form-login > button:hover {
+  background-color: #ffffff;
+  color: #333;
+}
 /********************** FIN FORMULAIRES **********************/
 
 /********************************************* FOOTER *********************************************/
@@ -231,7 +255,7 @@ body {
   display: inline-flex;
   justify-content: space-between;
 }
-.footer>div{
+.footer > div {
   background-color: #bcd348;
   width: 30%;
 }
@@ -246,3 +270,5 @@ body {
 .explications-pages {
   padding: 10%;
 }
+
+

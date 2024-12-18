@@ -4,13 +4,16 @@
 {% endblock %}
 
 {% block body %}
-	<div class="{{ classe_banniere }} banner_size">
+	<div class="{{ classe_banniere }} banner_size" id="haut">
 
 		<h1 id="products_titles">Tous nos
 			{{categorie}}</h1>
 
 
 	</div>
+
+
+
 
 
 	<div id="explications-pages">
@@ -34,12 +37,6 @@
 
 		</div>
 	{% endif %}
-	{# <button id="retour_haut">
-		<i class="fa-solid fa-arrow-up"></i>
-	</button> #}
-<button id="retour_haut" aria-label="Retour en haut">
-	<i class="fa-solid fa-arrow-up"></i>
-</button>
 
 
 	<div id="produits_page">
@@ -64,5 +61,8 @@
 		{% endfor %}
 	</div>
 
-<button id="#haut">click</button>
+<button id="scrollToTopBtn" onclick="scrollToTop()">Back to Top</button>
+
+{# <a href="#haut">click tkt , c'est patrick</a> #}
+
 {% endblock %}
