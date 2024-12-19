@@ -11,7 +11,7 @@
 			<a href="{{path('app_login')}}">vous connecter</a>
 			<a href="{{path('app_register')}}">vous inscrire</a>
 		</div>
-		{%else%}
+		{% else %}
 
 		<div class="panier-presentation">
 
@@ -22,51 +22,60 @@
 				<p>Votre panier est vide...
 					<br>
 					voulez vous le remplir avec des
-					<a href="{path(app_products)}">produits ?</a>
+					<a href="{{path('app_home')}}">produits ?</a>
 				</p>
-
 			{% else %}
-				<table>
-					<thead>
-						<tr>
-							<th>Effacer</th>
-							<th>Nom</th>
-							<th>Quantité</th>
-							<th>Prix</th>
-							<th>Total</th>
-
-						</tr>
-					</thead>
-					<tbody>
-						{% for id, produit in cart %}
+				<div class="tableauPanier">
+					<table>
+						<thead>
 							<tr>
-								<td>
-									<i class="fa-solid fa-trash"></i>
-								</td>
-								<td>{{ produit.name }}</td>
-								<td>XXX</td>
-
-								{# <td>{{ produit.quantity }}</td> #}
-								<td>{{ produit.name }}</td>
-								<td>XXX</td>
-								<td>XXX</td>
-
-
-								{# <td>{{ produit.total }}</td> #}
-								{# <td>{{ produit.delete }}</td> #}
+								<th>Effacer</th>
+								<th>Nom</th>
+								<th>Quantité</th>
+								<th>Prix</th>
+								<th>Total</th>
 
 							</tr>
-						{% endfor %}
-						<br><hr>
-						{# <p>total des produits : <table><tbody><tr><td>{{ produit }}</td></tr></tbody></table></p> #}
-					{% endif %}
-				{% endif %}
-				
+						</thead>
+						<tbody>
+							{% for id, produit in cart %}
+								<tr>
+									<td>
+										<button>
+											<i class="fa-solid fa-trash"></i>
+										</button>
+									</td>
+									<td>{{ produit.name }}</td>
+									<td><input type="number" value="{{produit.quantity}}"></td>
+									<td>{{ produit.price}}€</td>
+									<td class="total" colspan="3">
+										{{produit.price * produit.quantity }}€
+									</td>
+								</tr>
+							{% endfor %}
+							
+
+							<h4>prix total: </h4>
+							{{ prixTotal }}
+
+							<br><hr>
+{% endif %}
+{% endif %}
+
+				</div>
+
+
 			</tbody>
 
 
 		</table>
 
+</p>
 
+
+	</div>
+	<div class="checkout">
+
+		<button>checkout</button>
 	</div>
 {% endblock %}

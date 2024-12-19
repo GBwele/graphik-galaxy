@@ -49,7 +49,7 @@ class PanierController extends AbstractController
             ]
         );
     }
-
+    
 
 
     #[Route('/panier', name: 'app_panier')]

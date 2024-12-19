@@ -20,16 +20,26 @@ class ProductsController extends AbstractController
             $produits = $productsRepository->findAll();
         }
 
-  
 
         if($categories == 'tout'){
             $categories = 'Produits';
         }
+
+
+$dernierProduit = $productsRepository->findOneBy([],['id' => 'DESC']);
+
+
+
+
+
+
         return $this->render('products/index.html.twig', [
             'controller_name' => 'ProductsController',
             'produits' => $produits,
             'classe_banniere' => $css,
-            'categorie' => $categories
+            'categorie' => $categories,
+            'dernierProduit' => $dernierProduit
+
         ]);
     }
 }
