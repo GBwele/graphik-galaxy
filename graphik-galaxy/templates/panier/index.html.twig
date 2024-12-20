@@ -11,7 +11,7 @@
 			<a href="{{path('app_login')}}">vous connecter</a>
 			<a href="{{path('app_register')}}">vous inscrire</a>
 		</div>
-		{% else %}
+	{% else %}
 
 		<div class="panier-presentation">
 
@@ -46,21 +46,23 @@
 										</button>
 									</td>
 									<td>{{ produit.name }}</td>
-									<td><input type="number" value="{{produit.quantity}}"></td>
+									<td><input type="number" onchange="prixHTxTotal(event,{{produit.price}})" class="quantity" min="1" value="{{produit.quantity}}"></td>
 									<td>{{ produit.price}}€</td>
 									<td class="total" colspan="3">
 										{{produit.price * produit.quantity }}€
 									</td>
 								</tr>
 							{% endfor %}
-							
 
-							<h4>prix total: </h4>
-							{{ prixTotal }}
+
+							<h4>prix total:
+								<span id="absolut-total">{{prixTotal}}€</span>
+							</h4>
+							{# {{ prixTotal }} #}
 
 							<br><hr>
-{% endif %}
-{% endif %}
+						{% endif %}
+					{% endif %}
 
 				</div>
 
@@ -70,12 +72,11 @@
 
 		</table>
 
-</p>
+	</p>
 
 
-	</div>
-	<div class="checkout">
+</div>
+<div class="checkout">
 
-		<button>checkout</button>
-	</div>
-{% endblock %}
+	<button>checkout</button>
+</div>{% endblock %}

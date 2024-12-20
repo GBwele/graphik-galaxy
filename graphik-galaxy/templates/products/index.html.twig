@@ -1,6 +1,8 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello ProductsController!
+{% block title %}
+	{{ categorie }}
+
 {% endblock %}
 
 {% block body %}
@@ -11,9 +13,6 @@
 
 
 	</div>
-
-
-
 
 
 	<div id="explications-pages">
@@ -39,13 +38,6 @@
 	{% endif %}
 
 
-
-
-
-
-
-
-
 	<div id="produits_page">
 		{% for produit in produits %}
 
@@ -68,8 +60,8 @@
 		{% endfor %}
 	</div>
 
-<button id="scrollToTopBtn" onclick="scrollToTop()">Back to Top</button>
+	{# <button id="scrollToTopBtn" onclick="scrollToTop()">Back to Top</button> #}
 
-{# <a href="#haut">click tkt , c'est patrick</a> #}
+	<a href="#haut">retour en haut</a>
 
 {% endblock %}

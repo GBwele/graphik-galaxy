@@ -49,7 +49,7 @@ class PanierController extends AbstractController
             ]
         );
     }
-    
+
 
 
     #[Route('/panier', name: 'app_panier')]
@@ -59,10 +59,15 @@ class PanierController extends AbstractController
 
         $session = $request->getSession();
         $cart = $session->get('cart', []);
+        $prixTotal = 0;
 
+        foreach ($cart as $c) {
+            $prixTotal += $c['price'] * $c['quantity'];
+        }
 
         return $this->render('panier/index.html.twig', [
             'cart' => $cart,
+            'prixTotal' => $prixTotal
         ]);
     }
 }

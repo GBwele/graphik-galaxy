@@ -11,16 +11,15 @@ body {
   box-sizing: border-box;
 }
 
-#full h3{
+#full h3 {
   color: #39e68d;
 }
-#full h5{
+#full h5 {
   color: #e63946;
 }
-#full h6{
+#full h6 {
   color: #4a1418;
 }
-
 
 /************************ Navigation ************************/
 
@@ -267,8 +266,8 @@ body {
   justify-content: space-around;
 }
 /********************************************* FIN FOOTER *********************************************/
-.explications-pages {
-  padding: 10%;
+#explications-pages > p {
+  text-align: center;
+  width: 95%;
+  margin: 2% auto;
 }
-
-
