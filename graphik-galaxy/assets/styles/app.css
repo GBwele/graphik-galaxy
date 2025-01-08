@@ -31,6 +31,7 @@ nav ul {
 }
 nav ul li a {
   text-decoration: none;
+  color: aliceblue;
 }
 .logo_size {
   width: 10%;
@@ -42,8 +43,6 @@ nav ul li a {
   text-align: center;
   transition: 0.3s ease;
 }
-.random hr {
-}
 /************************ Fin Random taglines ************************/
 
 /************************ connexion inscription ************************/
@@ -51,12 +50,15 @@ nav ul li a {
   width: 70%;
 }
 
+/* Zone utilisateur */
+
 .connect-enregist,
 .user,
 .user-admin {
   display: flex;
   width: 20%;
   justify-content: space-evenly;
+  align-items: center;
 }
 
 .produits_blocks {
@@ -219,6 +221,8 @@ body {
 }
 /********************** Fin Bannieres produits **********************/
 
+/* Barre de recherches */
+
 /******************************************* FORMULAIRES *******************************************/
 
 /********************** Form inscription **********************/
@@ -270,4 +274,84 @@ body {
   text-align: center;
   width: 95%;
   margin: 2% auto;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 991px) {
+  .navbar-toggler {
+    display: block;
+    background-color: aliceblue;
+    border: none;
+    padding: 0.5rem;
+    margin: 1rem;
+  }
+
+  nav ul {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  nav ul li {
+    margin: 0.5rem 0;
+  }
+
+  .logo_size {
+    width: 30%;
+    margin: 1rem auto;
+  }
+
+  .connect-enregist,
+  .user,
+  .user-admin {
+    width: 100%;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+
+  .random {
+    padding: 0.5rem;
+  }
+
+  .navbar-collapse {
+    display: none;
+  }
+
+  .navbar-collapse.show {
+    display: block;
+  }
+}
+
+@media (min-width: 992px) {
+  .navbar-toggler {
+    display: none;
+  }
+
+  .navbar-collapse {
+    display: block !important;
+  }
+
+  nav ul li {
+    margin: 0 1rem;
+  }
+}
+
+/* Animation pour le menu mobile */
+.navbar-collapse {
+  transition: all 0.3s ease-in-out;
+}
+
+/* Style des icônes */
+.fa-solid {
+  margin: 0 0.5rem;
+}
+
+/* Hover effects */
+nav ul li a:hover,
+.connect-enregist a:hover,
+.user a:hover,
+.user-admin a:hover {
+  color: #39e68d;
+  transition: 0.3s ease;
 }

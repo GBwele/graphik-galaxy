@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Products;
 use App\Repository\ProductsRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -69,5 +70,32 @@ class PanierController extends AbstractController
             'cart' => $cart,
             'prixTotal' => $prixTotal
         ]);
+    }
+
+
+
+
+    #[Route('/panier/supprimer', name: 'app_removepanier')]
+
+    public function supprimerPanier(Request $request, SessionInterface $session): JsonResponse
+    {
+
+        $result = json_decode($request->getContent(), true);
+        $productId = $result['id'];
+
+        $cart = $session->get('cart', []);
+
+        if (isset($cart[$productId])) {
+            unset($cart[$productId]);
+            $session->set('cart', $cart);
+
+
+            return new JsonResponse([
+                'success' => 'Produit supprimé du panier',
+                'cart' => $cart
+            ]);
+        }
+
+        return new JsonResponse(['error' => 'Produit non trouvé dans le panier'], 404);
     }
 }
