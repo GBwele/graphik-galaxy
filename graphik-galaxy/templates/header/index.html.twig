@@ -1,7 +1,56 @@
 <header>
-	<div class="logo" id="haut">
-		<a href="{{path('app_home')}}"><img src="../../assets/img/logo_test.png" alt="logo_du_site" class="logo_size"></a>
+	<div id="logo-inscription">
+
+
+		<div class="logo" id="haut">
+			<a href="{{path('app_home')}}"><img src="../../assets/img/logo_test.png" alt="logo_du_site" class="logo_size"></a>
+		</div>
+
+
+		{% if (app.user is empty) %}
+			<div class="connect-enregist">
+				<a href="{{path('app_panier')}}">
+					<i class="fa-solid fa-cart-shopping"></i>
+				</a>
+				<li>
+					<a href="{{path('app_login')}}">se connecter</a>
+				</li>
+				<li>
+					<a href="{{path('app_register')}}">s'enregistrer</a>
+				</li>
+			</div>
+		{% elseif is_granted('ROLE_ADMIN') %}
+			<div class="user-admin">
+
+				<h6>bienvenue,
+					{{app.user.username}}</h6>
+				<a href="{{path('admin')}}">
+					admin
+					<i class="fa-solid fa-user-shield"></i>
+				</a>
+
+				<a href="{{path('app_panier')}}">
+					<i class="fa-solid fa-cart-shopping"></i>
+				</a>
+				<li>
+					<a href="{{path('app_logout')}}">se deconnecter</a>
+				</li>
+			</div>
+		{% else %}
+			<div class="user">
+				<h6>bienvenue,
+					{{app.user.username}}</h6>
+				<i class="fa-solid fa-user"></i>
+				<a href="{{path('app_panier')}}">
+					<i class="fa-solid fa-cart-shopping"></i>
+				</a>
+				<li>
+					<a href="{{path('app_logout')}}">se deconnecter</a>
+				</li>
+			</div>
+		{% endif %}
 	</div>
+
 	<div class="random"><hr>{{ randomize.getRandomTagline() }}<hr></div>
 
 	<!-- Bouton hamburger pour mobile -->
@@ -27,50 +76,6 @@
 				<li>
 					<a href="{{path('app_products',{categories: 'tout'})}}">Tout nos produits</a>
 				</li>
-
-
-				{% if (app.user is empty) %}
-					<div class="connect-enregist">
-						<a href="{{path('app_panier')}}">
-							<i class="fa-solid fa-cart-shopping"></i>
-						</a>
-						<li>
-							<a href="{{path('app_login')}}">se connecter</a>
-						</li>
-						<li>
-							<a href="{{path('app_register')}}">s'enregistrer</a>
-						</li>
-					</div>
-				{% elseif is_granted('ROLE_ADMIN') %}
-					<div class="user-admin">
-
-						<h6>bienvenue,
-							{{app.user.username}}</h6>
-						<a href="{{path('admin')}}">
-							admin
-							<i class="fa-solid fa-user-shield"></i>
-						</a>
-
-						<a href="{{path('app_panier')}}">
-							<i class="fa-solid fa-cart-shopping"></i>
-						</a>
-						<li>
-							<a href="{{path('app_logout')}}">se deconnecter</a>
-						</li>
-					</div>
-				{% else %}
-					<div class="user">
-						<h6>bienvenue,
-							{{app.user.username}}</h6>
-						<i class="fa-solid fa-user"></i>
-						<a href="{{path('app_panier')}}">
-							<i class="fa-solid fa-cart-shopping"></i>
-						</a>
-						<li>
-							<a href="{{path('app_logout')}}">se deconnecter</a>
-						</li>
-					</div>
-				{% endif %}
 
 			</ul>
 		</div>

@@ -26,7 +26,7 @@ class ProductsController extends AbstractController
         }
 
 
-$dernierProduit = $productsRepository->findOneBy([],['id' => 'DESC']);
+$derniersProduits = $productsRepository->findBy([],['id' => 'DESC'],5);
 
 
 
@@ -38,7 +38,7 @@ $dernierProduit = $productsRepository->findOneBy([],['id' => 'DESC']);
             'produits' => $produits,
             'classe_banniere' => $css,
             'categorie' => $categories,
-            'dernierProduit' => $dernierProduit
+            'derniersProduits' => $derniersProduits
 
         ]);
     }

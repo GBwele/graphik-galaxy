@@ -4,7 +4,7 @@
 {% endblock %}
 
 {% block body %}
-<div class="login">
+	<div class="login">
 
 		<form class="form-login" method="post">
 			{% if error %}
@@ -22,14 +22,14 @@
 			type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
 
 			{#
-					            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-					            See https://symfony.com/doc/current/security/remember_me.html
-					
-					            <div class="checkbox mb-3">
-					                <input type="checkbox" name="_remember_me" id="_remember_me">
-					                <label for="_remember_me">Remember me</label>
-					            </div>
-					        #}
+								            Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
+								            See https://symfony.com/doc/current/security/remember_me.html
+								
+								            <div class="checkbox mb-3">
+								                <input type="checkbox" name="_remember_me" id="_remember_me">
+								                <label for="_remember_me">Remember me</label>
+								            </div>
+								        #}
 
 			<input type="hidden" name="app_home" value="/home">
 
@@ -37,6 +37,14 @@
 			<button class="btn btn-lg btn-primary" type="submit">
 				Allez!
 			</button>
+
+
+			<p>Pas encore inscrit ?
+				<a href="{{path('app_register')}}">
+					vous inscrire</a>
+			</p>
+
+
 		</form>
 	</div>
 
