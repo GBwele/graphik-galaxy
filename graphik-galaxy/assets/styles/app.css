@@ -1,8 +1,13 @@
 * {
-  border: 1px solid black;
+  /* border: 1px solid rgb(255, 255, 255); */
   list-style-type: none;
-  /* background-color: #333; */
   color: aliceblue;
+}
+
+.chakra-petch-semibold {
+  font-family: "Chakra Petch", serif;
+  font-weight: 600;
+  font-style: normal;
 }
 
 body {
@@ -10,8 +15,7 @@ body {
   padding: 0;
   box-sizing: border-box;
 }
-#full{
-
+#full {
   background-color: #222;
 }
 .main {
@@ -43,8 +47,10 @@ header {
 /************************ Navigation ************************/
 
 nav ul {
+  background-color: #f7a500;
   align-items: center;
-  width: 100%;
+  width: 95%;
+  margin: 0 auto;
   display: inline-flex;
   justify-content: space-between;
 }
@@ -53,24 +59,34 @@ nav ul li a {
   color: aliceblue;
 }
 .logo_size {
-  width: 10%;
+  width: 15%;
   text-align: center;
 }
 
-
-
-
-.navbar{
-color: rgb(75, 48, 101);
+.navbar {
+  color: rgb(75, 48, 101);
 }
 
 /************************ Random taglines ************************/
 .random {
-  background-color: #f7a5009d;
+  font-family: "Chakra Petch", serif;
+  font-size: 1.8em;
   text-align: center;
-  transition: 0.3s ease;
+  transition: 0.6s ease;
+}
+.random hr {
+  margin: 0;
 }
 /************************ Fin Random taglines ************************/
+
+#largeur-carousel {
+  background-color: #39e68d;
+  height: 350px;
+}
+#carousel-commentaires {
+  height: 400px;
+  background-color: #39e68d;
+}
 
 /************************ connexion inscription ************************/
 .connect-enregist {
@@ -92,19 +108,18 @@ color: rgb(75, 48, 101);
   width: 500px;
 }
 
-
 /* login */
 
-.form-control{
+.form-control {
   width: 100%;
 }
 
 /* inscription */
 
-.form-registration{
+.form-registration {
   width: 50%;
   margin: auto;
-background-color: #39e68d;
+  background-color: #39e68d;
 }
 /************************ Fin Navigation ************************/
 
@@ -143,6 +158,9 @@ body {
   margin: 0;
   padding: 0;
   background-color: #f5f5f5;
+}
+
+.block1 {
 }
 
 .produits_blocks {
@@ -301,18 +319,21 @@ body {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+.footer container-fluid >div{
+-webkit-box-shadow: inset 0px 4px 7px -3px rgba(0,0,0,0.85); 
+box-shadow: inset 0px 4px 7px -3px rgba(0,0,0,0.85);
 
+}
 .footer > div {
   background-color: #5b5b5b;
   width: 30%;
   padding: 1rem;
   margin: 1rem 0;
 }
-.footer > h3 >div{
+.footer > h3 > div {
   background-color: #eaeaea;
   color: #222;
 }
-
 
 /* Médias sociaux */
 .medias ul {
@@ -340,7 +361,6 @@ body {
   transition: 0.3s ease;
 }
 
-
 /* Ligne finale */
 .final_footer_line {
   width: 100%;
@@ -367,16 +387,6 @@ body {
   width: 95%;
   margin: 2% auto;
 }
-
-
-
-
-
-
-
-
-
-
 
 /* RESPONSIVE */
 
