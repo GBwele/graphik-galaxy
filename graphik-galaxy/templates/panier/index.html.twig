@@ -34,7 +34,6 @@
 								<th>Quantité</th>
 								<th>Prix</th>
 								<th>Total</th>
-
 							</tr>
 						</thead>
 						<tbody>
@@ -46,37 +45,32 @@
 										</button>
 									</td>
 									<td>{{ produit.name }}</td>
-									<td><input type="number" onchange="prixHTxTotal(event,{{produit.price}})" class="quantity" min="1" value="{{produit.quantity}}"></td>
+									<td>
+										<input type="number" onchange="updateQuantity(event, '{{ id }}')" class="quantity" min="1" value="{{ produit.quantity }}">
+
+									</td>
 									<td>{{ produit.price}}€</td>
 									<td class="total" colspan="3">
 										{{produit.price * produit.quantity }}€
 									</td>
 								</tr>
 							{% endfor %}
+						</tbody>
+					</table>
 
 
-							<h4>prix total:
-								<span id="absolut-total">{{prixTotal}}€</span>
-							</h4>
-							{# {{ prixTotal }} #}
+					<h4>prix total:
+						<span id="absolut-total">{{prixTotal}}€</span>
+					</h4>
+					<br>
+					<hr>
+				{% endif %}
+			{% endif %}
 
-							<br><hr>
-						{% endif %}
-					{% endif %}
-
-				</div>
-
-
-			</tbody>
+		</div>
 
 
-		</table>
-
-	</p>
+	</tbody>
 
 
-</div>
-<div class="checkout">
-
-	<button>checkout</button>
-</div>{% endblock %}
+</table></p></div><div class="checkout"><button>checkout</button></div>{% endblock %}

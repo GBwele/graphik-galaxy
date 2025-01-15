@@ -42,43 +42,43 @@
 				</p>
 			</div>
 			{# <div class="carousel-section">
-																																	<a href="">
-																																		<h2>Nos dernières nouveautés</h2>
-																																	</a>
-																																	
-																																	
-																																									<div id="nouveautesCarousel" class="carousel slide" data-bs-ride="carousel">
-																																										<div class="carousel-inner">
-																																											{% for key, produit in derniersProduits %}
-																																												<div class="carousel-item {% if key == 0 %}active{% endif %}">
-																																													<div class="carousel-product">
-																																														<img src="{{ asset('assets/img/' ~ produit.categorie ~ '/' ~ produit.images) }}" class="carousel-img" alt="{{ produit.nom }}">
-																																														<div class="carousel-details">
-																																															<h3>{{ produit.nom }}</h3>
-																																															<p class="price">{{ produit.prix }}
-																																																€</p>
-																																															<div class="carousel-actions">
-																																																<a href="{{ path('app_details', {id: produit.id}) }}" class="btn btn-primary">Voir les détails</a>
-																																																<button class="btn btn-success add_panier" onclick="ajoutPanier(event, {{ produit.id }})">
-																																																	<i class="fa-solid fa-cart-plus"></i>
-																																																	Ajouter au panier
-																																																</button>
-																																															</div>
-																																														</div>
-																																													</div>
-																																												</div>
-																																											{% endfor %}
-																																										</div>
-																																										<button class="carousel-control-prev" type="button" data-bs-target="#nouveautesCarousel" data-bs-slide="prev">
-																																											<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-																																											<span class="visually-hidden">Précédent</span>
-																																										</button>
-																																										<button class="carousel-control-next" type="button" data-bs-target="#nouveautesCarousel" data-bs-slide="next">
-																																											<span class="carousel-control-next-icon" aria-hidden="true"></span>
-																																											<span class="visually-hidden">Suivant</span>
-																																										</button>
-																																									</div>
-																																								</div> #}
+																																																									<a href="">
+																																																										<h2>Nos dernières nouveautés</h2>
+																																																									</a>
+																																																									
+																																																									
+																																																																	<div id="nouveautesCarousel" class="carousel slide" data-bs-ride="carousel">
+																																																																		<div class="carousel-inner">
+																																																																			{% for key, produit in derniersProduits %}
+																																																																				<div class="carousel-item {% if key == 0 %}active{% endif %}">
+																																																																					<div class="carousel-product">
+																																																																						<img src="{{ asset('assets/img/' ~ produit.categorie ~ '/' ~ produit.images) }}" class="carousel-img" alt="{{ produit.nom }}">
+																																																																						<div class="carousel-details">
+																																																																							<h3>{{ produit.nom }}</h3>
+																																																																							<p class="price">{{ produit.prix }}
+																																																																								€</p>
+																																																																							<div class="carousel-actions">
+																																																																								<a href="{{ path('app_details', {id: produit.id}) }}" class="btn btn-primary">Voir les détails</a>
+																																																																								<button class="btn btn-success add_panier" onclick="ajoutPanier(event, {{ produit.id }})">
+																																																																									<i class="fa-solid fa-cart-plus"></i>
+																																																																									Ajouter au panier
+																																																																								</button>
+																																																																							</div>
+																																																																						</div>
+																																																																					</div>
+																																																																				</div>
+																																																																			{% endfor %}
+																																																																		</div>
+																																																																		<button class="carousel-control-prev" type="button" data-bs-target="#nouveautesCarousel" data-bs-slide="prev">
+																																																																			<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+																																																																			<span class="visually-hidden">Précédent</span>
+																																																																		</button>
+																																																																		<button class="carousel-control-next" type="button" data-bs-target="#nouveautesCarousel" data-bs-slide="next">
+																																																																			<span class="carousel-control-next-icon" aria-hidden="true"></span>
+																																																																			<span class="visually-hidden">Suivant</span>
+																																																																		</button>
+																																																																	</div>
+																																																																</div> #}
 
 			{# fin carousel produits #}
 
@@ -92,27 +92,54 @@
 
 
 					<h5>Une expérience immersive :</h5>
-					<div class="block1">
 
-						<p>Nous ne vendons pas seulement des produits, nous partageons une passion. Chaque article est sélectionné avec soin pour satisfaire les amateurs les plus exigeants.</p>
-						<img src="../../assets/img/home-images/paris-logo.png" alt="">
+					<div class="block">
+
+						<div class="text">
+							<p>"Nous ne vendons pas seulement des produits, nous partageons une passion qui voyage à travers le temps. Avec la précision d'un Doc Brown réglant son convecteur temporel, notre équipe sélectionne chaque manga, comic et goodie comme s'il s'agissait d'un élément crucial pour votre DeLorean personnelle. Pas besoin de plutonium ni d'atteindre 88 miles à l'heure, nous nous chargeons de faire voyager vos commandes jusqu'à votre présent. Grand Scott ! La passion n'a jamais été aussi bien synchronisée ! ⚡️🕰️"</p>
+
+						</div>
+						<div class="box_img">
+
+							<img src="{{asset('assets/img/home-images/img_presentation/comic-read.jpg')}}" alt="comic">
+						</div>
+
+
 					</div>
 
 
 					<h5>Un service client à votre écoute :</h5>
 					<div class="block2">
 
-						<p>
-							Notre équipe est là pour répondre à vos questions, vous conseiller et s’assurer que votre expérience soit la meilleure possible.</p>
-						<img src="" alt="">
+						<div class="text">
+
+
+							<p>
+								Notre équipe de héros est prête à vous accompagner dans votre quête ! Comme un sensei bienveillant, nous sommes là pour répondre à vos questions, vous guider dans vos choix et nous assurer que votre niveau de satisfaction atteigne le mode Ultra Instinct ! Notre détermination est aussi inébranlable que celle d'un protagoniste de shonen - nous ne reculerons devant aucun défi pour vous offrir la meilleure expérience possible ! 🌟✨</p>
+
+						</div>
+						<div class="box_img">
+
+							<img src="{{asset('assets/img/home-images/img_presentation/manga-read_outside2.jpg')}}" alt="">
+
+						</div>
+
 					</div>
 
 
 					<h5>Livraison rapide et soignée :</h5>
 					<div class="block3">
+						<div class="text">
 
-						<p>Nous savons à quel point vous avez hâte de tenir vos trésors entre vos mains.</p>
-						<img src="" alt="">
+							<p>Nous savons à quel point vous avez hâte de tenir vos trésors entre vos mains. Tel un Indiana Jones moderne en quête de reliques précieuses, notre équipe d'aventuriers parcourt les couloirs de notre entrepôt pour dénicher vos mangas, comics et goodies. Nous les emballons avec le même soin que si nous manipulions l'Arche d'Alliance elle-même, pour que la magie du colis reste intacte jusqu'à votre porte. Pas de pièges ni de rochers géants chez nous, juste la promesse d'une livraison rapide et sécurisée ! 🗺️✨</p>
+
+						</div>
+
+						<div class="box_img">
+
+							<img src="" alt="">
+						</div>
+
 					</div>
 				</div>
 
@@ -139,7 +166,8 @@
 		<h5>🌌 Donc entrez dans l’univers de Graphik Galaxy et laissez votre passion vous guider ! 🌌</h5>
 
 		<i class="fa-solid fa-hand-spock"></i>
+		<i class="fa-solid fa-jedi"></i>
+
 
 	</div>
 </div>{% endblock %}
-	

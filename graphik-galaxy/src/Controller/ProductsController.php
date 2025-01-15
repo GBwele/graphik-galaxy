@@ -21,12 +21,12 @@ class ProductsController extends AbstractController
         }
 
 
-        if($categories == 'tout'){
+        if ($categories == 'tout') {
             $categories = 'Produits';
         }
 
 
-$derniersProduits = $productsRepository->findBy([],['id' => 'DESC'],5);
+        $derniersProduits = $productsRepository->findBy([], ['id' => 'DESC'], 5);
 
 
 
