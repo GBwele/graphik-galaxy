@@ -26,11 +26,6 @@ class ProductsController extends AbstractController
         }
 
 
-        $derniersProduits = $productsRepository->findBy([], ['id' => 'DESC'], 5);
-
-
-
-
 
 
         return $this->render('products/index.html.twig', [
@@ -38,8 +33,9 @@ class ProductsController extends AbstractController
             'produits' => $produits,
             'classe_banniere' => $css,
             'categorie' => $categories,
-            'derniersProduits' => $derniersProduits
+           
 
         ]);
     }
+
 }

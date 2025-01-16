@@ -1,38 +1,45 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Details du produit{% endblock %}
+{% block title %}Details du produit
+{% endblock %}
 
 {% block body %}
 
-
-        <h1 class="produit-nom-details">{{produit.nom}}</h1>
-   
-    <div id="details">
-
-        <div class="produit-image_description" >
-            <img src="{{asset('assets/img/' ~ produit.categorie ~ '/' ~ produit.images)}}" alt="{{produit.nom}}" class="produit-image">
-        </div>
+	<div class="main_details">
+		<h1 class="produit-nom-details">{{produit.nom}}</h1>
 
 
-            <div class="details_description">
-             <h5 class="produit-synopsis">{{produit.description}}</h5>
-             <h4>Genre</h4>
-             <h5 class="produit-synopsis">{{produit.genre}}</h5>
-             <h6 class="produit-prix">{{produit.prix}} €</h6>
+		<div id="details">
+
+			<div class="produit-image_description">
+				<img src="{{asset('assets/img/' ~ produit.categorie ~ '/' ~ produit.images)}}" alt="{{produit.nom}}" class="produit-image">
+			</div>
+
+			<div class="details_description">
+				<h5 class="produit-synopsis">{{produit.description}}</h5>
+				<h4>Genre</h4>
+				<h5 class="produit-synopsis">{{produit.genre}}</h5>
+				<h6 class="produit-prix">{{produit.prix}}
+					€</h6>
+
+				<div class="buttons">
+					<a href="">
+						<button class="ajoutPanier">ajouter au panier</button>
+					</a>
+
+					<a href="{{path('app_panier')}}">
+						<button class="see_panier">voir mon panier</button>
+					</a>
+
+				</div>
 
 
-<a href="">
-	<button class="ajoutPanier">ajouter au panier</button>
-</a>
+			</div>
 
-             <a href="{{path('app_panier')}}"><button class="see_panier">voir mon panier</button></a>
-
-            </div>
+		</div>
 
 
-</div>
-
-
+	</div>
 
 
 {% endblock %}
