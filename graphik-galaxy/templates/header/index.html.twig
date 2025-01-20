@@ -10,15 +10,20 @@
 			{% if app.user %}
 				<h6>bienvenue,
 					{{app.user.username}}</h6>
-				<i class="fa-solid fa-user"></i>
-			{% endif %}
-			{% if is_granted('ROLE_ADMIN')  %}
-				<a href="{{path('admin')}}">
-					admin
-					<i class="fa-solid fa-user-shield"></i>
-				</a>
+				{% if is_granted('ROLE_ADMIN')  %}
+					<a href="{{path('admin')}}">
+						admin
+						<i class="fa-solid fa-user-shield"></i>
+					</a>
+				{% else %}
+					<i class="fa-solid fa-user"></i>
 
+				{% endif %}
 			{% endif %}
+
+
+			{# partie panier #}
+
 			<a href="{{path('app_panier')}}">
 				<i class="fa-solid fa-cart-shopping"></i>
 				<span id="nb_article">{{app.session.get('nb') == 0 ? '' : app.session.get('nb')}}</span>

@@ -19,21 +19,14 @@ class ProductsController extends AbstractController
         } else {
             $produits = $productsRepository->findAll();
         }
-
-
         if ($categories == 'tout') {
             $categories = 'Produits';
         }
-
-
-
-
         return $this->render('products/index.html.twig', [
             'controller_name' => 'ProductsController',
             'produits' => $produits,
             'classe_banniere' => $css,
             'categorie' => $categories,
-           
 
         ]);
     }

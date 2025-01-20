@@ -12,12 +12,11 @@ class PaymentController extends AbstractController
     #[Route('/payment', name: 'app_payment')]
     public function recupPaiement(Request $request): Response
     {
+        // Récupération de nouveau si besoin :
+        $prixTotal = $request->getSession()->get('prixTotal', 0);
 
-        // dd("ok");
         return $this->render('payment/index.html.twig', [
-            'controller_name' => 'PaymentController',
+            'checkoutTotal' => $prixTotal,
         ]);
     }
-
-
 }

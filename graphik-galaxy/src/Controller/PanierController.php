@@ -69,6 +69,8 @@ class PanierController extends AbstractController
             $prixTotal += $c['price'] * $c['quantity'];
         }
 
+        $session->set('prixTotal', $prixTotal);
+
         return $this->render('panier/index.html.twig', [
             'cart' => $cart,
             'prixTotal' => $prixTotal
@@ -153,5 +155,14 @@ class PanierController extends AbstractController
             'productTotal' => $cart[$productId]['price'] * $cart[$productId]['quantity'],
             'message' => 'Quantité mise à jour avec succès'
         ]);
+    }
+
+    #[Route('/panier/checkout', name: 'app_checkout')]
+    public function checkoutVue(request $request): Response
+    {
+        $prixTotal = $request->getSession()->get('prixTotal', 0);
+
+        // ... utilisation de $prixTotal ...
+        return $this->redirectToRoute('app_payment');  
     }
 }
