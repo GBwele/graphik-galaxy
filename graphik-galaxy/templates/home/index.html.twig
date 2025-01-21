@@ -7,12 +7,14 @@
 	<div id="full">
 
 		<div class="main">
-			<h3>Bienvenue dans l'univers de Graphik Galaxy 🌌</h3>
-			<p>Chez Graphik Galaxy, nous vous invitons à plonger dans un monde rempli de couleurs, d’histoires captivantes et de héros légendaires. Que vous soyez un passionné de mangas, un collectionneur de comics ou simplement à la recherche de goodies uniques pour compléter votre collection, vous êtes au bon endroit !</p>
+			<h2>Bienvenue dans l'univers de Graphik Galaxy 🌌</h2>
+			<p style="width: 75%;
+																				    color: aliceblue;
+																				    margin: 12px auto;">
+				Chez Graphik Galaxy, nous vous invitons à plonger dans un monde rempli de couleurs, d’histoires captivantes et de héros légendaires. Que vous soyez un passionné de mangas, un collectionneur de comics ou simplement à la recherche de goodies uniques pour compléter votre collection, vous êtes au bon endroit !</p>
 
 
-			<h6>Les Nouveautés de Graphik Galaxy 🌟</h6>
-			🔗 Découvrez nos dernieres nouveautés :
+			<h3>Les Nouveautés de Graphik Galaxy</h3>
 
 			{# carousel produits  #}
 
@@ -40,7 +42,8 @@
 
 			<section class="qui">
 				<h3>Qui sommes-nous ?</h3>
-				<p>Graphik Galaxy, c’est bien plus qu’une boutique en ligne. C’est un univers dédié aux amoureux de la pop culture. Créé par des fans pour des fans, notre mission est de vous proposer une sélection variée et exclusive de bandes dessinées, mangas, et produits dérivés qui font vibrer toutes les générations.</p>
+				<p style=" font-weight: 600; font-size: large;">Graphik Galaxy, c’est bien plus qu’une boutique en ligne. C’est un univers dédié aux amoureux de la pop culture. Créé par des fans pour des fans, notre mission est de vous proposer une sélection variée et exclusive de bandes dessinées, mangas, et produits dérivés qui font vibrer toutes les générations.</p>
+
 
 				<h3>Pourquoi choisir Graphik Galaxy ?</h3>
 
@@ -99,53 +102,60 @@
 					</div>
 				</div>
 
-			</div>
+
+			</section>
+
+			<section
+				class="confiance">
+
+				{# carousel commentaires #}
+				<div class="confiance">
+					<h3>Ils nous ont fait confiance</h3>
+					<div id="carousel-commentaires">
 
 
-		</section>
+						<div class="shop-carousel-list">
 
-		<section
-			class="confiance">
-
-			{# carousel commentaires #}
-			<div class="confiance">
-				<h3>Ils nous ont fait confiance</h3>
-				<div id="carousel-commentaires">
-
-					<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
-						<div class="carousel-inner">
-							<div class="carousel-item active"></div>
-							<div class="carousel-item">
-								<img src="..." class="d-block w-100" alt="...">
+							<div class="shop-carousel-item">
+								<img src="{{asset('assets/img/home-images/logo-PGW-new.webp')}}" alt="Paris Games Week">
 							</div>
-							<div class="carousel-item">
-								<img src="..." class="d-block w-100" alt="...">
+
+							<div class="shop-carousel-item">
+								<img src="{{asset('assets/img/home-images<img/TGS_Paris_blanctest2.png')}}" alt="PGW">
 							</div>
+
+							<div class="shop-carousel-item">
+								<img src="{{asset('assets/img/home-images/paris-logo.png')}}" alt="Japan paris">
+							</div>
+
+							<div class="shop-carousel-item">
+								<img src="{{asset('assets/img/home-images/Comic_Con_Paris_Logo.svg')}}" alt="Comicon paris">
+
+							</div>
+
+							<div class="shop-carousel-item">
+								<img src="{{asset('assets/img/home-images/logo_flat_small.png')}}" alt="epitanime paris">
+							</div>
+
+							<div class="shop-carousel-item">
+								<img src="/uni-watch/public/assets/images/shop-carousel/shop-w6.png" alt="watch">
+							</div>
+
 						</div>
-						<button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Previous</span>
-						</button>
-						<button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-							<span class="carousel-control-next-icon" aria-hidden="true"></span>
-							<span class="visually-hidden">Next</span>
-						</button>
+
+
 					</div>
 
 
-					<p>un carousel de commentaires</p>
-
 				</div>
+				{# fin carousel commentaires #}
+			</section>
+			<h5>🌌 Donc entrez dans l’univers de Graphik Galaxy et laissez votre passion vous guider ! 🌌</h5>
+
+			<i class="fa-solid fa-hand-spock"></i>
+			<i class="fa-solid fa-jedi"></i>
 
 
-			</div>
-			{# fin carousel commentaires #}
-		</section>
-		<h5>🌌 Donc entrez dans l’univers de Graphik Galaxy et laissez votre passion vous guider ! 🌌</h5>
-
-		<i class="fa-solid fa-hand-spock"></i>
-		<i class="fa-solid fa-jedi"></i>
-
-
+		</div>
 	</div>
-</div>{% endblock %}
+{% endblock %}
