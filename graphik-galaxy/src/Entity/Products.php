@@ -40,8 +40,6 @@ class Products
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
 
- 
-
 
     /**
      * @var Collection<int, Commentaires>
@@ -53,15 +51,15 @@ class Products
     private ?int $stocks = null;
 
     /**
-     * @var Collection<int, Commande>
+     * @var Collection<int, CommandeProduits>
      */
-    #[ORM\ManyToMany(targetEntity: Commande::class, mappedBy: 'produits')]
-    private Collection $commandes;
+    #[ORM\OneToMany(targetEntity: CommandeProduits::class, mappedBy: 'produits')]
+    private Collection $commandeProduits;
 
     public function __construct()
     {
         $this->commentaire = new ArrayCollection();
-        $this->commandes = new ArrayCollection();
+        $this->commandeProduits = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -208,28 +206,33 @@ class Products
         return $this;
     }
 
+
+
     /**
-     * @return Collection<int, Commande>
+     * @return Collection<int, CommandeProduits>
      */
-    public function getCommandes(): Collection
+    public function getCommandeProduits(): Collection
     {
-        return $this->commandes;
+        return $this->commandeProduits;
     }
 
-    public function addCommande(Commande $commande): static
+    public function addCommandeProduit(CommandeProduits $commandeProduit): static
     {
-        if (!$this->commandes->contains($commande)) {
-            $this->commandes->add($commande);
-            $commande->addProduit($this);
+        if (!$this->commandeProduits->contains($commandeProduit)) {
+            $this->commandeProduits->add($commandeProduit);
+            $commandeProduit->setProduits($this);
         }
 
         return $this;
     }
 
-    public function removeCommande(Commande $commande): static
+    public function removeCommandeProduit(CommandeProduits $commandeProduit): static
     {
-        if ($this->commandes->removeElement($commande)) {
-            $commande->removeProduit($this);
+        if ($this->commandeProduits->removeElement($commandeProduit)) {
+            // set the owning side to null (unless already changed)
+            if ($commandeProduit->getProduits() === $this) {
+                $commandeProduit->setProduits(null);
+            }
         }
 
         return $this;

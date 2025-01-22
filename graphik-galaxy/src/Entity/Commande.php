@@ -20,18 +20,24 @@ class Commande
     #[ORM\JoinColumn(nullable: false)]
     private ?User $user = null;
 
-    /**
-     * @var Collection<int, Products>
-     */
-    #[ORM\ManyToMany(targetEntity: Products::class, inversedBy: 'commandes')]
-    private Collection $produits;
-
     #[ORM\Column(type: Types::DATE_MUTABLE)]
     private ?\DateTimeInterface $date = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $statut = null;
+
+    #[ORM\Column]
+    private ?float $total = null;
+
+    /**
+     * @var Collection<int, CommandeProduits>
+     */
+    #[ORM\OneToMany(targetEntity: CommandeProduits::class, mappedBy: 'commande')]
+    private Collection $commandeProduits;
+
     public function __construct()
     {
-        $this->produits = new ArrayCollection();
+        $this->commandeProduits = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -51,30 +57,6 @@ class Commande
         return $this;
     }
 
-    /**
-     * @return Collection<int, Products>
-     */
-    public function getProduits(): Collection
-    {
-        return $this->produits;
-    }
-
-    public function addProduit(Products $produit): static
-    {
-        if (!$this->produits->contains($produit)) {
-            $this->produits->add($produit);
-        }
-
-        return $this;
-    }
-
-    public function removeProduit(Products $produit): static
-    {
-        $this->produits->removeElement($produit);
-
-        return $this;
-    }
-
     public function getDate(): ?\DateTimeInterface
     {
         return $this->date;
@@ -83,6 +65,60 @@ class Commande
     public function setDate(\DateTimeInterface $date): static
     {
         $this->date = $date;
+
+        return $this;
+    }
+
+    public function getStatut(): ?string
+    {
+        return $this->statut;
+    }
+
+    public function setStatut(string $statut): static
+    {
+        $this->statut = $statut;
+
+        return $this;
+    }
+
+    public function getTotal(): ?float
+    {
+        return $this->total;
+    }
+
+    public function setTotal(float $total): static
+    {
+        $this->total = $total;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, CommandeProduits>
+     */
+    public function getCommandeProduits(): Collection
+    {
+        return $this->commandeProduits;
+    }
+
+    public function addCommandeProduit(CommandeProduits $commandeProduit): static
+    {
+        if (!$this->commandeProduits->contains($commandeProduit)) {
+            $this->commandeProduits->add($commandeProduit);
+            $commandeProduit->setCommande($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCommandeProduit(CommandeProduits $commandeProduit): static
+    {
+        if ($this->commandeProduits->removeElement($commandeProduit)) {
+            // set the owning side to null (unless already changed)
+            if ($commandeProduit->getCommande() === $this) {
+                $commandeProduit->setCommande(null);
+            }
+        }
 
         return $this;
     }
