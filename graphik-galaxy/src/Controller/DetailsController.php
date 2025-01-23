@@ -25,6 +25,4 @@ class DetailsController extends AbstractController
 }
 class CommentairesController extends DetailsController{
 
-
-
 }

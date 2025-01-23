@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Details du produit
-{% endblock %}
+{% block title %}Details du produit{% endblock %}
 
 {% block body %}
 
@@ -20,11 +19,20 @@
 				<h4>Genre</h4>
 				<h5 class="produit-synopsis">{{produit.genre}}</h5>
 				<h6 class="produit-prix">{{produit.prix}}€</h6>
-				<div class="stock-ok">
-					<span class="ok">
-						<i class="fa-solid fa-check"></i>
-						En stock
-					</span>
+
+				<div class="stock-statut">
+
+					{% if produit.stocks >= 0 %}
+						<span class="en-stock">
+							<i class="fa-solid fa-check"></i>
+							En stock
+						</span>
+					{% else %}
+						<span class="rupture-stock">
+							<i class="fa-solid fa-check"></i>
+							Plus en stock
+						</span>
+					{% endif %}
 
 				</div>
 
