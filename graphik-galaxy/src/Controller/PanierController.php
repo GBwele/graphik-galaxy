@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Products;
 use App\Repository\ProductsRepository;
 use Doctrine\ORM\EntityManager;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,7 +17,7 @@ use Symfony\Component\Routing\Attribute\Route;
 class PanierController extends AbstractController
 {
     #[Route('/panier/ajout', name: 'app_addpanier')]
-    public function ajoutPanier(Request $request, ProductsRepository $productsRepository, SessionInterface $session EntityManager $entityManager): JsonResponse
+    public function ajoutPanier(Request $request, ProductsRepository $productsRepository, SessionInterface $session, EntityManagerInterface $entityManager): JsonResponse
     {
 
         $result = json_decode($request->getContent(), true);
@@ -60,10 +61,6 @@ class PanierController extends AbstractController
         $entityManager->persist($product);
         $entityManager->flush();
 
-
-
-
-
         return new JsonResponse(
             [
                 'success' => 'Produit ajouté au panier',
@@ -101,19 +98,33 @@ class PanierController extends AbstractController
 
     #[Route('/panier/supprimer', name: 'app_removepanier')]
 
-    public function supprimerPanier(Request $request, SessionInterface $session): JsonResponse
+    public function supprimerPanier(Request $request, SessionInterface $session, EntityManagerInterface $entityManager, ProductsRepository $productsRepository): JsonResponse
     {
 
         $result = json_decode($request->getContent(), true);
         $productId = $result['id'];
-
         $cart = $session->get('cart', []);
 
         if (isset($cart[$productId])) {
+
+            //  quantité a mettre en stock récupérée
+            $quantityRestoration = $cart[$productId]['quantity'];
+
+
+            $product = $productsRepository->find($productId);
+            $product->setStocks($product->getStocks() + $quantityRestoration);
+            $entityManager->persist($product);
+            $entityManager->flush();
+
+
+            // suppression panier
             unset($cart[$productId]);
             $session->set('cart', $cart);
             $nb = count($cart);
             $session->set('nb', $nb);
+
+
+            // prix total
             $prixTotal = 0;
             foreach ($cart as $c) {
                 $prixTotal += $c['price'] * $c['quantity'];
@@ -131,7 +142,7 @@ class PanierController extends AbstractController
 
 
     #[Route('/panier/update-quantite', name: 'app_update_quantity')]
-    public function updateQuantite(Request $request, SessionInterface $session, ProductsRepository $productsRepository): JsonResponse
+    public function updateQuantite(Request $request, SessionInterface $session, ProductsRepository $productsRepository, EntityManagerInterface $entityManager): JsonResponse
     {
         // Récupération des données envoyées
         $data = json_decode($request->getContent(), true);
@@ -145,32 +156,45 @@ class PanierController extends AbstractController
                 'status' => 'error'
             ], 400);
         }
+
         // modifications updateQuantite
         $product = $productsRepository->find($productId);
-
         if (!$product) {
             return new JsonResponse(['error' => 'Produit non trouvé'], 404);
         }
 
-        if ($quantity > $product->getStocks()) {
-
-            return new JsonResponse([
-                'error' => 'Stock insuffisant',
-                'stockDisponible' => $product->getStocks()
-            ], 400);
-        }
-
-
+        // Vérification si le produit existe dans le panier+
         // Récupération du panier
         $cart = $session->get('cart', []);
-
-        // Vérification si le produit existe dans le panier
         if (!isset($cart[$productId])) {
             return new JsonResponse([
                 'error' => 'Produit non trouvé dans le panier',
                 'status' => 'error'
             ], 404);
         }
+        
+        
+        if ($quantity > $product->getStocks()) {
+            
+            return new JsonResponse([
+                'error' => 'Stock insuffisant',
+                'stockDisponible' => $product->getStocks()
+            ], 400);
+        }
+        
+        // ancienne quantité avant modification stockée
+        $previousQuantity = $cart[$productId]['quantity'];
+   
+        // Calcule la différence pour ajuster le stock
+        $difference = (int)$quantity - $previousQuantity;
+
+        // Mise à jour du stock : si difference positive = retrait de stock, si négative = ajout
+        $product->setStocks($product->getStocks() - $difference);
+        $entityManager->persist($product);
+        $entityManager->flush();
+
+     
+
 
         // Mise à jour de la quantité
         $cart[$productId]['quantity'] = (int)$quantity;
@@ -181,6 +205,7 @@ class PanierController extends AbstractController
         foreach ($cart as $item) {
             $prixTotal += $item['price'] * $item['quantity'];
         }
+
 
         // Retour des nouvelles données
         return new JsonResponse([
