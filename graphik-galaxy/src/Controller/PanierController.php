@@ -5,6 +5,8 @@ namespace App\Controller;
 use App\Entity\Products;
 use App\Repository\ProductsRepository;
 use Doctrine\ORM\EntityManager;
+use App\Entity\Commande;
+use App\Entity\CommandeProduits;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
@@ -217,11 +219,39 @@ class PanierController extends AbstractController
     }
 
     #[Route('/panier/checkout', name: 'app_checkout')]
-    public function checkoutVue(request $request): Response
+    public function checkoutVue(request $request,EntityManagerInterface $entityManager): Response
     {
+        $cart = $request->getSession()->get('cart', []);
         $prixTotal = $request->getSession()->get('prixTotal', 0);
 
-        // ... utilisation de $prixTotal ...
-        return $this->redirectToRoute('app_payment');
+
+        $commande = new Commande();
+        $commande->setUser($this->getUser());
+        $commande->setDate(new \DateTime());
+        $commande->setTotal($prixTotal); 
+        $commande->setStatut('Validée'); 
+
+
+        foreach ($cart as $id =>$item){
+
+            $commandeProduit = new CommandeProduits();
+            $commandeProduit->setCommande($commande);
+            $commandeProduit->setProduits($entityManager->getReference(Products::class, $id));
+            $commandeProduit->setQuantité($item['quantity']);
+            $entityManager->persist($commandeProduit);
+
+        }
+
+        $entityManager->persist($commande);
+        $entityManager->flush();
+
+
+        $request->getSession()->remove('cart');
+        $request->getSession()->set('nb',0);
+
+
+
+
+        return $this->redirectToRoute('commande_succes');
     }
 }

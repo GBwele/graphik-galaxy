@@ -19,4 +19,11 @@ class PaymentController extends AbstractController
             'checkoutTotal' => $prixTotal,
         ]);
     }
+
+    #[Route('/commande/succes', name: 'commande_succes')]
+
+    public function success(): Response
+    {
+        return $this->render('commande/success.html.twig');
+    }
 }

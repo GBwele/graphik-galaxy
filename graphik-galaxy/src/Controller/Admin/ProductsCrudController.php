@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use Faker\Core\Number;
 
@@ -34,7 +35,7 @@ class ProductsCrudController extends AbstractCrudController
             ->setUploadDir('public/assets/img')
             ->setRequired(true),
             TextareaField::new('description'),
-            NumberField::new('stocks')
+            IntegerField::new('stocks', 'Stocks disponibles'),
         
         ];
     }

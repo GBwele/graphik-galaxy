@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Paiement Réussi
+{% endblock %}
+
+{% block body %}
+
+	<!-- Message de confirmation -->
+	<div class="row justify-content-center mt-4" >
+		<div class="col-md-6">
+			<div class="alert alert-success text-center">
+				<i class="fas fa-check-circle fa-2x mb-3"></i>
+				<h4>Paiement confirmé !</h4>
+				<p>Votre commande a été validée avec succès.</p>
+				<p>Merci pour votre achat.</p>
+
+				<a href="{{ path('app_home') }}" class="btn btn-primary mt-3">
+					Retour à l'accueil
+				</a>
+			</div>
+		</div>
+	</div>
+{% endblock %}
