@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Details du produit{% endblock %}
+{% block title %}Details du produit
+{% endblock %}
 
 {% block body %}
 
@@ -37,9 +38,8 @@
 				</div>
 
 				<div class="buttons">
-					<a href="">
-						<button class="ajoutPanier">ajouter au panier</button>
-					</a>
+					<button class="add_panier" onclick="ajoutPanier(event, {{produit.id}})">ajouter au panier</button>
+
 
 					<a href="{{path('app_panier')}}">
 						<button class="see_panier">voir mon panier</button>
