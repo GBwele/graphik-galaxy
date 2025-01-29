@@ -1,6 +1,7 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Votre Panier{% endblock %}
+{% block title %}Votre Panier
+{% endblock %}
 
 {% block body %}
 	{% if (app.user is empty) %}
@@ -46,6 +47,8 @@
 									<td>{{ produit.name }}</td>
 									<td>
 										<input type="number" onchange="updateQuantity(event, '{{ id }}')" class="quantity" min="1" value="{{ produit.quantity }}">
+										<span id="panier_stock-{{id}}" style="color:red; display:none; transition: opacity 0.3s ease;">produit non disponible, pas assez de stocks （；´д｀）ゞ</span>
+
 
 									</td>
 									<td>{{ produit.price }}€</td>
@@ -76,12 +79,12 @@
 </p>
 </div>
 
+{% if cart is not empty and app.user %}
 
-
-<div class="checkout">
-	<a href="{{ path('app_payment')}}">checkout</a>
+<div class="checkout ">
+	<a href="{{ path('app_payment')}}">Proceder au paiement</a>
 </div>
-
-
+{% endif %}
 
 {% endblock %}
+
