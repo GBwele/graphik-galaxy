@@ -3,7 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Contact;
+use Doctrine\DBAL\Types\TextType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -13,6 +15,10 @@ class ContactType extends AbstractType
     {
         $builder
             ->add('field_name')
+            ->add('nom', TextType::class)
+            ->add('email', EmailType::class)
+            ->add('sujet', TextType::class)
+            ->add('message', TextType::class)
         ;
     }
 

@@ -1,7 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Votre Panier
-{% endblock %}
+{% block title %}Votre Panier{% endblock %}
 
 {% block body %}
 	{% if (app.user is empty) %}
@@ -59,22 +58,13 @@
 							{% endfor %}
 						</tbody>
 					</table>
-
-
-					<h4>prix total:
-						<span id="absolut-total">{{prixTotal}}€</span>
-					</h4>
+					<h4>prix total:<span id="absolut-total">{{prixTotal}}€</span></h4>
 					<br>
 					<hr>
 				{% endif %}
 			{% endif %}
-
 		</div>
-
-
 	</tbody>
-
-
 </table>
 </p>
 </div>
