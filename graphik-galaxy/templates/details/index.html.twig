@@ -53,7 +53,42 @@
 		</div>
 
 
-	</div>
+		<div class="commentaires-section">
+			<h3>L'avis des clients</h3>
 
 
-{% endblock %}
+			{% if app.user %}
+				{{ form_start(commentForm, {'attr': {'class': 'comment-form'}}) }}
+				{{ form_widget(commentForm) }}
+				<button type="submit" class="btn btn-primary">Envoyer</button>
+				{{ form_end(commentForm) }}
+			{% else %}
+				<p>Veuillez vous
+					<a href="{{ path('app_login') }}">connecter</a>
+					pour laisser un commentaire.</p>
+			{% endif %}
+
+			<div class="commentaires-list mt-4">
+				{% if commentaires|length > 0 %}
+					{% for commentaire in commentaires %}
+						<div class="commentaire-item mb-3">
+							<div class="commentaire-header">
+								<strong>{{ commentaire.user.username }}</strong>
+								<small>{{ commentaire.dates|date('d/m/Y H:i') }}</small>
+							</div>
+							<div class="commentaire-content">
+								{{ commentaire.message }}
+							</div>
+						</div>
+					{% endfor %}
+				{% else %}
+					<p>Aucun commentaire pour ce produit.</p>
+				{% endif %}
+
+
+			</div>
+
+		</div>
+
+
+	{% endblock %}

@@ -8,9 +8,7 @@
 
 		<div class="main">
 			<h2>Bienvenue dans l'univers de Graphik Galaxy 🌌</h2>
-			<p style="width: 75%;
-																				    color: aliceblue;
-																				    margin: 12px auto;">
+			<p>
 				Chez Graphik Galaxy, nous vous invitons à plonger dans un monde rempli de couleurs, d’histoires captivantes et de héros légendaires. Que vous soyez un passionné de mangas, un collectionneur de comics ou simplement à la recherche de goodies uniques pour compléter votre collection, vous êtes au bon endroit !</p>
 
 
@@ -149,13 +147,47 @@
 
 				</div>
 				{# fin carousel commentaires #}
+
+
+<section class="derniers-avis">
+
+<div class="avis-carousel">
+
+{% if derniersCommentaires|length > 0 %}
+	{% for commentaire in derniersCommentaires %}
+
+	<div class="avis">
+	<div class="avis-header">
+		<div class="avis-user">
+		<strong>
+		{{commentaire.user.username}}
+		</strong>
+		<small>Pour <a href="{{path('app_details',{'id': commentaire.products.id })}}">{{commentaire.products.nom}}</a></small>
+		<div class="avis-date">{{ commentaire.dates|date('d/m/Y') }}</div>
+		</div>
+	</div>
+	<div class="avis-content">
+	{{commentaire.message}}
+	</div>
+</div>
+
+	{% endfor %}
+	{% else %}
+	<p>Aucun avis.</p>
+{% endif %}
+
+</div>
+
+
 			</section>
-			<h5>🌌 Donc entrez dans l’univers de Graphik Galaxy et laissez votre passion vous guider ! 🌌</h5>
+
+
+			<h6>🌌 Entrez dans l’univers de Graphik Galaxy et laissez votre passion vous guider ! 🌌</h6>
 
 			<i class="fa-solid fa-hand-spock"></i>
 			<i class="fa-solid fa-jedi"></i>
 
-
 		</div>
 	</div>
+
 {% endblock %}
