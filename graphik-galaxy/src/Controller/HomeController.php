@@ -15,7 +15,8 @@ class HomeController extends AbstractController
     {
         $derniersProduits = $productsRepository->findBy([], ['id' => 'DESC'], 4);
 
-        $derniersCommentaires= $commentairesRepository->findCommentaires(); 
+        $derniersCommentaires = $commentairesRepository->findBy([], ['dates' => 'DESC'], 5);
+
 
         return $this->render('home/index.html.twig', [
             'controller_name' => 'HomeController',

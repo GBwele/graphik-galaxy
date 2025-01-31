@@ -24,12 +24,15 @@ class ContactController extends AbstractController
 
             $entityManager->persist($contact);
             $entityManager->flush();
+
+            $this->addFlash('success', 'Votre message est envoyé !! ');
+            return $this->redirectToRoute('app_contact');
         }
 
 
 
         return $this->render('contact/index.html.twig', [
-            'controller_name' => 'ContactController',
+            'form' => $form->createView(),
         ]);
     }
 }
