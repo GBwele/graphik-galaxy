@@ -17,7 +17,7 @@
 
 			<div class="details_description">
 				<h5 class="produit-synopsis">{{produit.description}}</h5>
-				<h4>Genre</h4>
+				<h4 id="genre">Genre</h4>
 				<h5 class="produit-synopsis">{{produit.genre}}</h5>
 				<h6 class="produit-prix">{{produit.prix}}€</h6>
 
@@ -38,7 +38,7 @@
 				</div>
 
 				<div class="buttons">
-					<button class="add_panier" onclick="ajoutPanier(event, {{produit.id}})">ajouter au panier</button>
+					<button class="btn add_panier" onclick="ajoutPanier(event, {{produit.id}})">ajouter au panier</button>
 
 
 					<a href="{{path('app_panier')}}">
