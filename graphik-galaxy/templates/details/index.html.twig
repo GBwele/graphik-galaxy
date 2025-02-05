@@ -16,11 +16,24 @@
 			</div>
 
 			<div class="details_description">
+				<h2>Synopsis</h2>
 				<h5 class="produit-synopsis">{{produit.description}}</h5>
-				<h4 id="genre">Genre</h4>
-				<h5 class="produit-synopsis">{{produit.genre}}</h5>
-				<h6 class="produit-prix">{{produit.prix}}€</h6>
 
+
+				{% if produit.categorie == 'Mangas' or produit.categorie == 'Comics' %}
+
+
+					<h4 id="genre">Genre</h4>
+					<h5 class="produit-synopsis">{{produit.genre}}</h5>
+				{% else %}
+
+
+					<h4 id="genre">Taille</h4>
+					<h5 class="produit-synopsis">{{produit.taille}}CM</h5>
+
+				{% endif %}
+				<h4>Prix</h4>
+				<h6 class="produit-prix">{{produit.prix}}€</h6>
 				<div class="stock-statut">
 
 					{% if produit.stocks > 0 %}
