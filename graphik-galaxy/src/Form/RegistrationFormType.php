@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\User;        
+use App\Entity\User;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
@@ -21,35 +21,61 @@ class RegistrationFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('Firstname', TextType::class)
-            ->add('lastname', TextType::class)
-            ->add('username', TextType::class)
+            ->add('Firstname', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Prénom'
+                ]
+            ])
+            ->add('lastname', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Nom'
+                ]
+            ])
+            ->add('username', TextType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Surnom'
+                ]
+            ])
             ->add('age', DateType::class, [
-            'widget' => 'single_text',
-            'html5' => true,
-            'years' => range(1900, date('Y')),
+                'label' => false,
+                'widget' => 'single_text',
+                'html5' => true,
+                'years' => range(1900, date('Y')),
             ])
 
-            ->add('email', EmailType::class)
+            ->add('email', EmailType::class, [
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'Votre Mail'
+                ]
+            ])
             ->add('agreeTerms', CheckboxType::class, [
                 'mapped' => false,
                 'constraints' => [
                     new IsTrue([
-                        'message' => 'You should agree to our terms.',
+                        'message' => 'Vous devez accepter les termes! :).',
                     ]),
                 ],
             ])
             ->add('plainPassword', PasswordType::class, [
-            
+
                 'mapped' => false,
-                'attr' => ['autocomplete' => 'new-password'],
+                'label' => false,
+                'attr' => [
+
+                    'placeholder' => 'Votre Mot de Passe',
+                    'autocomplete' => 'new-password'
+                ],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
                     ]),
                     new Length([
                         'min' => 6,
-                        'minMessage' => 'Your password should be at least {{ limit }} characters',
+                        'minMessage' => '! Le mot de passe doit être de {{ limit }} caractères !',
                         // max length allowed by Symfony for security reasons
                         'max' => 4096,
                     ]),
