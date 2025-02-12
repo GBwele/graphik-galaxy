@@ -14,9 +14,9 @@ class CommentaireType extends AbstractType
     {
         $builder
             ->add('message', TextareaType::class, [
-                'label' => 'Votre avis',
+                'label' => false,
                 'attr' => [
-                    'placeholder' => 'Partagez votre avis sur ce produit...',
+                    'placeholder' => 'Donnez votre avis sur ce produit...',
                     'rows' => 5
                 ]
             ]);

@@ -26,7 +26,7 @@ class PaymentController extends AbstractController
         ]);
     }
 
-    #[Route('/commande/succes', name: 'commande_succes')]
+    #[Route('/commande/succes', name: 'commande_success')]
 
     public function success(request $request, EntityManagerInterface $entityManager): Response
     { 

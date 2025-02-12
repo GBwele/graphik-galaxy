@@ -9,7 +9,7 @@
 
 		<div class="user">
 			{% if app.user %}
-				<h6>bienvenue,
+				<h6>Bienvenue,
 					{{app.user.username}}</h6>
 				{% if is_granted('ROLE_ADMIN')  %}
 					<a href="{{path('admin')}}">

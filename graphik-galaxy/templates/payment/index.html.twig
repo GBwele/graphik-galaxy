@@ -1,84 +1,90 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Paiement{% endblock %}
+{% block title %}Paiement
+{% endblock %}
 
 {% block body %}
+	<div id="full">
 
 
-	{% set prixTotal = app.session.get('cart') %}
+		{% set prixTotal = app.session.get('cart') %}
 
 
-	<body>
-		<div class="main_paiement">
+		<body>
+			<div class="main_paiement">
 
 
-			<h1>Paiement</h1>
+				<h1>Paiement</h1>
 
-			<h3>choissisez votre mode de paiement:</h3>
+				<h3>choissisez votre mode de paiement:</h3>
 
-			<div
-				class="container my-5">
-				<!-- En-tête du panier -->
-				<div class="text-center mb-4">
-					<h2>Finaliser votre commande</h2>
-					<p>Total à payer:
-						<strong>{{ checkoutTotal }}€</strong>
-					</p>
-				</div>
-
-				<!-- Boutons de choix de paiement -->
-				<div class="row justify-content-center mb-4">
-					<div class="col-md-6 text-center">
-						<button id="paypalBtn" class="btn btn-primary me-3">
-							<i class="fab fa-paypal me-2"></i>Payer avec PayPal
-						</button>
-						<button id="cardBtn" class="btn btn-outline-primary" onclick="window.location.href='{{ path('commande_succes') }}'">
-
-							<i class="fas fa-credit-card me-2"></i>Payer par carte
-						</button>
+				<div
+					class="container my-5">
+					<!-- En-tête du panier -->
+					<div class="text-center mb-4">
+						<h2>Finaliser votre commande</h2>
+						<p>Total à payer:
+							<strong>{{ checkoutTotal }}€</strong>
+						</p>
 					</div>
-				</div>
 
-				<!-- Formulaire de carte -->
-				<div id="cardForm" id="paymentForm" class="row justify-content-center" style="display: none;">
-					<div class="col-md-6">
-						<div class="card">
-							<div class="card-body">
-								<form id="paymentForm">
-									<div class="mb-3">
-										<label for="name" class="form-label">Nom complet</label>
-										<input type="text" class="form-control" id="name" required>
-									</div>
+					<!-- Boutons de choix de paiement -->
+					<div class="row justify-content-center mb-4">
+						<div class="col-md-6 text-center">
+							<button id="paypalBtn" class="btn btn-primary me-3">
+								<a href="{{ path('commande_success') }}">
+									<i class="fab fa-paypal me-2"></i>Payer avec PayPal
+								</a>
+							</button>
+							<button id="cardBtn" class="btn btn-outline-primary" >
 
-									<div class="mb-3">
-										<label for="cardNumber" class="form-label">Numéro de carte</label>
-										<input type="text" class="form-control" id="cardNumber" pattern="[0-9]{16}" maxlength="16" required>
-									</div>
+								<i class="fas fa-credit-card me-2"></i>Payer par carte
+							</button>
+						</div>
+					</div>
 
-									<div class="row">
-										<div class="col-md-6 mb-3">
-											<label for="expiry" class="form-label">Date d'expiration</label>
-											<input type="text" class="form-control" id="expiry" placeholder="MM/AA" maxlength="5" required>
+					<!-- Formulaire de carte -->
+					<div id="cardForm" id="paymentForm" class="row justify-content-center" style="display: none;">
+						<div class="col-md-6">
+							<div class="card">
+								<div class="card-body">
+									<form id="paymentForm">
+										<div class="mb-3">
+											<label for="name" class="form-label">Nom complet</label>
+											<input type="text" class="form-control" id="name" required>
 										</div>
 
-										<div class="col-md-6 mb-3">
-											<label for="cvv" class="form-label">Code de sécurité</label>
-											<input type="text" class="form-control" id="cvv" pattern="[0-9]{3}" maxlength="3" required>
+										<div class="mb-3">
+											<label for="cardNumber" class="form-label">Numéro de carte</label>
+											<input type="text" class="form-control" id="cardNumber" pattern="[0-9]{16}" maxlength="16" required>
 										</div>
-									</div>
 
-									<button type="submit" id="cardValidation" onclick="window.location.href='{{ path('commande_succes') }}'" class="btn btn-success w-100">
+										<div class="row">
+											<div class="col-md-6 mb-3">
+												<label for="expiry" class="form-label">Date d'expiration</label>
+												<input type="text" class="form-control" id="expiry" placeholder="MM/AA" maxlength="5" required>
+											</div>
 
-										<a href="">Confirmer le paiement</a>
-									</button>
-								</form>
+											<div class="col-md-6 mb-3">
+												<label for="cvv" class="form-label">Code de sécurité</label>
+												<input type="text" class="form-control" id="cvv" pattern="[0-9]{3}" maxlength="3" required>
+											</div>
+										</div>
+
+										<button type="submit" id="cardValidation" onclick="window.location.href=''" class="btn btn-success w-100">
+
+											<a href="{{ path('commande_success') }}">Confirmer le paiement</a>
+
+										</button>
+									</form>
+								</div>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
 
-	</body>
+		</body>
+	</div>
 
 {% endblock %}
