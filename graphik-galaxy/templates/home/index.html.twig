@@ -101,10 +101,6 @@
 			<section
 
 
-
-
-
-
 				class="confiance">
 
 				{# carousel commentaires #}
@@ -145,45 +141,47 @@
 				{# fin carousel commentaires #}
 
 
-<section class="derniers-avis">
+				<section class="derniers-avis">
 
-<div class="avis-carousel">
+					<div class="avis-carousel">
 
-{% if derniersCommentaires|length > 0 %}
-	{% for commentaire in derniersCommentaires %}
+						{% if derniersCommentaires|length > 0 %}
+							{% for commentaire in derniersCommentaires %}
 
-	<div class="avis">
-	<div class="avis-header">
-		<div class="avis-user">
-		<strong>
-		{{commentaire.user.username}}
-		</strong>
-		<small>Pour <a href="{{path('app_details',{'id': commentaire.products.id })}}">{{commentaire.products.nom}}</a></small>
-		<div class="avis-date">{{ commentaire.dates|date('d/m/Y') }}</div>
+								<div class="avis">
+									<div class="avis-header">
+										<div class="avis-user">
+											<strong>
+												{{commentaire.user.username}}
+											</strong>
+											<small>Pour
+												<a href="{{path('app_details',{'id': commentaire.products.id })}}">{{commentaire.products.nom}}</a>
+											</small>
+											<div class="avis-date">{{ commentaire.dates|date('d/m/Y') }}</div>
+										</div>
+									</div>
+									<div class="avis-content">
+										{{commentaire.message}}
+									</div>
+								</div>
+
+							{% endfor %}
+						{% else %}
+							<p>Aucun avis.</p>
+						{% endif %}
+
+					</div>
+
+
+				</section>
+
+
+				<h6>🌌 Entrez dans l’univers de Graphik Galaxy et laissez votre passion vous guider ! 🌌</h6>
+
+				<i class="fa-solid fa-hand-spock"></i>
+				<i class="fa-solid fa-jedi"></i>
+
+			</div>
 		</div>
-	</div>
-	<div class="avis-content">
-	{{commentaire.message}}
-	</div>
-</div>
 
-	{% endfor %}
-	{% else %}
-	<p>Aucun avis.</p>
-{% endif %}
-
-</div>
-
-
-			</section>
-
-
-			<h6>🌌 Entrez dans l’univers de Graphik Galaxy et laissez votre passion vous guider ! 🌌</h6>
-
-			<i class="fa-solid fa-hand-spock"></i>
-			<i class="fa-solid fa-jedi"></i>
-
-		</div>
-	</div>
-
-{% endblock %}
+	{% endblock %}
