@@ -29,7 +29,21 @@ class PaymentController extends AbstractController
     #[Route('/commande/succes', name: 'commande_success')]
 
     public function success(request $request, EntityManagerInterface $entityManager): Response
-    { 
+    {
+
+        if (!$this->getUser()) {
+            return $this->redirectToRoute('app_login');
+        }
+
+        // Vérification du panier
+        $cart = $request->getSession()->get('cart', []);
+        if (empty($cart)) {
+            return $this->redirectToRoute('app_home');
+        }
+
+
+
+
             $cart = $request->getSession()->get('cart', []);
             $prixTotal = $request->getSession()->get('prixTotal', 0);
 

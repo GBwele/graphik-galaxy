@@ -5,19 +5,38 @@
 
 {% block body %}
 
-	<!-- Message de confirmation -->
-	<div class="row justify-content-center mt-4">
-		<div class="col-md-6">
-			<div class="alert alert-success text-center">
-				<i class="fas fa-check-circle fa-2x mb-3"></i>
-				<h4>Paiement confirmé !</h4>
-				<p>Votre commande a été validée avec succès.</p>
-				<p>Merci pour votre achat.</p>
+	{% if app.user is empty %}
+		<div id="surpris">
 
-				<a href="{{ path('app_home') }}" class="btn btn-primary mt-3">
-					Retour à l'accueil
-				</a>
+			<div class="chock">
+
+				<h5>Mais?!</h5>
+				<p>que faites vous ici ?<br>
+					si vous vouliez vous connecter,
+				</p>
+				<a href="{{ path('app_login') }}" class="btn btn-primary">faites le ici</a>
+
+
+			</div>
+
+		</div>
+	{% else %}
+
+		<!-- Message de confirmation -->
+		<div class="row justify-content-center mt-4">
+			<div class="col-md-6">
+				<div class="alert alert-success text-center">
+					<i class="fas fa-check-circle fa-2x mb-3"></i>
+					<h4>Paiement confirmé !</h4>
+					<p>Votre commande a été validée avec succès.</p>
+					<p>Merci pour votre achat.</p>
+
+					<a href="{{ path('app_home') }}" class="btn btn-primary mt-3">
+						Retour à l'accueil
+					</a>
+				</div>
 			</div>
 		</div>
-	</div>
+	{% endif %}
+
 {% endblock %}
