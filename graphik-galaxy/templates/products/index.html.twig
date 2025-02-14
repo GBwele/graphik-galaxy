@@ -2,19 +2,15 @@
 
 {% block title %}
 	{{ categorie }}
-
 {% endblock %}
 
 {% block body %}
 	<div id="full">
 
 		<div class="main">
+
 			<div class="{{ classe_banniere }} banner_size" id="haut">
-
-				<h1 id="products_titles">Tous nos
-					{{categorie}}</h1>
-
-
+				<h1 id="products_titles">Tous nos {{categorie}}</h1>
 			</div>
 
 
@@ -55,12 +51,10 @@
 							<a href="{{path('app_details', {id: produit.id})}}"><img src="{{asset('assets/img/' ~ produit.categorie ~ '/' ~ produit.images)}}" alt="{{produit.nom}}" class="produit-image"></a>
 
 							<h4 class="produit-nom">{{produit.nom}}</h4>
-							<h6 class="produit-prix">{{produit.prix}}
-								€</h6>
+							<h6 class="produit-prix">{{produit.prix}}€</h6>
 							<a href="{{path('app_details', {id: produit.id})}}">
 								<button class="btn details">details</button>
 							</a>
-
 
 							<i class="fa-solid fa-cart-plus" class="add_panier" onclick="ajoutPanier(event, {{produit.id}})"></i>
 							<button class="btn bs-btn-bg add_panier" onclick="ajoutPanier(event, {{produit.id}})">ajouter au panier</button>
