@@ -1,0 +1,1337 @@
+/* 
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.4.14,
+* Autoprefixer: v10.4.7
+* Browsers: last 4 version 
+*/
+
+/*********** bases ************/
+
+:root {
+  --bleuNeon: #257ff0;
+  --bleuNeonBtn: #4b95f2;
+ --bleuNeon-lumiere: rgba(20, 247, 255, 0.6)
+
+
+
+  /* --rougeAkira: #e12120; */
+  /* --rougeAkiraBtn: #e22b2a; */
+  --textes: #eaeaea;
+
+  --cards-Sombre: #293346;
+  --validation: #198754;
+  --fond-Sombre: #0e1013;
+}
+/* fonts */
+.chakra-petch-semibold {
+  font-family: "Chakra Petch", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+html,
+body {
+  min-height: 100vh;
+}
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* buttons */
+
+.bs-btn-bg {
+  --bs-btn-border-color: var(--textes) solid 1px;
+  --bs-btn-bg: var(--bleuNeon);
+
+  --bs-btn-hover-bg: var(--textes);
+  --bs-btn-hover-color: var(--bleuNeon);
+}
+
+/* nav ul li */
+
+li {
+  list-style-type: none;
+}
+li a {
+  color: #eaeaea;
+}
+a {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+p {
+  color: var(--textes);
+}
+
+#full {
+  box-shadow: inset 3px 15px 15px -6px rgba(0, 0, 0, 0.32);
+
+  background: #0e1013;
+  background: -moz-linear-gradient(
+    0deg,
+    rgba(14, 16, 19, 1) 0%,
+    rgba(0, 8, 20, 1) 97%,
+    rgba(11, 78, 162, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    0deg,
+    rgba(14, 16, 19, 1) 0%,
+    rgba(0, 8, 20, 1) 97%,
+    rgb(11, 78, 162) 100%
+  );
+  background: linear-gradient(
+    0deg,
+    rgba(14, 16, 19, 1) 0%,
+    rgba(0, 8, 20, 1) 97%,
+    rgba(11, 78, 162, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0e1013",endColorstr="#0b4ea2",GradientType=1);
+}
+.main,
+.main_paiement {
+  color: var(--textes);
+  width: 95%;
+  text-align: center;
+  margin: auto;
+  background-color: #1c222c;
+  border-left: var(--bleuNeon) solid 2px;
+}
+.tableauPanier {
+  display: flexbox;
+  justify-content: space-between;
+  border: var(--bleuNeon) 1px solid;
+  margin: 0 auto;
+  padding: 20px;
+}
+.tableauPanier table {
+  margin: 0 auto;
+}
+.tableauPanier table tr {
+  border-top: var(--bleuNeon) 1px solid;
+}
+.tableauPanier h4 {
+  padding-top: 3%;
+  font-size: 2.5em;
+}
+
+
+.btn-delete {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer; /* Pour montrer que c'est cliquable */
+    color: var(--bs-writing); /* Pour la couleur de l'icône */
+}
+
+.btn-delete:hover {
+    color: var(--bs-primary); /* Effet hover optionnel */
+    transform: scale(1.1); /* Léger effet d'agrandissement au survol */
+    transition: all 0.2s ease; /* Animation fluide */
+}
+
+
+
+
+
+h2,
+h4 {
+  color: var(--bleuNeon) !important;
+}
+button .detail {
+  border-radius: var(--bs-border-radius-sm);
+}
+h1,
+h3,
+h4 {
+  color: var(--textes);
+}
+
+.titreTop {
+  padding: 0 10%;
+}
+main p {
+  color: var(--textes);
+}
+
+/* header */
+
+
+/****** animation header ******/
+
+header {
+
+  position: relative;  /* Important pour le positionnement des effets */
+  min-height: 300px;
+  width: 100%;
+  overflow: hidden;    /* Pour contenir les effets */
+  /* background-image: url(../img/header-footer/bannerheader.jpg); */
+}
+
+.space-tunnel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, #1B2735 0%, #090A0F 100%);
+    perspective: 1000px;
+    z-index: 1;  /* Place l'effet derrière le contenu */
+}
+
+.stars-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    top: 0;
+    left: 0;
+
+}
+
+.star {
+    position: absolute;
+    background: #fff;
+    border-radius: 50%;
+    box-shadow: 
+        0 0 3px #fff,
+        0 0 5px #fff,
+        0 0 7px rgba(255,255,255,0.3);
+    animation: starTravel 3s linear infinite;
+}
+
+.scanlines::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        transparent 0%,
+        transparent 50%,
+        rgba(0, 0, 0, .1) 51%,
+        transparent 52%
+    );
+    background-size: 100% 4px;
+    animation: scanline 10s linear infinite;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Effet vignette */
+.vignette {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, transparent 50%, rgba(0,0,0,0.6) 100%);
+    pointer-events: none;
+    z-index: 3;
+}
+
+
+/* Toutes vos animations */
+@keyframes starTravel {
+    from {
+        transform: translateZ(0) translate(-50%, -50%);
+        opacity: 0;
+    }
+    20% { opacity: 1; }
+    to {
+        transform: translateZ(500px) translate(-50%, -50%);
+        opacity: 0;
+    }
+}
+
+@keyframes scanline {
+    from { transform: translateY(0); }
+    to { transform: translateY(4px); }
+}
+
+
+/****** fin animation header ******/
+
+
+#logo-inscription:before,
+.random:before,
+nav:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* background: rgba(0, 0, 0, 0.3); */
+    backdrop-filter: blur(2px); /* Effet de flou subtil */
+    z-index: -1;
+}
+
+
+#logo-inscription {
+  position: relative;
+  z-index: 10;
+  background: transparent;
+  display: flex;
+  justify-content: space-between;
+}
+#logo-inscription > hr {
+  border: var(--bleuNeon) 2px solid;
+}
+/************************ Navigation ************************/
+
+nav {
+  border-bottom: var(--bleuNeon) 2px solid;
+  box-shadow: 0 0 5px var(--bleuNeon), 0 0 10px var(--bleuNeon-lumiere),inset 0 0 5px var(--bleuNeon-lumiere); 
+  animation: neonBorderPulse 2s infinite;
+  position: relative;
+  z-index: 10;
+}
+
+nav ul {
+  align-items: center;
+  width: 95%;
+  margin: 0 auto;
+  display: inline-flex;
+  justify-content: space-between;
+}
+
+.logo_size {
+  width: 15%;
+  text-align: center;
+}
+.logo {
+  margin: 2.5%;
+}
+
+
+
+/************************ Random taglines ************************/
+.random {
+  position: relative;
+  z-index: 10;
+  /* background: transparent; */
+
+  color: var(--textes);
+  font-family: "Chakra Petch", serif;
+  font-size: 1.8em;
+  text-align: center;
+  transition: 0.6s ease;
+  display: flex;
+  justify-content: center;
+}
+
+/* La classe à appliquer à votre élément */
+
+.typing-effect {
+  position: relative;
+  width: fit-content;
+  margin: 0 auto;
+}
+.typing-effect span {
+  color: var(--textes);
+    visibility: visible;
+    border-right: 3px solid var(--bleuNeon);
+    width: 100%;
+    display: inline-block;
+    white-space: nowrap;
+    padding: 0.5rem;
+    animation: reveal 3s steps(40, end) forwards, blink 0.75s step-end infinite;
+    /* background: linear-gradient(
+        to bottom,
+        rgba(43, 55, 85, 0.3) 0%,
+        rgba(27, 39, 53, 0.3) 100%
+    ); */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  
+}
+
+/* L'animation du texte qui apparaît */
+@keyframes reveal {
+  from {
+    clip-path: inset(0 100% 0 0);
+  }
+  to {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+/* animation curseur clignotement */
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.random hr {
+  color: var(--bleuNeon) 2px solid;
+  text-align: center;
+  margin: 0 auto;
+  width: 95%;
+}
+/************************ Fin Random taglines ************************/
+
+#largeur-carousel {
+  background-color: var(--cards-Sombre);
+  height: 350px;
+}
+#carousel-commentaires {
+  height: 400px;
+}
+
+/************************ connexion inscription ************************/
+/* inscription */
+.enregistrement {
+  width: 100%;
+  background-color: var(--fond-Sombre);
+}
+.enregistrement h1 {
+  border-bottom: var(--bleuNeon) 2px solid;
+  width: 90%;
+}
+
+.form-registration {
+  width: 50%;
+  margin: auto;
+  background-color: var(--cards-Sombre);
+}
+
+.form-registration > h1 {
+  color: var(--textes);
+}
+.connect-enregist {
+  width: 70%;
+}
+
+/* Zone utilisateur */
+
+.connect-enregist,
+.user,
+.user-admin {
+  font-size: 1.3em;
+  display: flex;
+  width: 26%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.user h6 {
+  color: var(--textes);
+}
+
+/************************ Fin Navigation ************************/
+
+/************************ retour haut ************************/
+/* #retour_haut {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: none;
+  background-color: #efc4c4;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  padding: 10px 15px;
+  font-size: 18px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+#retour_haut:hover {
+  background-color: #f7a500;
+} */
+/************************ Fin retour haut ************************/
+
+/*********************** Style général ***********************/
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+.produits_blocks {
+  width: 500px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  padding: 20px;
+}
+
+/*********************** fin test ***********************/
+
+#produits_page {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/*********************** PAGE DETAILS **********************/
+
+#details {
+  background-color: var(--cards-Sombre);
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  border-radius: 2px;
+  /* border-left: var(--bleuNeon) 1px solid;
+  border-right: var(--bleuNeon) 1px solid; */
+  margin: 0 auto;
+}
+#details > .produit-image_description {
+  margin: 0 5%;
+}
+.main_details,
+.main_paiement {
+  background-color: #1f2222;
+}
+
+.produit-nom-details {
+  color: var(--bleuNeon);
+  background-color: #1f2222;
+  padding: 0 5%;
+}
+.produit-image_description {
+  width: 48%;
+}
+.produit-synopsis {
+  padding: 2%;
+  margin: 20px 0 25px 0;
+  text-align: justify;
+  color: var(--textes);
+}
+.commentaire-item {
+  border-top: var(--bleuNeon) 1px solid;
+  box-shadow: inset 0px -7px 9px -2px rgba(0, 0, 0, 0.15);
+}
+.details_description {
+  width: 50%;
+}
+.details_description > h2,
+h4 {
+  border-top: var(--bleuNeon) 2px solid;
+}
+.ajoutPanier .see_panier {
+  height: 45px;
+  border-radius: 16px;
+}
+
+/* Style pour la zone de texte */
+.commentaires-section textarea {
+  width: 100%; /* Prend toute la largeur disponible de son parent */
+  min-height: 150px; /* Hauteur minimale pour le confort d'écriture */
+  padding: 10px; /* Espace intérieur pour le confort */
+  margin-bottom: 15px; /* Espace en dessous */
+  resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
+  border: 1px solid var(--bs-primary); /* Bordure cohérente avec votre thème */
+  background-color: var(--bs-card); /* Fond cohérent */
+  color: var(--bs-writing); /* Couleur du texte */
+}
+
+.commentaire > .commentaire_message {
+  width: -webkit-fill-available;
+}
+commentaire-header > strong {
+  color: var(--bleuNeon);
+}
+.commentaires-section {
+  border-top: var(--bleuNeon) solid 2px;
+  margin: 20px auto;
+  padding: 2%;
+  width: 95%;
+  background-color: var(--cards-Sombre);
+  color: var(--textes);
+}
+
+.commentaires-section h3 {
+  color: var(--bleuNeon);
+}
+
+.commentaires-list .mt-4 {
+  background-color: var(--cards-Sombre);
+}
+
+.stock-ok ok {
+  background-color: #27ae60;
+}
+
+/* details stock */
+.en-stock {
+  color: #2ecc71;
+  background: rgba(46, 204, 113, 0.1);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+.rupture-stock {
+  color: #e74c3c;
+  background: rgba(231, 76, 60, 0.1);
+  padding: 5px 10px;
+  border-radius: 4px;
+}
+.commentaires-list mt-4 {
+  color: var(--cards-Sombre);
+}
+
+/********************** fin PAGE DETAILS **********************/
+
+/* PAGE ACCEUIl */
+
+.qui p {
+  width: 70%;
+  margin: auto;
+}
+
+/* blocks de presentation */
+
+.blocks h4 {
+  padding-top: 2%;
+}
+.titre {
+  padding: 1%;
+}
+
+.block,
+.block2,
+.block3 {
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  width: 95%;
+  /* height: 70vh; */
+  display: flex;
+  gap: 2rem;
+  margin: 2rem auto;
+  padding: 1.5rem;
+  border-radius: 10px;
+  color: azure;
+  background: var(--cards-Sombre);
+}
+
+.text {
+  padding: 1.7rem;
+  flex: 1;
+  line-height: 1.6;
+  font-weight: 400;
+}
+.text p {
+  color: var(--textes);
+  font-size: 1.2rem;
+}
+.box_img img {
+  width: 100%;
+  height: 62vh;
+  max-width: 400px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.block2 > .text {
+  order: 2;
+}
+/* fin blocks de presentation */
+
+/* Carousel front */
+
+/* Carte -  */
+.card {
+  width: 230px; /* Largeur fixe basée sur la taille de Méta-Barons */
+  margin: 10px;
+
+  border: none !important; /* Supprime d'abord toutes les bordures */
+  border-radius: 0 !important; /* Supprime les coins arrondis */
+  border-top: 2px solid var(--bleuNeon) !important; /* Ajoute une bordure uniquement en haut */
+
+  /* border: var(--bleuNeon) 2px solid; */
+}
+
+.card {
+  overflow: hidden;
+  margin: 0 auto;
+}
+.card-img,
+.card-img-top {
+  border-top-left-radius: none !important;
+  border-top-right-radius: none !important;
+}
+
+.card-img-top {
+  height: 320px;
+  width: 100%;
+  -o-object-fit: contain;
+  object-fit: contain;
+  padding: 10px;
+}
+.card-img-top,
+.card-body {
+  background-color: #293346;
+}
+.card-body {
+  padding: 10px;
+}
+
+.card-title {
+  color: var(--textes);
+  font-size: 0.9rem;
+  height: 40px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.card-text {
+  font-weight: 800;
+  color: var(--bleuNeon);
+  text-align: center;
+  font-size: 1.9rem;
+  margin: 10px 0;
+}
+
+.btn {
+  background-color: var(--bleuNeonBtn);
+  border: 3px solid var(--textes);
+  padding: 5px 15px;
+}
+h4 > #genre {
+  color: var(--bleuNeon) !important;
+}
+
+.shop-carousel-list {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1px;
+  width: 100%;
+  height: 100%;
+  overflow-x: auto;
+  flex-wrap: nowrap;
+}
+
+.shop-carousel-item {
+  flex: 0 0 25%;
+  height: 100%;
+}
+
+.shop-carousel-list::-webkit-scrollbar {
+  display: none;
+}
+
+/**************** Carousel commentaires **********************/
+
+.avis-carousel {
+  width: 95%;
+  margin: 2rem auto;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+.avis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.5rem;
+  margin: 1rem;
+  color: var(--textes);
+  background: var(--cards-Sombre);
+  border-radius: 10px;
+  transition: transform 0.3s ease;
+}
+
+.avis-avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  margin-bottom: 1rem;
+  border: 3px solid var(--bleuNeon); /* Utilisation de la couleur du thème */
+}
+
+/* Style pour le contenu de l'avis */
+.avis-content {
+  text-align: center;
+  color: #fff;
+}
+
+/* Style pour le nom de l'utilisateur */
+.avis-username {
+  font-weight: bold;
+  color: var(--bleuNeon);
+  margin: 0.5rem 0;
+}
+
+/* Style pour le texte de l'avis */
+.avis-text {
+  font-style: italic;
+  line-height: 1.6;
+}
+
+/*********************** fin carousel  commentaires ***********************/
+
+/********************** PAGE PRODUITS **********************/
+
+.produit {
+  background-color: var(--cards-Sombre);
+  border-radius: 1px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 250px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.produit:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
+}
+
+.produit-image {
+  max-width: 100%;
+  height: auto;
+  border-top: 2px solid var(--bleuNeon);
+  padding: 10px;
+  -webkit-box-shadow: inset 0px -16px 25px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px -16px 25px 0px rgba(0, 0, 0, 0.2);
+
+  /* max-width: 100%;
+  height: auto;
+  border-bottom: 1px solid var(--bleuNeon);
+  padding: 10px;
+  -webkit-box-shadow: inset 0px -16px 25px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0px -16px 25px 0px rgba(0, 0, 0, 0.2); */
+}
+
+.produit-nom {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 10px 0;
+  color: #333;
+  padding: 0 10px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.produit-prix {
+  font-size: 2.9em;
+  font-weight: bold;
+  color: var(--bleuNeon);
+  margin: 5px 0;
+}
+.details_description > h6.produit-prix {
+  font-size: 4.9em;
+}
+/********************** Bannieres produits **********************/
+
+#products_titles {
+  text-align: center;
+  vertical-align: middle;
+  margin: auto, 0;
+}
+.banner_size {
+  height: 250px;
+  color: #fff;
+}
+
+.ban-goodies {
+  background-image: url(../img/banners/ban1.jpg);
+  background-size: cover;
+  width: 100%;
+}
+.ban-comics {
+  background-image: url(../img/banners/ban2.jpg);
+  width: 100%;
+  background-size: cover;
+}
+.ban-mangas {
+  background-image: url(../img/banners/ban3.jpg);
+  width: 100%;
+  background-size: cover;
+}
+
+.ban-tout {
+  background-image: url(../img/banners/banAll.jpg);
+  width: 100%;
+  background-size: cover;
+}
+/********************** Fin Bannieres produits **********************/
+
+/* Barre de recherches */
+
+/******************************************* FORMULAIRES *******************************************/
+/* messages */
+
+.message-notification {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 0.9;
+  }
+}
+
+/* fin messates  */
+/********************** Form inscription **********************/
+
+/********************** Form connexion ***********************/
+/************************ Fomulaire Login ************************/
+.login {
+  width: 100%;
+  margin: 0 auto;
+  background: var(--fond-Sombre);
+}
+
+.form-control {
+  width: 100%;
+}
+
+.form-login {
+  width: 50%;
+  background-color: var(--cards-Sombre);
+  margin: 0 auto;
+}
+.form-login > input {
+  background-color: var(--cards-Sombre);
+  color: var(--textes);
+  width: 80%;
+  margin: 0 auto;
+}
+.form-login h3 {
+  color: var(--bleuNeon);
+}
+
+.form-login > label {
+  margin-left: 55px;
+}
+.form-login > button {
+  background-color: #333;
+}
+.form-login > button:hover {
+  background-color: #ffffff;
+  color: #333;
+}
+/********************** FIN FORMULAIRES **********************/
+
+/* PANIER */
+.tableauPanier {
+  width: 95%;
+}
+
+/* FORMULAIRE  PAIEMENT */
+
+.container {
+  width: 400px;
+  margin: 100px auto;
+  border-radius: 5px;
+  border: 1px solid #95a5a6;
+  color: #515751;
+  box-shadow: 4px 4px 6px 0px rgba(149, 165, 166, 0.75);
+}
+
+h1 {
+  color: #515751;
+  margin: 0;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: normal;
+}
+
+.form-top {
+  padding-top: 20px;
+  text-align: left;
+}
+
+select.form-control:hover {
+  background: #f8f9f9;
+}
+
+option select.form-control :hover {
+  background: #f8f9f9;
+}
+
+input {
+  font-size: 18px;
+  color: var(--textes);
+  background-color: var(--cards-Sombre);
+  width: 90%;
+  margin: 0 auto;
+  padding: 13px 13px 13px 20px;
+  box-sizing: border-box;
+  border: 3px solid rgba(0, 0, 0, 0);
+}
+
+input:hover {
+  -webkit-box-shadow: inset 4px 2px 28px -2px rgba(0, 0, 0, 0.23);
+  box-shadow: inset 4px 2px 28px -2px rgba(0, 0, 0, 0.23);
+  border-bottom: var(--bleuNeon) solid 2px;
+  animation: ease-in 0.2s;
+}
+
+.registration_form div input {
+  margin: 0 auto;
+}
+
+.registration_form > label.required {
+  color: var(--textes);
+}
+.btn-register {
+  border-radius: 10px;
+  color: var(--textes);
+  border: var(--textes) 2px solid;
+  background: transparent;
+}
+.btn-register:hover {
+  transition: all ease-in 0.2s;
+  border: var(--bleuNeon) 2px solid;
+  color: var(--textes);
+  background-color: var(--bleuNeon);
+}
+#pay-now {
+  font-size: 20px;
+  color: #f7f7f7;
+  background-color: var(--bleuNeon);
+  width: 100%;
+  padding: 13px 13px 13px 20px;
+  box-sizing: border-box;
+  border: 3px solid rgba(0, 0, 0, 0);
+  transition: all 0.3s linear;
+}
+
+#pay-now a {
+  text-decoration: none;
+  color: #4b6cb7;
+}
+
+#pay-now:hover {
+  color: #f7f7f7;
+  background: #27ae60;
+  outline: none;
+  transition: all 0.3s linear;
+}
+
+/********************************************* FOOTER *********************************************/
+.footer {
+  background-color: var(--cards-Sombre);
+  width: 100%;
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+.footer {
+  border-top: var(--bleuNeon) 2px solid;
+}
+.footer > div {
+  border-top: var(--bleuNeon) 2px solid;
+  -webkit-box-shadow: inset 0px -7px 9px -2px rgba(0, 0, 0, 0.15);
+  box-shadow: inset 0px -7px 9px -2px rgba(0, 0, 0, 0.15);
+  width: 30%;
+  padding: 1rem;
+  margin: 1rem 0;
+}
+.footer > div > h3 {
+  color: var(--bleuNeon);
+}
+
+/* Médias sociaux */
+.medias ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: flex-start;
+}
+
+.medias ul li a {
+  font-size: 1.5rem;
+  transition: 0.3s ease;
+}
+
+.medias ul li a:hover {
+  color: var(--bleuNeon);
+}
+
+.quick_links ul li,
+.medias ul li {
+  margin: 0.8rem 0;
+}
+.quick_links ul li a:hover {
+  color: var(--bleuNeon);
+  transition: 0.3s ease;
+}
+
+/* Ligne finale */
+.final_footer_line {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  padding: 1rem 0;
+  background-color: #222; /* Légèrement plus foncé */
+  margin: 0;
+}
+
+.final_footer_line li a {
+  color: aliceblue;
+  border-top: var(--bleuNeon);
+  text-decoration: none;
+  transition: 0.3s ease;
+}
+
+.final_footer_line li a:hover {
+  color: var(--bleuNeon);
+}
+
+/********************************************* FIN FOOTER *********************************************/
+#explications-pages > p {
+  text-align: justify center;
+  width: 95%;
+  margin: 2% auto;
+}
+
+/*********************** RESPONSIVE ******************************/
+
+@media (max-width: 578px) {
+  /* acceuil */
+
+  #logo-inscription {
+    flex-direction: column 50%;
+    text-align: center;
+  }
+  .footer {
+    text-align: center;
+    flex-direction: column;
+  }
+  .footer div {
+    width: 90%;
+  }
+  .user {
+    flex-direction: column-reverse;
+  }
+  .card {
+    width: 40%;
+  }
+  .logo_size {
+    width: 20%;
+  }
+  .random {
+    flex-wrap: wrap;
+  }
+  .blocks > .block,
+  .block2,
+  .block3 {
+    flex-direction: column-reverse;
+  }
+}
+
+.navbar-toggler {
+  display: none; /* Caché par défaut sur desktop */
+}
+
+@media (max-width: 991px) {
+  .navbar-toggler {
+    position: absolute;
+    top: 5%;
+    left: 2%;
+
+    display: block;
+    background: none; /* Enlève le fond */
+    border: none; /* Enlève la bordure */
+    color: var(--textes) !important; /* Utilise votre couleur claire */
+    font-size: 2.5rem; /* Taille de l'icône */
+    padding: 1rem;
+  }
+  .navbar-toggler .fa-bars {
+    color: var(--bs-writing) !important;
+    font-size: 1.5em;
+  }
+  #logo-inscription > .user {
+    font-size: 1.2em;
+  }
+  .navbar-toggler:hover {
+    color: var(--bs-primary); /* Change de couleur au survol */
+  }
+  .navbar-toggler:hover .fa-bars {
+    color: var(--bs-primary) !important; /* Votre couleur bleue au survol */
+    transition: color 0.3s ease;
+  }
+
+  nav ul li {
+    margin: 0 1rem;
+  }
+}
+
+.navbar-collapse {
+  transition: all 0.3s ease-in-out;
+}
+
+/* header */
+
+/* .card {
+  border-radius: unset;
+  border: transparent;
+  border-top: var(--bleuNeon) 2px solid;
+  border-bottom: var(--bleuNeon) 2px solid;
+  -webkit-box-shadow: inset 1px -1px 15px -2px rgba(0, 0, 0, 0.62);
+  box-shadow: inset 1px -1px 15px -2px rgba(0, 0, 0, 0.62);
+} */
+/* 
+ @media (max-width: 991px) {
+  html,body{
+    width: 100%;
+  }
+  
+
+
+/* Style des icônes 
+.fa-solid {
+  margin: 0 0.5rem;
+}
+
+.navbar-toggler {
+  width: 12%;
+}
+.navbar-toggler {
+  color: var(--textes);
+}
+.navbar-toggler:hover {
+  color: var(--bleuNeon);
+}
+nav ul li a {
+  font-size: 1.3em;
+}
+/* Hover effects 
+nav ul li a:hover,
+.connect-enregist a:hover,
+.user a:hover,
+.user-admin a:hover {
+  color: var(--bleuNeon);
+  transition: 0.3s ease;
+}
+
+/* acceuil */
+
+/* produits */
+
+/* inscription-connexion */
+
+/* panier 
+
+.acces-interdit_non-utilisateur {
+  margin: 5% 0;
+  padding: 50px 0; /* Ajoute de l'espace vertical 
+  width: 100%; /* Occupe toute la largeur 
+  min-height: 300px;
+  gap: 20px;
+  text-align: center;
+  background-color: var(--fond-Sombre);
+  color: var(--textes);
+}
+
+/* paiement 
+.main_paiement {
+  background-color: #1a1a1a;
+}
+
+#choices {
+  display: flex;
+  color: #000000;
+}
+
+.card {
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.form-control {
+  border-radius: 8px;
+}
+
+.btn {
+  border-radius: 8px;
+  padding: 10px 20px;
+}
+
+.alert {
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.alert i {
+  color: #198754;
+  display: block;
+  margin-bottom: 10px;
+} */
+
+/* Footer */
+
+/* @media (max-width: 991px) {
+  .footer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer > div {
+    width: 90%;
+    margin: 1rem auto;
+  }
+
+  .medias ul {
+    justify-content: center;
+  }
+
+  .final_footer_line {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Adaptation du bouton retour en haut 
+  #retour_haut {
+    bottom: 10px;
+    right: 10px;
+    padding: 8px 12px;
+  }
+
+  /* Animations 
+  .footer a {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .footer a::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--bleuNeon);
+    transition: width 0.3s ease;
+  }
+
+  .footer a:hover::after {
+    width: 100%;
+  }
+}
+@media (max-width: 490px) {
+  .user {
+    display: flow;
+    text-align: center;
+    margin: auto;
+  }
+} */
