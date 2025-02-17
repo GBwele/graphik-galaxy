@@ -10,7 +10,7 @@
 :root {
   --bleuNeon: #257ff0;
   --bleuNeonBtn: #4b95f2;
- --bleuNeon-lumiere: rgba(20, 247, 255, 0.6)
+ --bleuNeon-lumiere: rgba(20, 247, 255, 0.6);
 
 
 
@@ -1106,6 +1106,14 @@ input:hover {
 /*********************** RESPONSIVE ******************************/
 
 @media (max-width: 578px) {
+
+  /* details */
+
+  #details{
+    width
+    flex-direction: columns;
+  }
+
   /* acceuil */
 
   #logo-inscription {
@@ -1141,7 +1149,7 @@ input:hover {
 .navbar-toggler {
   display: none; /* Caché par défaut sur desktop */
 }
-
+/* Tablette */
 @media (max-width: 991px) {
   .navbar-toggler {
     position: absolute;
@@ -1178,6 +1186,24 @@ input:hover {
 .navbar-collapse {
   transition: all 0.3s ease-in-out;
 }
+
+@media (max-width:860px) {
+d-flex justify-content-center flex-wrap{
+
+  width: 80%;
+  margin: 0 auto;
+
+}
+.card{
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+}
+
+
+
+@media (max-width:860px)
+
 
 /* header */
 
