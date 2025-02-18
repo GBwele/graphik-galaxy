@@ -41,7 +41,7 @@ function initializeSearch() {
       });
 
       if (!foundResults && searchTerm !== "") {
-        noResultsMessage.textContent = `Aucun produit ne correspond à "${searchTerm}"`;
+        noResultsMessage.textContent = `Désolé! Aucun produit ne correspond à "${searchTerm}"`;
         noResultsMessage.style.display = "block";
       } else {
         noResultsMessage.style.display = "none";

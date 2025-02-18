@@ -30,5 +30,4 @@ class ProductsController extends AbstractController
 
         ]);
     }
-
 }

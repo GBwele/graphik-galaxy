@@ -10,7 +10,8 @@
 		<div class="main">
 
 			<div class="{{ classe_banniere }} banner_size" id="haut">
-				<h1 id="products_titles">Tous nos {{categorie}}</h1>
+				<h1 id="products_titles">Tous nos
+					{{categorie}}</h1>
 			</div>
 
 
@@ -36,7 +37,7 @@
 				</div>
 			{% endif %}
 			<div class="row">
-				<div class="col-md-6 offset-md-3">
+				<div id="input-search-taille" class="col-md-6 offset-md-3">
 					<input type="text" id="searchInput" class="form-control mb-4" placeholder="Filtrer votre Recherche..." autocomplete="off">
 
 				</div>
@@ -52,17 +53,21 @@
 
 							<h4 class="produit-nom">{{produit.nom}}</h4>
 							<h6 class="produit-prix">{{produit.prix}}€</h6>
-							<a href="{{path('app_details', {id: produit.id})}}">
-								<button class="btn details">details</button>
-							</a>
+							<div class="boutons_produits">
+								<button class="bouton">
+									<a href="{{path('app_details', {id: produit.id})}}">details</a>
+								</button>
 
-							<i class="fa-solid fa-cart-plus" class="add_panier" onclick="ajoutPanier(event, {{produit.id}})"></i>
-							<button class="btn bs-btn-bg add_panier" onclick="ajoutPanier(event, {{produit.id}})">ajouter au panier</button>
+
+								<button class="bouton add_panier" onclick="ajoutPanier(event, {{produit.id}})">ajouter au panier</button>
+
+							</div>
 
 						</div>
 					</div>
 				{% endfor %}
 			</div>
+			<button class="bouton">test</button>
 
 
 			<a href="#haut">retour en haut</a>

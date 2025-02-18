@@ -10,12 +10,10 @@
 :root {
   --bleuNeon: #257ff0;
   --bleuNeonBtn: #4b95f2;
- --bleuNeon-lumiere: rgba(20, 247, 255, 0.6);
+  --bleuNeon-lumiere: rgba(20, 247, 255, 0.6);
 
-
-
-  /* --rougeAkira: #e12120; */
-  /* --rougeAkiraBtn: #e22b2a; */
+  --rougeAkira: #e12120;
+  --rougeAkiraBtn: #e22b2a;
   --textes: #eaeaea;
 
   --cards-Sombre: #293346;
@@ -28,7 +26,6 @@
   font-weight: 600;
   font-style: normal;
 }
-
 html,
 body {
   min-height: 100vh;
@@ -41,12 +38,17 @@ body {
 
 /* buttons */
 
-.bs-btn-bg {
-  --bs-btn-border-color: var(--textes) solid 1px;
-  --bs-btn-bg: var(--bleuNeon);
-
-  --bs-btn-hover-bg: var(--textes);
-  --bs-btn-hover-color: var(--bleuNeon);
+.bouton {
+  padding: 0.5 1;
+  border: var(--textes) 2px solid;
+  border-radius: 1.5px;
+  color: var(--textes);
+  background-color: var(--cards-Sombre);
+  transition: all ease-in 0.2s;
+  margin: 0.5px 1.5px;
+}
+.bouton:hover {
+  background-color: var(--bleuNeon);
 }
 
 /* nav ul li */
@@ -90,6 +92,11 @@ p {
   );
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#0e1013",endColorstr="#0b4ea2",GradientType=1);
 }
+
+.espace {
+  margin: 15px;
+}
+
 .main,
 .main_paiement {
   color: var(--textes);
@@ -117,24 +124,19 @@ p {
   font-size: 2.5em;
 }
 
-
 .btn-delete {
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer; /* Pour montrer que c'est cliquable */
-    color: var(--bs-writing); /* Pour la couleur de l'icône */
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer; /* Pour montrer que c'est cliquable */
+  color: var(--bs-writing); /* Pour la couleur de l'icône */
 }
 
 .btn-delete:hover {
-    color: var(--bs-primary); /* Effet hover optionnel */
-    transform: scale(1.1); /* Léger effet d'agrandissement au survol */
-    transition: all 0.2s ease; /* Animation fluide */
+  color: var(--bs-primary); /* Effet hover optionnel */
+  transform: scale(1.1); /* Léger effet d'agrandissement au survol */
+  transition: all 0.2s ease; /* Animation fluide */
 }
-
-
-
-
 
 h2,
 h4 {
@@ -158,119 +160,124 @@ main p {
 
 /* header */
 
-
 /****** animation header ******/
 
 header {
-
-  position: relative;  /* Important pour le positionnement des effets */
+  position: relative; /* Important pour le positionnement des effets */
   min-height: 300px;
   width: 100%;
-  overflow: hidden;    /* Pour contenir les effets */
+  overflow: hidden; /* Pour contenir les effets */
   /* background-image: url(../img/header-footer/bannerheader.jpg); */
 }
 
 .space-tunnel {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at center, #1B2735 0%, #090A0F 100%);
-    perspective: 1000px;
-    z-index: 1;  /* Place l'effet derrière le contenu */
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, #1b2735 0%, #090a0f 100%);
+  perspective: 1000px;
+  z-index: 1; /* Place l'effet derrière le contenu */
 }
 
 .stars-wrapper {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    top: 0;
-    left: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  top: 0;
+  left: 0;
+}
 
+.more_product > .bouton {
+  margin: 12px 50%;
+  border-top: var(--textes) 2px solid;
 }
 
 .star {
-    position: absolute;
-    background: #fff;
-    border-radius: 50%;
-    box-shadow: 
-        0 0 3px #fff,
-        0 0 5px #fff,
-        0 0 7px rgba(255,255,255,0.3);
-    animation: starTravel 3s linear infinite;
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 0 3px #fff, 0 0 5px #fff, 0 0 7px rgba(255, 255, 255, 0.3);
+  animation: starTravel 3s linear infinite;
 }
 
 .scanlines::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        transparent 0%,
-        transparent 50%,
-        rgba(0, 0, 0, .1) 51%,
-        transparent 52%
-    );
-    background-size: 100% 4px;
-    animation: scanline 10s linear infinite;
-    opacity: 0.3;
-    pointer-events: none;
-    z-index: 2;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    transparent 0%,
+    transparent 50%,
+    rgba(0, 0, 0, 0.1) 51%,
+    transparent 52%
+  );
+  background-size: 100% 4px;
+  animation: scanline 10s linear infinite;
+  opacity: 0.3;
+  pointer-events: none;
+  z-index: 2;
 }
 
 /* Effet vignette */
 .vignette {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(circle at center, transparent 50%, rgba(0,0,0,0.6) 100%);
-    pointer-events: none;
-    z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(
+    circle at center,
+    transparent 50%,
+    rgba(0, 0, 0, 0.6) 100%
+  );
+  pointer-events: none;
+  z-index: 3;
 }
-
 
 /* Toutes vos animations */
 @keyframes starTravel {
-    from {
-        transform: translateZ(0) translate(-50%, -50%);
-        opacity: 0;
-    }
-    20% { opacity: 1; }
-    to {
-        transform: translateZ(500px) translate(-50%, -50%);
-        opacity: 0;
-    }
+  from {
+    transform: translateZ(0) translate(-50%, -50%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  to {
+    transform: translateZ(500px) translate(-50%, -50%);
+    opacity: 0;
+  }
 }
 
 @keyframes scanline {
-    from { transform: translateY(0); }
-    to { transform: translateY(4px); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(4px);
+  }
 }
 
-
 /****** fin animation header ******/
-
 
 #logo-inscription:before,
 .random:before,
 nav:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    /* background: rgba(0, 0, 0, 0.3); */
-    backdrop-filter: blur(2px); /* Effet de flou subtil */
-    z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /* background: rgba(0, 0, 0, 0.3); */
+  backdrop-filter: blur(2px); /* Effet de flou subtil */
+  z-index: -1;
 }
-
 
 #logo-inscription {
   position: relative;
@@ -286,7 +293,8 @@ nav:before {
 
 nav {
   border-bottom: var(--bleuNeon) 2px solid;
-  box-shadow: 0 0 5px var(--bleuNeon), 0 0 10px var(--bleuNeon-lumiere),inset 0 0 5px var(--bleuNeon-lumiere); 
+  box-shadow: 0 0 5px var(--bleuNeon), 0 0 10px var(--bleuNeon-lumiere),
+    inset 0 0 5px var(--bleuNeon-lumiere);
   animation: neonBorderPulse 2s infinite;
   position: relative;
   z-index: 10;
@@ -307,8 +315,6 @@ nav ul {
 .logo {
   margin: 2.5%;
 }
-
-
 
 /************************ Random taglines ************************/
 .random {
@@ -334,20 +340,19 @@ nav ul {
 }
 .typing-effect span {
   color: var(--textes);
-    visibility: visible;
-    border-right: 3px solid var(--bleuNeon);
-    width: 100%;
-    display: inline-block;
-    white-space: nowrap;
-    padding: 0.5rem;
-    animation: reveal 3s steps(40, end) forwards, blink 0.75s step-end infinite;
-    /* background: linear-gradient(
+  visibility: visible;
+  border-right: 3px solid var(--bleuNeon);
+  width: 100%;
+  display: inline-block;
+  white-space: nowrap;
+  padding: 0.5rem;
+  animation: reveal 3s steps(40, end) forwards, blink 0.75s step-end infinite;
+  /* background: linear-gradient(
         to bottom,
         rgba(43, 55, 85, 0.3) 0%,
         rgba(27, 39, 53, 0.3) 100%
     ); */
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
 /* L'animation du texte qui apparaît */
@@ -394,6 +399,13 @@ nav ul {
   width: 90%;
 }
 
+
+registration_form >.form-agrement{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
 .form-registration {
   width: 50%;
   margin: auto;
@@ -412,7 +424,6 @@ nav ul {
 .connect-enregist,
 .user,
 .user-admin {
-  font-size: 1.3em;
   display: flex;
   width: 26%;
   justify-content: space-evenly;
@@ -455,9 +466,6 @@ body {
   padding: 0;
 }
 
-
-
-
 .produits_blocks {
   width: 500px;
   display: flex;
@@ -465,6 +473,12 @@ body {
   gap: 20px;
   justify-content: center;
   padding: 20px;
+}
+.boutons_produits {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+
 }
 
 /*********************** fin test ***********************/
@@ -477,6 +491,10 @@ body {
 }
 
 /*********************** PAGE DETAILS **********************/
+
+.produit-synopsis{
+  font-size: medium;
+}
 
 #details {
   background-color: var(--cards-Sombre);
@@ -517,10 +535,10 @@ body {
 .details_description {
   width: 50%;
 }
-.details_description > h2,
+/* .details_description > h2,
 h4 {
   border-top: var(--bleuNeon) 2px solid;
-}
+} */
 .ajoutPanier .see_panier {
   height: 45px;
   border-radius: 16px;
@@ -886,7 +904,22 @@ h4 > #genre {
 }
 
 /* fin messates  */
+
 /********************** Form inscription **********************/
+
+/********************** Form tri produits **********************/
+#searchInput {
+  background-color: var(--cards-Sombre);
+}
+.input-search-taille > input {
+  color: var(--textes);
+}
+
+#input-search-taille {
+  width: 90%;
+  margin: auto;
+  border-radius: none !important;
+}
 
 /********************** Form connexion ***********************/
 /************************ Fomulaire Login ************************/
@@ -987,6 +1020,7 @@ input:hover {
 }
 
 .registration_form > label.required {
+  margin-left: 3%;
   color: var(--textes);
 }
 .btn-register {
@@ -1106,11 +1140,10 @@ input:hover {
 /*********************** RESPONSIVE ******************************/
 
 @media (max-width: 578px) {
-
   /* details */
 
-  #details{
-    width
+  #details {
+    /* width */
     flex-direction: columns;
   }
 
@@ -1187,25 +1220,18 @@ input:hover {
   transition: all 0.3s ease-in-out;
 }
 
-@media (max-width:860px) {
-d-flex justify-content-center flex-wrap{
-
-  width: 80%;
-  margin: 0 auto;
-
-}
-.card{
+@media (max-width: 860px) {
+  d-flex justify-content-center flex-wrap {
+    width: 80%;
+    margin: 0 auto;
+  }
+  .card {
     margin-top: 25px;
     margin-bottom: 25px;
+  }
 }
-}
 
-
-
-@media (max-width:860px)
-
-
-/* header */
+@media (max-width: 860px); /* header */
 
 /* .card {
   border-radius: unset;

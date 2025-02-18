@@ -10,7 +10,7 @@ use Symfony\Component\Routing\Attribute\Route;
 
 class HomeController extends AbstractController
 {
-    #[Route('/home', name: 'app_home')]
+    #[Route('/', name: 'app_home')]
     public function index(ProductsRepository $productsRepository, CommentairesRepository $commentairesRepository): Response
     {
         $derniersProduits = $productsRepository->findBy([], ['id' => 'DESC'], 4);
