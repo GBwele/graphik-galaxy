@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Log in!
+{% block title %}Connectez-vous!
 {% endblock %}
 
 {% block body %}
@@ -33,18 +33,16 @@
 
 			<input type="hidden" name="app_home" value="/home">
 
+<div class="allez">
 
 			<button class="btn btn-lg btn-primary" type="submit">
 				Allez!
 			</button>
-
-
+</div>
 			<p>Pas encore inscrit ?
 				<a href="{{path('app_register')}}">
 					vous inscrire</a>
 			</p>
-
-
 		</form>
 	</div>
 
