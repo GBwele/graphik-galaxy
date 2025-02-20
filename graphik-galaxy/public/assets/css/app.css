@@ -11,13 +11,11 @@
   --bleuNeon: #257ff0;
   --bleuNeonBtn: #4b95f2;
   --bleuNeon-lumiere: rgba(20, 247, 255, 0.6);
-
   --rougeAkira: #e12120;
   --rougeAkiraBtn: #e22b2a;
   --textes: #eaeaea;
-
-  --cards-Sombre: #293346;
   --validation: #198754;
+  --cards-Sombre: #293346;
   --fond-Sombre: #0e1013;
 }
 /* fonts */
@@ -38,11 +36,22 @@ body {
   font-family: Arial, sans-serif;
 }
 
+a{
+  text-decoration: none; 
+  color: inherit; 
+}
+a:hover{
+  color: var(--bleuNeon);
+}
+
 /* header */
 /* menu burger */
 #m_burger{
   display: none;
 }
+
+
+
 
 /* buttons */
 
@@ -301,8 +310,6 @@ nav:before {
 
 nav {
   border-bottom: var(--bleuNeon) 2px solid;
-  box-shadow: 0 0 5px var(--bleuNeon), 0 0 10px var(--bleuNeon-lumiere),
-    inset 0 0 5px var(--bleuNeon-lumiere);
   animation: neonBorderPulse 2s infinite;
   position: relative;
   z-index: 10;
@@ -610,6 +617,7 @@ commentaire-header > strong {
 .qui p {
   width: 70%;
   margin: auto;
+  font-weight: 300;
 }
 
 /* blocks de presentation */
@@ -633,7 +641,7 @@ commentaire-header > strong {
   gap: 2rem;
   margin: 2rem auto;
   padding: 1.5rem;
-  border-radius: 10px;
+  border-radius: 1px;
   color: azure;
   background: var(--cards-Sombre);
 }
@@ -751,11 +759,14 @@ h4 > #genre {
   width: 95%;
   margin: 2rem auto;
   overflow: hidden;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 10px;
+  border-radius: 1px;
   padding: 20px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
+.avis-carousel>.avis{
+   border-radius: 1px;
+  border-top: var(--bleuNeon) solid 1px;
+}
+
 .avis {
   display: flex;
   flex-direction: column;
