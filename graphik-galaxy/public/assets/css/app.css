@@ -15,7 +15,7 @@
   --rougeAkira: #e12120;
   --rougeAkiraBtn: #e22b2a;
   --textes: #eaeaea;
-  --validation: #198754;
+  --validation: #01a049;
   --cards-Sombre: rgb(41, 51, 70);
   --fond-Sombre: #0e1013;
 }
@@ -75,8 +75,12 @@ button{
 
 }
 .bouton:hover {
+  border-left : var(--textes) 2px solid;
+  border-right: var(--textes) 2px solid;
+  border-top :none;
+  border-bottom: none;
   background-color: var(--bleuNeon);
-    color: var(--textes);
+  color: var(--textes);
 }
 
 
@@ -373,11 +377,6 @@ nav ul {
   white-space: nowrap;
   padding: 0.5rem;
   animation: reveal 3s steps(40, end) forwards, blink 0.75s step-end infinite;
-  /* background: linear-gradient(
-        to bottom,
-        rgba(43, 55, 85, 0.3) 0%,
-        rgba(27, 39, 53, 0.3) 100%
-    ); */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
 }
 
@@ -462,38 +461,18 @@ registration_form >.form-agrement{
 
 /************************ Fin Navigation ************************/
 
-/************************ retour haut ************************/
-/* #retour_haut {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: none;
-  background-color: #efc4c4;
-  color: white;
-  border: none;
-  border-radius: 50%;
-  padding: 10px 15px;
-  font-size: 18px;
-  cursor: pointer;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  transition: background-color 0.3s ease;
-}
 
-#retour_haut:hover {
-  background-color: #f7a500;
-} */
-/************************ Fin retour haut ************************/
 
 /*********************** Style général ***********************/
 
 .produits_blocks {
-  width: 500px;
+  width: 365px;
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   padding: 20px;
+  transition: opacity 0.3s ease;
 }
 .boutons_produits {
   padding: 10px;
@@ -509,6 +488,13 @@ registration_form >.form-agrement{
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
+}
+/* test somber */
+#produits_page:hover .produits_blocks{
+opacity: 0.6;
+}
+#produits_page:hover .produits_blocks:hover{
+  opacity: 1;
 }
 
 /*********************** PAGE DETAILS **********************/
@@ -844,13 +830,6 @@ h4 > #genre {
   padding: 10px;
   -webkit-box-shadow: inset 0px -16px 25px 0px rgba(0, 0, 0, 0.2);
   box-shadow: inset 0px -16px 25px 0px rgba(0, 0, 0, 0.2);
-
-  /* max-width: 100%;
-  height: auto;
-  border-bottom: 1px solid var(--bleuNeon);
-  padding: 10px;
-  -webkit-box-shadow: inset 0px -16px 25px 0px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0px -16px 25px 0px rgba(0, 0, 0, 0.2); */
 }
 
 .produit-nom {
@@ -1062,7 +1041,7 @@ input:hover {
 }
 #pay-now {
   font-size: 20px;
-  color: #f7f7f7;
+  color: var(--textes);
   background-color: var(--bleuNeon);
   width: 100%;
   padding: 13px 13px 13px 20px;
@@ -1077,11 +1056,21 @@ input:hover {
 }
 
 #pay-now:hover {
-  color: #f7f7f7;
-  background: #27ae60;
+  color: var(--textes);
+  background: var(--validation);
   outline: none;
   transition: all 0.3s linear;
 }
+
+div.col-md-6{
+  display: inline;
+  color: var(--textes)
+}
+div.col-md-6>.form-label{
+  color: var(--bleuNeon);
+}
+
+
 
 /********************************************* FOOTER *********************************************/
 .footer {
@@ -1145,7 +1134,7 @@ input:hover {
 }
 
 .final_footer_line li a {
-  color: aliceblue;
+  color: var(--textes);
   border-top: var(--bleuNeon);
   text-decoration: none;
   transition: 0.3s ease;
@@ -1263,7 +1252,7 @@ text-align: center;
     margin-right: 2%;
     flex-direction: column;
     font-size: 1em;
-    border-top: aliceblue 1px solid;
+    border-top: var(--textes) 1px solid;
   }
   .card {
     width: 75%
@@ -1308,12 +1297,11 @@ form-registration h1{
     position: absolute;
     top: 5%;
     left: 2%;
-
     display: block;
-    background: none; /* Enlève le fond */
-    border: none; /* Enlève la bordure */
-    color: var(--textes) !important; /* Utilise votre couleur claire */
-    font-size: 2.5rem; /* Taille de l'icône */
+    background: none;
+    border: none;
+    color: var(--textes) !important; 
+    font-size: 2.5rem; 
     padding: 1rem;
   }
   .navbar-toggler .fa-bars {
