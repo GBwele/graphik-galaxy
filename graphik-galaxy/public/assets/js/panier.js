@@ -1,6 +1,5 @@
 function ajoutPanier(event, id) {
   event.preventDefault();
-  // Envoi de la requête POST avec fetch
   fetch("/panier/ajout", {
     method: "POST",
     headers: {
