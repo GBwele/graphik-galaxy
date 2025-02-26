@@ -11,12 +11,11 @@
 :root {
   --bleuNeon: #257ff0;
   --bleuNeonBtn: #4b95f2;
-  --bleuNeon-lumiere: rgba(20, 247, 255, 0.6);
   --rougeAkira: #e12120;
   --rougeAkiraBtn: #e22b2a;
   --textes: #eaeaea;
   --validation: #01a049;
-  --cards-Sombre: rgb(41, 51, 70);
+  --cards-Sombre: #293346;
   --fond-Sombre: #0e1013;
 }
 /* fonts */
@@ -1174,6 +1173,7 @@ div.col-md-6>.form-label{
 /*********************** RESPONSIVE ******************************/
 
 
+/* Smartphone */
 
 @media (max-width: 576px) {
 /* menu burger actif */
@@ -1192,8 +1192,8 @@ cursor: pointer;
   margin: auto;
 }
 .details_description{
-      width: 90%;
-    margin: auto;
+  width: 90%;
+  margin: auto;
 }
 .main_details>.produit-nom-details, h2,
 h4,h3,#genre,.produit-prix,.produit-genre,.stock-statut{
@@ -1224,9 +1224,9 @@ margin-top: 4%;
 
   text-align: justify;
 }
-  #details {
-    width :100%;
-    flex-direction: column;
+#details {
+  width :100%;
+  flex-direction: column;
   }
 
 /* details commentaires produits */
@@ -1242,13 +1242,13 @@ text-align: center;
 
   /* acceuil */
 
-  #logo-inscription {
-    flex-direction: column 50%;
-    text-align: center;
+#logo-inscription {
+  flex-direction: column 50%;
+  text-align: center;
   }
 
 
-  .quick_links>h3, .medias>h3, .adresse>h3 {
+.quick_links>h3, .medias>h3, .adresse>h3 {
     font-size: 2em;
     
   }
@@ -1260,25 +1260,25 @@ text-align: center;
     flex-direction: column;
     text-align: center;
 }
-  .footer {
-    text-align: center;
-    flex-direction: column;
+.footer {
+  text-align: center;
+  flex-direction: column;
   }
-  .footer div {
-    width: 90%;
+.footer div {
+  width: 90%;
   }
-  .user {
-    margin-top: 3%;
-    margin-right: 2%;
-    flex-direction: column;
-    font-size: 1em;
-    border-top: var(--textes) 1px solid;
+.user {
+  margin-top: 3%;
+  margin-right: 2%;
+  flex-direction: column;
+  font-size: 1em;
+  border-top: var(--textes) 1px solid;
   }
-  .card {
-    width: 75%
+.card {
+  width: 75%
   }
-  .logo_size {
-    width: 20%;
+.logo_size {
+  width: 20%;
   }
   .random {
     flex-wrap: wrap;

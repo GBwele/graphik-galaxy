@@ -33,7 +33,7 @@ function message(type, message) {
   
   divMessage.classList.add("message-notofication");
   divMessage.textContent = message;
-  divMessage.style.position = "fixed";
+  divMessage.style.position = "center";
   divMessage.style.bottom = "20px";
   divMessage.style.right = "20px";
   divMessage.style.padding = "10px";
