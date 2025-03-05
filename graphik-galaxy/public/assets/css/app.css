@@ -6,7 +6,7 @@
 */
 
 /*********** bases ************/
-/* fais un bouton template pour la page d'acceuil, un autre pour les produits, un pour le panier et un autre pour le paiement  */
+/* fait un bouton template pour la page d'acceuil, un autre pour les produits, un pour le panier et un autre pour le paiement  */
 
 :root {
   --bleuNeon: #257ff0;
@@ -522,7 +522,6 @@ opacity: 0.6;
 .produit-synopsis{
   font-size: medium;
 }
-
 #details {
   background-color: var(--cards-Sombre);
   width: 90%;
@@ -540,7 +539,6 @@ opacity: 0.6;
 .main_paiement {
   background-color: #1f2222;
 }
-
 .produit-nom-details {
   color: var(--bleuNeon);
   background-color: #1f2222;
@@ -562,16 +560,13 @@ opacity: 0.6;
 .details_description {
   width: 50%;
 }
-/* .details_description > h2,
-h4 {
-  border-top: var(--bleuNeon) 2px solid;
-} */
 .ajoutPanier .see_panier {
   height: 45px;
   border-radius: 16px;
 }
 
-/* Style pour la zone de texte */
+/***** Section Commentaires *****/
+
 .commentaires-section textarea {
   width: 100%; /* Prend toute la largeur disponible de son parent */
   min-height: 150px; /* Hauteur minimale pour le confort d'écriture */
@@ -690,16 +685,12 @@ commentaire-header > strong {
 
 /* Carte -  */
 .card {
-  width: 230px; /* Largeur fixe basée sur la taille de Méta-Barons */
+  width: 230px; 
   margin: 10px;
-
   border: none !important; /* Supprime d'abord toutes les bordures */
-  border-radius: 0 !important; /* Supprime les coins arrondis */
+  border-radius: 0 !important; 
   border-top: 2px solid var(--bleuNeon) !important; /* Ajoute une bordure uniquement en haut */
-
-  /* border: var(--bleuNeon) 2px solid; */
 }
-
 .card {
   overflow: hidden;
   margin: 0 auto;
@@ -709,7 +700,6 @@ commentaire-header > strong {
   border-top-left-radius: none !important;
   border-top-right-radius: none !important;
 }
-
 .card-img-top {
   height: 320px;
   width: 100%;

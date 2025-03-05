@@ -19,11 +19,9 @@ class DetailsController extends AbstractController
 
         $produit = $productsRepository->find($id);
         $commentaire = new Commentaires();
-        $form = $this
-            ->createForm(CommentaireType::class, $commentaire);
-
+        $form = $this->createForm(CommentaireType::class, $commentaire);
         $form->handleRequest($request);
-
+        
         if ($form->isSubmitted() && $form->isValid()) {
 
             $commentaire->setProducts($produit);
