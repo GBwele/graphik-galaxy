@@ -149,7 +149,7 @@ class PanierController extends AbstractController
         $quantity = $data['quantity'] ?? null;
 
         // Vérifications de base
-        if (!$productId || !$quantity || $quantity < 1) {
+        if (!$productId || !$quantity || $quantity <= 0) {
             return new JsonResponse([
                 'error' => 'Données invalides',
                 'status' => 'error'
