@@ -52,6 +52,17 @@ a:hover{
 }
 
 /* header */
+
+/* nav */
+.enregist_css:hover {
+  border-top:var(--bleuNeon) 1px solid;
+  border-bottom:var(--bleuNeon) 1px solid;
+}
+.contact_css:hover{
+  border-left:var(--bleuNeon) 1px solid;
+  border-right:var(--bleuNeon) 1px solid;
+}
+
 /* menu burger */
 #m_burger{
   display: none;
@@ -65,7 +76,6 @@ a:hover{
 button{
   all: unset;
 }
-
 
 .bouton {
   padding: 0.5px 20px;
@@ -338,7 +348,6 @@ nav:before {
 }
 #logo-inscription > hr {
   border: var(--bleuNeon) 2px solid;
- 
 }
 /************************ Navigation ************************/
 
@@ -369,7 +378,7 @@ nav ul {
 .random {
   position: relative;
   z-index: 10;
-  /* background: transparent; */
+  background: transparent;
 
   color: var(--textes);
   font-family: "Chakra Petch", serif;
@@ -393,7 +402,7 @@ nav ul {
   border-right: 3px solid var(--bleuNeon);
   width: 100%;
   display: inline-block;
-  white-space: nowrap;
+
   padding: 0.5rem;
   animation: reveal 3s steps(40, end) forwards, blink 0.75s step-end infinite;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
@@ -770,7 +779,7 @@ h4 > #genre {
   padding: 20px;
 }
 .avis-carousel>.avis{
-   border-radius: 1px;
+  border-radius: 1px;
   border-top: var(--bleuNeon) solid 1px;
 }
 
@@ -1153,6 +1162,21 @@ div.col-md-6>.form-label{
   color: var(--bleuNeon);
 }
 
+#legal{
+
+  color: var(--textes);
+  background-color: var(--fond-Sombre);
+  width: 100%;
+}
+#legal h1{
+  color: var(--bleuNeon);
+}
+.mentions{
+  width: 85%;
+  margin: auto;
+  /* text-align: center; */
+}
+
 /********************************************* FIN FOOTER *********************************************/
 #explications-pages > p {
   text-align: justify center;
@@ -1271,7 +1295,15 @@ text-align: center;
   width: 20%;
   }
   .random {
-    flex-wrap: wrap;
+    /* flex-wrap: wrap; */
+  }
+  .typing-effect{
+    width: 90%;
+  }
+  .random>.typing-effect>span{
+
+    width: 90%;
+
   }
   .blocks > .block,
   .block2,
@@ -1365,7 +1397,7 @@ form-registration h1{
 
 
 /* 
- @media (max-width: 991px) {
+@media (max-width: 991px) {
   html,body{
     width: 100%;
   }
