@@ -36,7 +36,9 @@ body {
   font-family: Arial, sans-serif;
 }
 
-
+Input::placeholder{
+  color: var(--textes) !important;
+}
 .navbar-nav li>a:hover{
 
   border-top: var(--bleuNeon) 2px solid;
@@ -515,7 +517,7 @@ registration_form >.form-agrement{
   width: 100%;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
 }
 /* test somber */
 #produits_page:hover .produits_blocks{
@@ -933,7 +935,7 @@ h4 > #genre {
 /********************** Form tri produits **********************/
 #searchInput {
   background-color: var(--cards-Sombre);
-  color: var(--textes);
+  color: var(--textes) !important;
   border-radius: initial;
 }
 
@@ -1161,9 +1163,33 @@ div.col-md-6>.form-label{
 .final_footer_line li a:hover {
   color: var(--bleuNeon);
 }
+.cgv_h1{
+  color: var(--textes);
+}
+#cgv{
+  padding: 35px;
+  background-color: var(--cards-Sombre);
+  margin: auto;
+  border: 1px solid snow;
+  width: 90%;
+}
+#cgv h1{
+  text-align: center;
+}
+#cgv h2{
+  border-bottom: var(--bleuNeon) 1px solid;
+}
+#cgv ul {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2;
+  color: var(--textes);
+}
+#cgv ul li{
 
+  width: 80%;
+}
 #legal{
-
   color: var(--textes);
   background-color: var(--fond-Sombre);
   width: 100%;
@@ -1197,7 +1223,9 @@ div.col-md-6>.form-label{
 cursor: pointer;
 }
 
-
+#cgv ul{
+  flex-direction: column;
+}
 
   /* details */
 
