@@ -1,9 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Register
+{% block title %}Enregistrez-vous
 {% endblock %}
 
 {% block body %}
+<main>
 	{% for flash_error in app.flashes('verify_email_error') %}
 		<div class="alert alert-danger" role="alert">{{ flash_error }}</div>
 	{% endfor %}
@@ -35,12 +36,13 @@
 
 		</div>
 		<div class="non_inscrit">
-			<p>déja inscrit?
+			<p class="inscrit">déja inscrit?
 				<a href="{{path('app_login')}}">connectez vous</a>
 			</p>
 		</div>
 	</div>
 	</div>
+</main>
 
 
 {% endblock %}
