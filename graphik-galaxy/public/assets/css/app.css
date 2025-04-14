@@ -36,12 +36,15 @@ body {
   font-family: Arial, sans-serif;
 }
 
+h5 {
+  font-family: Chakra Petch, serif;
+  color: var(--bleuNeon);
+}
+h6 {
+}
+
 Input::placeholder {
   color: var(--textes) !important;
-}
-.navbar-nav li > a:hover {
-  border-top: var(--bleuNeon) 2px solid;
-  transition: 0.1s ease-in;
 }
 a {
   text-decoration: none;
@@ -54,6 +57,13 @@ a:hover {
 /* header */
 
 /* nav */
+.navbar-nav li a:hover {
+  border-top: var(--bleuNeon) 2px solid;
+  transition: 0.1s ease-in;
+}
+.navbar navbar-expand-lg {
+  background-color: var(--fond-Sombre);
+}
 .enregist_css:hover {
   border-top: var(--bleuNeon) 1px solid;
   border-bottom: var(--bleuNeon) 1px solid;
@@ -61,6 +71,10 @@ a:hover {
 .contact_css:hover {
   border-left: var(--bleuNeon) 1px solid;
   border-right: var(--bleuNeon) 1px solid;
+}
+nav ul li a {
+  font-family: Chakra Petch;
+  font-size: large;
 }
 
 /* menu burger */
@@ -75,8 +89,6 @@ button {
 
 /* 
 .btn btn-lg btn-primary */
-
-
 
 .bouton {
   padding: 0.5px 20px;
@@ -165,7 +177,8 @@ p {
   text-align: center;
   margin: auto;
   background-color: #1c222c;
-  border-left: var(--bleuNeon) solid 2px;
+  /* border-left: var(--bleuNeon) solid 2px;
+  border-right: var(--bleuNeon) solid 2px; */
 }
 .tableauPanier {
   display: flexbox;
@@ -359,7 +372,7 @@ nav {
 
 nav ul {
   align-items: center;
-  width: 95%;
+  width: 60%;
   margin: 0 auto;
   display: inline-flex;
   justify-content: space-between;
@@ -435,9 +448,6 @@ nav ul {
 #largeur-carousel {
   background-color: var(--cards-Sombre);
   height: 350px;
-}
-#carousel-commentaires {
-  height: 400px;
 }
 
 /************************ connexion inscription ************************/
@@ -522,9 +532,6 @@ registration_form > .form-agrement {
 
 /*********************** PAGE DETAILS **********************/
 
-.produit-synopsis {
-  font-size: medium;
-}
 #details {
   background-color: var(--cards-Sombre);
   width: 90%;
@@ -548,9 +555,11 @@ registration_form > .form-agrement {
   padding: 0 5%;
 }
 .produit-image_description {
-  width: 48%;
+  padding: 2%;
+  width: 50%;
 }
 .produit-synopsis {
+  font-size: medium;
   padding: 2%;
   margin: 20px 0 25px 0;
   text-align: justify;
@@ -561,7 +570,8 @@ registration_form > .form-agrement {
   box-shadow: inset 0px -7px 9px -2px rgba(0, 0, 0, 0.15);
 }
 .details_description {
-  width: 50%;
+  width: 75%;
+  padding: 3% 2% 0 0;
 }
 .ajoutPanier .see_panier {
   height: 45px;
@@ -629,6 +639,15 @@ commentaire-header > strong {
 
 /* PAGE ACCEUIl */
 
+.qui {
+  margin-top: 2%;
+}
+.qui > h3 {
+  margin-top: 1%;
+  border-top: #0777da 1px solid;
+  width: 26%;
+}
+
 .qui p {
   width: 70%;
   margin: auto;
@@ -642,6 +661,7 @@ commentaire-header > strong {
 }
 .titre {
   padding: 1%;
+  font-family: Chakra Petch, serif;
 }
 
 .block,
@@ -650,7 +670,7 @@ commentaire-header > strong {
   box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
-  width: 95%;
+  width: 80%;
   /* height: 70vh; */
   display: flex;
   gap: 2rem;
@@ -709,6 +729,8 @@ commentaire-header > strong {
   -o-object-fit: contain;
   object-fit: contain;
   padding: 10px;
+  border-top-left-radius: none;
+  border-top-right-radius: none;
 }
 .card-img-top,
 .card-body {
@@ -719,7 +741,7 @@ commentaire-header > strong {
 }
 
 .card-title {
-  color: var(--textes);
+  color: var(--textes) !important;
   font-size: 0.9rem;
   height: 40px;
   overflow: hidden;
@@ -752,11 +774,6 @@ h4 > #genre {
   height: 100%;
   overflow-x: auto;
   flex-wrap: nowrap;
-}
-
-.shop-carousel-item {
-  flex: 0 0 25%;
-  height: 100%;
 }
 
 .shop-carousel-list::-webkit-scrollbar {
@@ -837,7 +854,7 @@ h4 > #genre {
 }
 
 .produit-image {
-  max-width: 100%;
+  max-width: 80%;
   height: auto;
   border-top: 2px solid var(--bleuNeon);
   padding: 10px;
