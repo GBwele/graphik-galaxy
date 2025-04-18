@@ -29,7 +29,7 @@ body {
   min-height: 100vh;
 }
 body {
-  background-color: var(--fond-Sombre);
+  background-color: var(--fond-Sombre) !important;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -41,6 +41,7 @@ h5 {
   color: var(--bleuNeon);
 }
 h6 {
+  color: var(--textes);
 }
 
 Input::placeholder {
@@ -227,6 +228,10 @@ h4 {
 
 .titreTop {
   padding: 0 10%;
+}
+.login-main {
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 main p {
   color: var(--textes);
@@ -705,6 +710,15 @@ commentaire-header > strong {
 /* fin blocks de presentation */
 
 /* Carousel front */
+
+/* #carousel-commentaires {
+  border-top: var(--bleuNeon) 1px solid;
+  width: 90%;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+} */
 
 /* Carte -  */
 .card {
