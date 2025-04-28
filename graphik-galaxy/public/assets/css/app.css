@@ -48,6 +48,7 @@ Input::placeholder {
   color: var(--textes) !important;
 }
 a {
+  color: var(--textes);
   text-decoration: none;
   color: inherit;
 }
@@ -654,7 +655,7 @@ commentaire-header > strong {
 }
 
 .qui p {
-  width: 70%;
+  width: 90%;
   margin: auto;
   font-weight: 300;
 }
@@ -687,6 +688,7 @@ commentaire-header > strong {
 }
 
 .text {
+  margin: auto;
   padding: 1.7rem;
   flex: 1;
   line-height: 1.6;
@@ -698,7 +700,7 @@ commentaire-header > strong {
 }
 .box_img img {
   width: 100%;
-  height: 62vh;
+  /* height: 62vh; */
   max-width: 400px;
   border-radius: 8px;
   transition: transform 0.3s ease;
