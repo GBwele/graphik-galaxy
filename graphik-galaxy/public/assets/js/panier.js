@@ -30,8 +30,7 @@ function message(type, message) {
   vieuxMessage.forEach((msg) => msg.remove());
   const divMessage = document.createElement("div");
 
-  
-  divMessage.classList.add("message-notofication");
+  divMessage.classList.add("message-notification");
   divMessage.textContent = message;
   divMessage.style.position = "center";
   divMessage.style.bottom = "20px";
@@ -50,7 +49,6 @@ function message(type, message) {
     divMessage.remove();
   }, 3000);
 }
-
 
 // Fonction pour mettre à jour la quantité
 async function updateQuantity(event, productId) {

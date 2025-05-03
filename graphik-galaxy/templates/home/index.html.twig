@@ -1,14 +1,13 @@
 {% extends 'base.html.twig' %}
 
 
-
 {% block body %}
 
 
 	<div id="full">
 
 		<div class="main">
-<h2 class="titre">🌌 Bienvenue dans l'univers de Graphik Galaxy 🌌</h2>
+			<h2 class="titre">🌌 Bienvenue dans l'univers de Graphik Galaxy 🌌</h2>
 
 			<p class="titreTop">
 				Chez Graphik Galaxy, nous vous invitons à plonger dans un monde rempli de couleurs, d’histoires captivantes et de héros légendaires. Que vous soyez un passionné de mangas, un collectionneur de comics ou simplement à la recherche de goodies uniques pour compléter votre collection, vous êtes au bon endroit !</p>
@@ -27,9 +26,9 @@
 							<p class="card-text">{{ produit.prix }}
 								€</p>
 							<div class="d-flex justify-content-between">
-<a href="{{ path('app_details', {id: produit.id}) }}" class="bouton btn-sm">Voir</a>
+								<a href="{{ path('app_details', {id: produit.id}) }}" class="bouton btn-sm">Voir</a>
 
-<button class="bouton btn-sm add_panier" onclick="ajoutPanier(event, {{ produit.id }})">
+								<button class="bouton btn-sm add_panier" onclick="ajoutPanier(event, {{ produit.id }})">
 
 									<i class="fa-solid fa-cart-plus"></i>
 								</button>
@@ -40,14 +39,12 @@
 			</div>
 
 
+			<div class="more_product">
+				<button class="bouton">
+					<a href="{{path('app_products',{categories: 'tout'})}}">en voir plus</a>
+				</button>
 
-<div class"more_product">
-<button class="bouton">
-<a href="{{path('app_products',{categories: 'tout'})}}">en voir plus</a>
-</button>
-
-</div>
-
+			</div>
 
 
 			{# fin carousel produits #}
@@ -112,92 +109,85 @@
 
 			</section>
 
-			<section class="confiance">
+			<section
+				class="confiance">
 
 				{# carousel commentaires #}
 				<div class="confiance">
 					<h3>Ils nous ont fait confiance</h3>
 
-					<div class="marques">
-					
-					
-					
-					</div>
+					<div class="marques"></div>
 					<div id="carousel-commentaires">
 
 
-					
-							<div class="shop-carousel-item">
-								<img src="{{asset('assets/img/home-images/logo-PGW-new.webp')}}" alt="Paris Games Week">
-							</div>
+						<div class="shop-carousel-item">
+							<img src="{{asset('assets/img/home-images/logo-PGW-new.webp')}}" alt="Paris Games Week">
+						</div>
 
-							<div class="shop-carousel-item">
-								<img src="{{asset('assets/img/home-images/paris-logo.png')}}" alt="Japan paris">
-							</div>
+						<div class="shop-carousel-item">
+							<img src="{{asset('assets/img/home-images/paris-logo.png')}}" alt="Japan paris">
+						</div>
 
-							<div class="shop-carousel-item">
-								<img src="{{asset('assets/img/home-images/Comic_Con_Paris_Logo.svg')}}" alt="Comicon paris">
-							</div>
+						<div class="shop-carousel-item">
+							<img src="{{asset('assets/img/home-images/Comic_Con_Paris_Logo.svg')}}" alt="Comicon paris">
+						</div>
 
-							<div class="shop-carousel-item">
-								<img src="{{asset('assets/img/home-images/logo_flat_small.png')}}" alt="epitanime paris">
-							</div>
-
-							<div class="shop-carousel-item">
-								<img src="/uni-watch/public/assets/images/shop-carousel/shop-w6.png" alt="watch">
-							</div>
-
+						<div class="shop-carousel-item">
+							<img src="{{asset('assets/img/home-images/logo_flat_small.png')}}" alt="epitanime paris">
 						</div>
 
 
 					</div>
 
-
 				</div>
-				{# fin carousel commentaires #}
 
-
-				<section class="derniers-avis">
-					<div class="avis-carousel">
-<h4>Les avis de nos clients favoris</h4>
-
-						{% if derniersCommentaires|length > 0 %}
-							{% for commentaire in derniersCommentaires %}
-
-								<div class="avis">
-									<div class="avis-header">
-										<div class="avis-user">
-											<strong class="commentaire_username">
-												{{commentaire.user.username}}
-											</strong>
-											<small>Pour
-												<a href="{{path('app_details',{'id': commentaire.products.id })}}">{{commentaire.products.nom}}</a>
-											</small>
-											<div class="avis-date">{{ commentaire.dates|date('d/m/Y') }}</div>
-										</div>
-									</div>
-									<div class="avis-content">
-										{{commentaire.message}}
-									</div>
-								</div>
-
-							{% endfor %}
-						{% else %}
-							<p>Aucun avis.</p>
-						{% endif %}
-
-					</div>
-
-
-				</section>
-
-
-				<h6>🌌 Entrez dans l’univers de Graphik Galaxy et laissez votre passion vous guider ! 🌌</h6>
-
-				<i class="fa-solid fa-hand-spock"></i>
-				<i class="fa-solid fa-jedi"></i>
 
 			</div>
-		</div>
 
-	{% endblock %}
+
+		</div>
+		{# fin carousel commentaires #}
+
+
+		<section class="derniers-avis">
+			<div class="avis-carousel">
+				<h4>Les avis de nos clients favoris</h4>
+
+				{% if derniersCommentaires|length > 0 %}
+					{% for commentaire in derniersCommentaires %}
+
+						<div class="avis">
+							<div class="avis-header">
+								<div class="avis-user">
+									<strong class="commentaire_username">
+										{{commentaire.user.username}}
+									</strong>
+									<small>Pour
+										<a href="{{path('app_details',{'id': commentaire.products.id })}}">{{commentaire.products.nom}}</a>
+									</small>
+									<div class="avis-date">{{ commentaire.dates|date('d/m/Y') }}</div>
+								</div>
+							</div>
+							<div class="avis-content">
+								{{commentaire.message}}
+							</div>
+						</div>
+
+					{% endfor %}
+				{% else %}
+					<p>Aucun avis.</p>
+				{% endif %}
+
+			</div>
+
+
+		</section>
+
+
+		<h6>🌌 Entrez dans l’univers de Graphik Galaxy et laissez votre passion vous guider ! 🌌</h6>
+
+		<i class="fa-solid fa-hand-spock"></i>
+		<i class="fa-solid fa-jedi"></i>
+
+	</div>
+</div>{% endblock %}
