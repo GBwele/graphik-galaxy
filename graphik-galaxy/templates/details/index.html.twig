@@ -31,7 +31,7 @@
 					<h5 class="produit-taille">{{produit.taille}}CM</h5>
 
 				{% endif %}
-				
+
 				<h4>Prix</h4>
 				<h6 class="produit-prix">{{produit.prix}}€</h6>
 				<div class="stock-statut">
@@ -52,7 +52,15 @@
 				</div>
 
 				<div class="buttons">
-					<button class="bouton add_panier" onclick="ajoutPanier(event, {{produit.id}})">ajouter au panier</button>
+					{% if produit.stocks > 0 %}
+						<button class="bouton add_panier" onclick="ajoutPanier(event, {{produit.id}})">
+							ajouter au panier
+						</button>
+					{% else %}
+						<button class="bouton add_panier" disabled style="opacity: 0.6; cursor: not-allowed;" title="Produit en rupture de stock">
+							Indisponible
+						</button>
+					{% endif %}
 
 
 					<a href="{{path('app_panier')}}">

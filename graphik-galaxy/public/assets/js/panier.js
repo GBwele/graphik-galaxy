@@ -1,56 +1,83 @@
+// Fonction de notification unifiée
+function message(type, content) {
+  document
+    .querySelectorAll(".message-notification")
+    .forEach((el) => el.remove());
+
+  const divMessage = document.createElement("div");
+  divMessage.classList.add("message-notification");
+  divMessage.textContent = content;
+  divMessage.style.position = "fixed";
+  divMessage.style.top = "20px";
+  divMessage.style.right = "20px";
+  divMessage.style.width = "auto";
+  divMessage.style.maxWidth = "300px";
+  divMessage.style.maxHeight = "60px";
+  divMessage.style.overflow = "hidden";
+  divMessage.style.padding = "10px 16px";
+  divMessage.style.lineHeight = "1.4";
+  divMessage.style.borderRadius = "8px";
+  divMessage.style.zIndex = "1000";
+  divMessage.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.3)";
+  divMessage.style.opacity = "0.95";
+
+  const styles = getComputedStyle(document.documentElement);
+  const colorSuccess = styles.getPropertyValue("--validation").trim();
+  const colorError = styles.getPropertyValue("--rougeAkira").trim();
+  const colorWarning = styles.getPropertyValue("--bleuNeonBtn").trim();
+  const textColor = styles.getPropertyValue("--textes").trim();
+
+  switch (type) {
+    case "success":
+      divMessage.style.backgroundColor = colorSuccess;
+      divMessage.style.color = textColor;
+      break;
+    case "warning":
+      divMessage.style.backgroundColor = colorWarning;
+      divMessage.style.color = "#000";
+      break;
+    case "error":
+    default:
+      divMessage.style.backgroundColor = colorError;
+      divMessage.style.color = textColor;
+      break;
+  }
+
+  document.body.appendChild(divMessage);
+  setTimeout(() => {
+    divMessage.remove();
+  }, 2000);
+}
+
+// Ajout panier
 function ajoutPanier(event, id) {
   event.preventDefault();
+
   fetch("/panier/ajout", {
     method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ id: id }),
   })
-    .then((response) => {
-      return response.json();
-    })
+    .then((response) => response.json())
     .then((data) => {
       if (data.success) {
-        message("votre produit est bien envoyé dans le panier ❤", data.success); // message de confirmation
+        // ✅ Produit bien ajouté
+        message("success", "Produit ajouté au panier ❤");
         const NBARTICLES = document.querySelector("#nb_article");
         NBARTICLES.textContent = data.nb;
       } else {
-        message("le produit est deja ajouté dans le panier 👀", data.error); // message d'erreur si nécessaire
+        // ⚠️ Affiche le message d’erreur renvoyé par Symfony
+        const errorMessage = data.error || "Une erreur est survenue ❌";
+        message("error", errorMessage);
       }
     })
     .catch((error) => {
-      console.error("Erreur:", error);
-      message("Une erreur est survenue.");
+      console.error("Erreur réseau :", error);
+      message("error", "Erreur de connexion au serveur");
     });
 }
 
-function message(type, message) {
-  const vieuxMessage = document.querySelectorAll(".message-notification");
-  vieuxMessage.forEach((msg) => msg.remove());
-  const divMessage = document.createElement("div");
-
-  divMessage.classList.add("message-notification");
-  divMessage.textContent = message;
-  divMessage.style.position = "center";
-  divMessage.style.bottom = "20px";
-  divMessage.style.right = "20px";
-  divMessage.style.padding = "10px";
-  divMessage.style.color = type === "success" ? "white" : "white";
-  divMessage.style.backgroundColor = type === "success" ? "green" : "red";
-  divMessage.style.borderRadius = "5px";
-  divMessage.style.zIndex = "1000";
-  divMessage.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.2)";
-  divMessage.style.opacity = "0.9";
-
-  document.body.appendChild(divMessage);
-
-  setTimeout(() => {
-    divMessage.remove();
-  }, 3000);
-}
-
-// Fonction pour mettre à jour la quantité
+// Mise à jour de la quantité
 async function updateQuantity(event, productId) {
   const quantity = parseInt(event.target.value);
   const messageStock = document.getElementById(`panier_stock-${productId}`);
@@ -59,42 +86,33 @@ async function updateQuantity(event, productId) {
     event.target.value = 1;
     return;
   }
-  console.log("Quantité demandée:", quantity);
 
   try {
     const response = await fetch("/panier/update-quantite", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        id: productId,
-        quantity: quantity,
-      }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: productId, quantity: quantity }),
     });
 
     const data = await response.json();
-    console.log("Réponse du serveur:", data);
 
     if (response.status === 400 && data.error === "Stock insuffisant") {
       messageStock.textContent = `Stock disponible: ${data.stockDisponible} unités`;
       messageStock.style.display = "block";
       event.target.value = data.stockDisponible;
+      message("warning", "Stock insuffisant 🛑");
     } else if (data.success) {
       messageStock.style.display = "none";
 
-      // Mise à jour du total du produit
       const row = event.target.closest("tr");
       const totalCell = row.querySelector(".total");
       totalCell.textContent = data.productTotal.toFixed(2) + "€";
 
-      // Mise à jour du total global
       const absolutTotal = document.getElementById("absolut-total");
       if (absolutTotal) {
         animateValue(absolutTotal, data.newTotal.toFixed(2) + "€");
       }
 
-      // Message de confirmation
       message("success", "Quantité mise à jour");
     } else {
       message("error", data.error);
@@ -105,7 +123,7 @@ async function updateQuantity(event, productId) {
   }
 }
 
-// Fonction d'animation (comme précédemment)
+// Animation des valeurs
 function animateValue(element, newValue) {
   element.style.transition = "color 0.3s";
   element.style.color = "#4CAF50";
@@ -116,6 +134,7 @@ function animateValue(element, newValue) {
   }, 300);
 }
 
+// Suppression d'un produit du panier
 document.addEventListener("DOMContentLoaded", function () {
   const delButtons = document.querySelectorAll(".btn-delete");
 
@@ -125,12 +144,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       fetch("/panier/supprimer", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          id: productId,
-        }),
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ id: productId }),
       })
         .then((response) => response.json())
         .then((data) => {
@@ -149,17 +164,17 @@ document.addEventListener("DOMContentLoaded", function () {
               Object.values(data.cart).forEach((item) => {
                 newTotal += item.price * item.quantity;
               });
-              document.getElementById("absolutTotal").textContent =
+              document.getElementById("absolut-total").textContent =
                 newTotal + "€";
             }
+
+            message("success", "Produit supprimé du panier");
           }
         })
         .catch((error) => {
           console.error("Erreur:", error);
-          console.log("erreur dans la suppression");
+          message("error", "Erreur lors de la suppression");
         });
     });
   });
 });
-
-// section stocks
