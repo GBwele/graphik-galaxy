@@ -95,8 +95,13 @@ button {
   all: unset;
 }
 
-/* 
-.btn btn-lg btn-primary */
+.btn.btn-lg.btn-primary {
+  margin-left: 85%;
+}
+
+.allez {
+  padding-left: 20px;
+}
 
 .bouton {
   padding: 0.5px 20px;
@@ -115,7 +120,6 @@ button {
   border-right: var(--textes) 2px solid;
   border-top: none;
   border-bottom: none;
-  /* background-color: var(--bleuNeon); */
   color: var(--textes);
 }
 
@@ -166,8 +170,6 @@ p {
   text-align: center;
   margin: auto;
   background-color: #1c222c;
-  /* border-left: var(--bleuNeon) solid 2px;
-  border-right: var(--bleuNeon) solid 2px; */
 }
 .tableauPanier {
   display: flexbox;
@@ -196,9 +198,9 @@ p {
 }
 
 .btn-delete:hover {
-  color: var(--bs-primary); /* Effet hover optionnel */
-  transform: scale(1.1); /* Léger effet d'agrandissement au survol */
-  transition: all 0.2s ease; /* Animation fluide */
+  color: var(--bs-primary);
+  transform: scale(1.1);
+  transition: all 0.2s ease;
 }
 
 h2,
@@ -237,10 +239,10 @@ main p {
 /****** animation header ******/
 
 header {
-  position: relative; /* Positionnement des effets */
+  position: relative;
   min-height: 300px;
   width: 100%;
-  overflow: hidden; /* Pour contenir les effets */
+  overflow: hidden;
   /* background-image: url(../img/header-footer/bannerheader.jpg); */
 }
 
@@ -469,6 +471,16 @@ registration_form > .form-agrement {
   margin: auto;
   background-color: var(--cards-Sombre);
 }
+/* .form-registration > .btn-register {
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+  padding: 10px 20px;
+} */
+
+.required {
+  color: var(--textes);
+}
 
 .form-registration > h1 {
   color: var(--textes);
@@ -586,14 +598,14 @@ h6 {
 /***** Section Commentaires *****/
 
 .commentaires-section textarea {
-  width: 100%; /* Prend toute la largeur disponible de son parent */
-  min-height: 150px; /* Hauteur minimale pour le confort d'écriture */
-  padding: 10px; /* Espace intérieur pour le confort */
-  margin-bottom: 15px; /* Espace en dessous */
-  resize: vertical; /* Permet à l'utilisateur de redimensionner verticalement */
-  border: 1px solid var(--bs-primary); /* Bordure cohérente avec votre thème */
-  background-color: var(--bs-card); /* Fond cohérent */
-  color: var(--bs-writing); /* Couleur du texte */
+  width: 100%;
+  min-height: 150px;
+  padding: 10px;
+  margin-bottom: 15px;
+  resize: vertical;
+  border: 1px solid var(--bs-primary);
+  background-color: var(--bs-card);
+  color: var(--bs-writing);
 }
 
 .commentaire > .commentaire_message {
@@ -677,7 +689,6 @@ commentaire-header > strong {
     rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
     rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
   width: 80%;
-  /* height: 70vh; */
   display: flex;
   gap: 2rem;
   margin: 2rem auto;
@@ -829,7 +840,7 @@ h4 > #genre {
   height: 80px;
   border-radius: 50%;
   margin-bottom: 1rem;
-  border: 3px solid var(--bleuNeon); /* Utilisation de la couleur du thème */
+  border: 3px solid var(--bleuNeon);
 }
 
 /* Style pour le contenu de l'avis */
@@ -964,7 +975,7 @@ h4 > #genre {
   }
 }
 
-/* fin messates  */
+/* fin messages  */
 
 /********************** Form inscription **********************/
 
@@ -1035,8 +1046,15 @@ h4 > #genre {
   background-color: #333;
 }
 .form-login > button:hover {
-  /* background-color: #ffffff; */
   color: #333;
+}
+
+.non_inscrit p {
+  border-top: var(--bleuNeon) 1px solid;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 12px 0 0 0;
+  background-color: var(--fond-Sombre);
 }
 /********************** FIN FORMULAIRES **********************/
 
@@ -1207,7 +1225,7 @@ div.mb-3 > .form-label {
   justify-content: center;
   gap: 2rem;
   padding: 1rem 0;
-  background-color: #222; /* Légèrement plus foncé */
+  background-color: #222;
   margin: 0;
 }
 
@@ -1398,19 +1416,14 @@ div.mb-3 > .form-label {
   .text p {
     width: 100%;
   }
-}
-.navbar-toggler {
-  display: none; /* Caché par défaut sur desktop */
-}
+  .navbar-toggler {
+    display: none;
+  }
 
-/*       register        */
-form-registration h1 {
-  text-align: center;
-}
-.non_inscrit p {
-  text-align: center;
-  font-size: 1.5em;
-  margin: 12px 0 0px 0px;
+  /*       register        */
+  .form-registration h1 {
+    text-align: center;
+  }
 }
 
 /* Tablette */
@@ -1434,10 +1447,10 @@ form-registration h1 {
     font-size: 1.2em;
   }
   .navbar-toggler:hover {
-    color: var(--bs-primary); /* Change de couleur au survol */
+    color: var(--bs-primary);
   }
   .navbar-toggler:hover .fa-bars {
-    color: var(--bs-primary) !important; /* Votre couleur bleue au survol */
+    color: var(--bs-primary) !important;
     transition: color 0.3s ease;
   }
 
@@ -1451,7 +1464,7 @@ form-registration h1 {
 }
 
 @media (max-width: 860px) {
-  d-flex justify-content-center flex-wrap {
+  .d-flex.justify-content-center.flex-wrap {
     width: 80%;
     margin: 0 auto;
   }
